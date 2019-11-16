@@ -17,7 +17,7 @@
       <pubDate>Sat, 16 Nov 2019 14:14:46 +0800</pubDate>
       
       <guid>http://yangpeiya.xyz/html-common-label/</guid>
-      <description>a标签的用法  作用 属性  table标签的用法  作用 相关的标签 相关的样式  img标签的用法  作用 属性 事件 响应式  可替换元素  1. a标签的用法 1.1. 作用 a(anchor) 元素可以创建通向其他网页、文件、同一页面内的位置、电子邮件地址或任何其他 URL 的超链接。
+      <description>a标签的用法  作用 属性  img标签的用法  作用 属性 事件 响应式  table标签的用法  作用 相关的标签 相关的样式  可替换元素  1. a标签的用法 1.1. 作用 a(anchor) 元素可以创建通向其他网页、文件、同一页面内的位置、电子邮件地址或任何其他 URL 的超链接。
 1.2. 属性  href(hyper reference)  包含超链接指向的 URL 或 URL 片段。 取值： 网址  https://google.com http://google.com //google.com  路径  /a/b/c 以及 a/b/c index.html 以及./index.html  伪协议  javascript:代码; 点击会执行代码 &amp;lt;a href=&amp;quot;javascript:;&amp;quot;&amp;gt;查看&amp;lt;/a&amp;gt;  上面的链接点击以后不会发生任何事情，不会刷新，也不会跳转到页面顶部。某些特殊情况下适用。  mailto:邮箱 tel:手机号  id  href=#xxx 跳转到id位xxx的元素   target  该属性指定在何处显示链接的资源。 取值： 程序员的命名  标签（tab），窗口（window），或框架（iframe）等浏览上下文的名称。 内置名字 _self: 当前页面加载。（默认值） _blank: 新窗口打开 _parent: 层叠页面上一层页面 _top: 层叠页面最外层页面   download  此属性指示浏览器下载 URL 而不是导航到它，因此将提示用户将其保存为本地文件。 如果属性有一个值，那么此值将在下载保存过程中作为预填充的文件名（如果用户需要，仍然可以更改文件名）。 此属性对允许的值没有限制，但是 / 和 \ 会被转换为下划线。大多数文件系统限制了文件名中的标点符号，故此，浏览器将相应地调整建议的文件名。 问题： 不是所有浏览器都支持，尤其是手机浏览器可能不支持。   2.</description>
     </item>
     
