@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Polly-foz">
+  <meta name="description" content="Polly-foz的个人网站">
+  <meta name="keywords" content="Polly-foz,front-end">
+  
+  <link rel="prev" href="http://yangpeiya.xyz/html1/" />
+  
+  <link rel="canonical" href="http://yangpeiya.xyz/html-common-label/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           HTML常用标签 | Polly-foz&#39;s Blog
+       
+  </title>
+  <meta name="title" content="HTML常用标签 | Polly-foz&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/yangpeiya.xyz\/"
+    },
+    "articleSection" : "posts",
+    "name" : "HTML常用标签",
+    "headline" : "HTML常用标签",
+    "description" : "a标签的用法  作用 属性  table标签的用法  作用 相关的标签 相关的样式  img标签的用法  作用 属性 事件 响应式  可替换元素  1. a标签的用法 1.1. 作用 a(anchor) 元素可以创建通向其他网页、文件、同一页面内的位置、电子邮件地址或任何其他 URL 的超链接。\n1.2. 属性  href(hyper reference)  包含超链接指向的 URL 或 URL 片段。 取值： 网址  https:\/\/google.com http:\/\/google.com \/\/google.com  路径  \/a\/b\/c 以及 a\/b\/c index.html 以及.\/index.html  伪协议  javascript:代码; 点击会执行代码 \x26lt;a href=\x26quot;javascript:;\x26quot;\x26gt;查看\x26lt;\/a\x26gt;  上面的链接点击以后不会发生任何事情，不会刷新，也不会跳转到页面顶部。某些特殊情况下适用。  mailto:邮箱 tel:手机号  id  href=#xxx 跳转到id位xxx的元素   target  该属性指定在何处显示链接的资源。 取值： 程序员的命名  标签（tab），窗口（window），或框架（iframe）等浏览上下文的名称。 内置名字 _self: 当前页面加载。（默认值） _blank: 新窗口打开 _parent: 层叠页面上一层页面 _top: 层叠页面最外层页面   download  此属性指示浏览器下载 URL 而不是导航到它，因此将提示用户将其保存为本地文件。 如果属性有一个值，那么此值将在下载保存过程中作为预填充的文件名（如果用户需要，仍然可以更改文件名）。 此属性对允许的值没有限制，但是 \/ 和 \\ 会被转换为下划线。大多数文件系统限制了文件名中的标点符号，故此，浏览器将相应地调整建议的文件名。 问题： 不是所有浏览器都支持，尤其是手机浏览器可能不支持。   2.",
+    "inLanguage" : "zh-cn",
+    "author" : "Polly-foz",
+    "creator" : "Polly-foz",
+    "publisher": "Polly-foz",
+    "accountablePerson" : "Polly-foz",
+    "copyrightHolder" : "Polly-foz",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-16 14:14:46 \x2b0800 CST",
+    "dateModified" : "2019-11-16 14:14:46 \x2b0800 CST",
+    "url" : "http:\/\/yangpeiya.xyz\/html-common-label\/",
+    "wordCount" : "168",
+    "keywords" : [  "Polly-foz\x27s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/search/" title="">搜索</a>
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/contacts/" title="">联系我</a>
+                
+                <a class="menu-item" href="/wechat-subscribe/" title="">订阅</a>
+                
+                <a class="menu-item" href="https://www.ximalaya.com/keji/12837765/" title="">电台</a>
+                
+                <a class="menu-item" href="/index.xml" title="">RSS</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/search/" title="">搜索</a>
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/contacts/" title="">联系我</a>
+                
+                <a class="menu-item" href="/wechat-subscribe/" title="">订阅</a>
+                
+                <a class="menu-item" href="https://www.ximalaya.com/keji/12837765/" title="">电台</a>
+                
+                <a class="menu-item" href="/index.xml" title="">RSS</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">HTML常用标签</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://yangpeiya.xyz/" rel="author">Polly-foz</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-11-16 itemprop="datePublished">November 16, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<!-- TOC -->
+
+<ul>
+<li><a href="#a标签的用法">a标签的用法</a>
+
+<ul>
+<li><a href="#作用">作用</a></li>
+<li><a href="#属性">属性</a></li>
+</ul></li>
+<li><a href="#table标签的用法">table标签的用法</a>
+
+<ul>
+<li><a href="#作用">作用</a></li>
+<li><a href="#相关的标签">相关的标签</a></li>
+<li><a href="#相关的样式">相关的样式</a></li>
+</ul></li>
+<li><a href="#img标签的用法">img标签的用法</a>
+
+<ul>
+<li><a href="#作用">作用</a></li>
+<li><a href="#属性">属性</a></li>
+<li><a href="#事件">事件</a></li>
+<li><a href="#响应式">响应式</a></li>
+</ul></li>
+<li><a href="#可替换元素">可替换元素</a></li>
+</ul>
+
+<!-- /TOC -->
+
+<h1 id="1-a标签的用法">1. a标签的用法</h1>
+
+<h2 id="1-1-作用">1.1. 作用</h2>
+
+<p>a(anchor) 元素可以创建通向其他网页、文件、同一页面内的位置、电子邮件地址或任何其他 URL 的超链接。</p>
+
+<h2 id="1-2-属性">1.2. 属性</h2>
+
+<ul>
+<li>href(hyper reference)
+
+<ul>
+<li>包含超链接指向的 URL 或 URL 片段。</li>
+<li>取值：</li>
+<li>网址
+
+<ul>
+<li><a href="https://google.com" rel="nofollow noreferrer" target="_blank">https://google.com</a></li>
+<li><a href="http://google.com" rel="nofollow noreferrer" target="_blank">http://google.com</a></li>
+<li>//google.com</li>
+</ul></li>
+<li>路径
+
+<ul>
+<li>/a/b/c 以及 a/b/c</li>
+<li>index.html 以及./index.html</li>
+</ul></li>
+<li>伪协议
+
+<ul>
+<li>javascript:代码;</li>
+<li>点击会执行代码</li>
+<li><code>&lt;a href=&quot;javascript:;&quot;&gt;查看&lt;/a&gt;</code>
+
+<ul>
+<li>上面的链接点击以后不会发生任何事情，不会刷新，也不会跳转到页面顶部。某些特殊情况下适用。</li>
+</ul></li>
+<li>mailto:邮箱</li>
+<li>tel:手机号</li>
+</ul></li>
+<li>id
+
+<ul>
+<li>href=#xxx 跳转到id位xxx的元素</li>
+</ul></li>
+</ul></li>
+<li>target
+
+<ul>
+<li>该属性指定在何处显示链接的资源。</li>
+<li>取值：</li>
+<li>程序员的命名
+
+<ul>
+<li>标签（tab），窗口（window），或框架（iframe）等浏览上下文的名称。</li>
+<li>内置名字</li>
+<li>_self: 当前页面加载。（默认值）</li>
+<li>_blank: 新窗口打开</li>
+<li>_parent: 层叠页面上一层页面</li>
+<li>_top: 层叠页面最外层页面</li>
+</ul></li>
+</ul></li>
+<li>download
+
+<ul>
+<li>此属性指示浏览器下载 URL 而不是导航到它，因此将提示用户将其保存为本地文件。</li>
+<li>如果属性有一个值，那么此值将在下载保存过程中作为预填充的文件名（如果用户需要，仍然可以更改文件名）。</li>
+<li>此属性对允许的值没有限制，但是 / 和 \ 会被转换为下划线。大多数文件系统限制了文件名中的标点符号，故此，浏览器将相应地调整建议的文件名。</li>
+<li>问题：</li>
+<li>不是所有浏览器都支持，尤其是手机浏览器可能不支持。</li>
+</ul></li>
+</ul>
+
+<h1 id="2-table标签的用法">2. table标签的用法</h1>
+
+<h2 id="2-1-作用">2.1. 作用</h2>
+
+<p>表示表格数据 — 即通过二维数据表表示的信息。</p>
+
+<h2 id="2-2-相关的标签">2.2. 相关的标签</h2>
+
+<ul>
+<li>thead
+
+<ul>
+<li>定义了一组定义表格的列头的行。</li>
+</ul></li>
+<li>tbody
+
+<ul>
+<li>封装了一组表行（<tr>元素），表示它们包含表的主体（<table>）。</li>
+</ul></li>
+<li>tfoot
+
+<ul>
+<li>定义了一组表格中各列的汇总行。</li>
+</ul></li>
+<li>tr
+
+<ul>
+<li>定义表格中的行。</li>
+<li>内容可以是零个或多个<td>或<th>元素，也可以是两者的混合。</li>
+</ul></li>
+<li>td
+
+<ul>
+<li>定义了一个包含数据的表格单元格。</li>
+</ul></li>
+<li>th
+
+<ul>
+<li>定义表格内的表头单元格。</li>
+</ul></li>
+</ul>
+
+<h2 id="2-3-相关的样式">2.3. 相关的样式</h2>
+
+<ul>
+<li>table-layout
+
+<ul>
+<li>table-layout CSS属性定义了用于布局表格单元格，行和列的算法。</li>
+<li>取值：</li>
+<li>关键词
+
+<ul>
+<li>auto（默认值）</li>
+<li>根据内容长度适配，每列长度可能不同。</li>
+<li>fixed</li>
+<li>表格和列的宽度通过表格的宽度来设置，某一列的宽度仅由该列首行的单元格决定。在当前列中，该单元格所在行之后的行并不会影响整个列宽。</li>
+</ul></li>
+<li>全局值
+
+<ul>
+<li>inherit, initial, unset</li>
+</ul></li>
+</ul></li>
+<li>border-collapse
+
+<ul>
+<li>用来决定表格的边框是分开的还是合并的。在分隔模式下，相邻的单元格都拥有独立的边框。在合并模式下，相邻单元格共享边框。</li>
+<li>取值:</li>
+<li>关键词值
+
+<ul>
+<li>collapse</li>
+<li>相邻的单元格共用同一条边框。</li>
+<li>separate（默认值）</li>
+<li>每个单元格拥有独立的边框。</li>
+</ul></li>
+<li>全局值
+
+<ul>
+<li>inherit, initial, unset</li>
+</ul></li>
+</ul></li>
+<li>border-spacing
+
+<ul>
+<li>定义相邻单元格边框之间的距离。</li>
+<li>只适用于border-collapse值是separate的时候。</li>
+</ul></li>
+</ul>
+
+<h1 id="3-img标签的用法">3. img标签的用法</h1>
+
+<h2 id="3-1-作用">3.1. 作用</h2>
+
+<p>发出get请求，展示一张照片</p>
+
+<h2 id="3-2-属性">3.2. 属性</h2>
+
+<ul>
+<li>alt
+
+<ul>
+<li>这个属性定义了描述图像的替换文本。</li>
+<li>如果图像的URL是错误的，该图像不在支持的格式列表中，或者如果图像还没有被下载，用户将看到这个显示</li>
+</ul></li>
+<li>height &amp; width
+
+<ul>
+<li>图像的高度和宽度。</li>
+<li>HTML5中单位是CSS像素，HTML4中可以是像素也可以是百分比。</li>
+<li>width/heightt只指定一个值，则另一个会根据原始图像进行赋值。</li>
+</ul></li>
+<li>src
+
+<ul>
+<li>图像的 URL，这个属性对 <img> 元素来说是必需的。</li>
+</ul></li>
+</ul>
+
+<h2 id="3-3-事件">3.3. 事件</h2>
+
+<ul>
+<li>onload
+
+<ul>
+<li>加载成功时回调</li>
+</ul></li>
+<li>onerror
+
+<ul>
+<li>加载失败时回调</li>
+</ul></li>
+</ul>
+
+<h2 id="3-4-响应式">3.4. 响应式</h2>
+
+<pre><code>max-width: 100%
+</code></pre>
+
+<p>允许图片自动缩放</p>
+
+<h1 id="4-可替换元素">4. 可替换元素</h1>
+
+<ul>
+<li>可替换元素
+
+<ul>
+<li>浏览器根据元素的标签和属性，来决定元素的具体显示内容</li>
+<li>包括iframe,video,embed,img</li>
+</ul></li>
+<li>不可替换元素
+
+<ul>
+<li>浏览器将内容直接展现出来</li>
+</ul></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Polly-foz </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://yangpeiya.xyz/html-common-label/>http://yangpeiya.xyz/html-common-label/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://yangpeiya.xyz/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://yangpeiya.xyz/html1/" class="prev" rel="prev" title="HTML入门笔记1"><i class="iconfont icon-left"></i>&nbsp;HTML入门笔记1</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://yangpeiya.xyz/">Polly-foz</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
