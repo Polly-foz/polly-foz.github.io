@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Polly-foz">
+  <meta name="description" content="Polly-foz的个人网站">
+  <meta name="keywords" content="Polly-foz,front-end">
+  
+  <link rel="prev" href="http://yangpeiya.xyz/hugo-blog/" />
+  
+  <link rel="canonical" href="http://yangpeiya.xyz/html1/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           HTML入门笔记1 | Polly-foz&#39;s Blog
+       
+  </title>
+  <meta name="title" content="HTML入门笔记1 | Polly-foz&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/yangpeiya.xyz\/"
+    },
+    "articleSection" : "posts",
+    "name" : "HTML入门笔记1",
+    "headline" : "HTML入门笔记1",
+    "description" : "html起源 html起手式 html章节标签 html全局属性 html常用的内容标签  HTML(HyperText Markup Language, 超文本标记语言)是一种用于创建网页的标准标记语言。HTML元素是构建网站的基石。HTML允许嵌入图像与对象，并且可以用于创建交互式表单，它被用来结构化信息——例如标题、段落和列表等等，也可用来在一定程度上描述文档的外观和语义。\n1. html起源 Tim Berners-Lee 在工作时，感觉同事之间共享文档太麻烦，需要拿着硬盘将文档从一个电脑拷贝到另一个电脑。于是他想，能不能通过互联网来共享文档。HTML就是基于这么一个初衷的产物。Tim Berners-Lee规定HTML并在1990年底写出浏览器和服务器软件。HTML格式的文件，可以被浏览器读取，并渲染成可视化网页。\n2. html起手式 vscode安装Emmet插件后，可以自动生成html5模板，模板如下：\n\x26lt;!DOCTYPE html\x26gt;\x26lt;!-- 文档类型为html --\x26gt; \x26lt;html lang=\x26quot;en\x26quot;\x26gt;\x26lt;!-- lang定义了元素的语言，可以改为zh-cn，表示中文 --\x26gt; \x26lt;head\x26gt; \x26lt;meta charset=\x26quot;UTF-8\x26quot;\x26gt;\x26lt;!-- 字符编码方式，utf-8可以表示所有语言 --\x26gt; \x26lt;meta name=\x26quot;viewport\x26quot; content=\x26quot;width=device-width, initial-scale=1.0\x26quot;\x26gt; \x26lt;!-- 定义手机浏览器展示页面的窗口，表示禁用缩放，兼容手机 --\x26gt; \x26lt;meta http-equiv=\x26quot;X-UA-Compatible\x26quot; content=\x26quot;ie=edge\x26quot;\x26gt; \x26lt;!-- 告诉IE使用最新内核渲染 --\x26gt; \x26lt;title\x26gt;Document\x26lt;\/title\x26gt; \x26lt;!-- 标题，会在浏览器tab上显示 --\x26gt; \x26lt;\/head\x26gt; \x26lt;body\x26gt; \x26lt;\/body\x26gt; \x26lt;\/html\x26gt;  3. html章节标签  标题 h1-h6 章节 section 文章 article 段落 p 头部 header 脚部 footer 主要内容 main 旁支内容 aside 划分 div  4.",
+    "inLanguage" : "zh-cn",
+    "author" : "Polly-foz",
+    "creator" : "Polly-foz",
+    "publisher": "Polly-foz",
+    "accountablePerson" : "Polly-foz",
+    "copyrightHolder" : "Polly-foz",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-15 22:22:21 \x2b0800 CST",
+    "dateModified" : "2019-11-15 22:22:21 \x2b0800 CST",
+    "url" : "http:\/\/yangpeiya.xyz\/html1\/",
+    "wordCount" : "170",
+    "keywords" : [  "Polly-foz\x27s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/search/" title="">搜索</a>
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/contacts/" title="">联系我</a>
+                
+                <a class="menu-item" href="/wechat-subscribe/" title="">订阅</a>
+                
+                <a class="menu-item" href="https://www.ximalaya.com/keji/12837765/" title="">电台</a>
+                
+                <a class="menu-item" href="/index.xml" title="">RSS</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/search/" title="">搜索</a>
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/contacts/" title="">联系我</a>
+                
+                <a class="menu-item" href="/wechat-subscribe/" title="">订阅</a>
+                
+                <a class="menu-item" href="https://www.ximalaya.com/keji/12837765/" title="">电台</a>
+                
+                <a class="menu-item" href="/index.xml" title="">RSS</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">HTML入门笔记1</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://yangpeiya.xyz/" rel="author">Polly-foz</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-11-15 itemprop="datePublished">November 15, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<!-- TOC -->
+
+<ul>
+<li><a href="#html起源">html起源</a></li>
+<li><a href="#html起手式">html起手式</a></li>
+<li><a href="#html章节标签">html章节标签</a></li>
+<li><a href="#html全局属性">html全局属性</a></li>
+<li><a href="#html常用的内容标签">html常用的内容标签</a></li>
+</ul>
+
+<!-- /TOC -->
+
+<p>HTML(HyperText Markup Language, 超文本标记语言)是一种用于创建网页的标准标记语言。HTML元素是构建网站的基石。HTML允许嵌入图像与对象，并且可以用于创建交互式表单，它被用来结构化信息——例如标题、段落和列表等等，也可用来在一定程度上描述文档的外观和语义。</p>
+
+<h1 id="1-html起源">1. html起源</h1>
+
+<p>Tim Berners-Lee 在工作时，感觉同事之间共享文档太麻烦，需要拿着硬盘将文档从一个电脑拷贝到另一个电脑。于是他想，能不能通过互联网来共享文档。HTML就是基于这么一个初衷的产物。Tim Berners-Lee规定HTML并在1990年底写出浏览器和服务器软件。HTML格式的文件，可以被浏览器读取，并渲染成可视化网页。</p>
+
+<h1 id="2-html起手式">2. html起手式</h1>
+
+<p>vscode安装Emmet插件后，可以自动生成html5模板，模板如下：</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;&lt;!-- 文档类型为html --&gt;
+&lt;html lang=&quot;en&quot;&gt;&lt;!-- lang定义了元素的语言，可以改为zh-cn，表示中文 --&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;&lt;!-- 字符编码方式，utf-8可以表示所有语言 --&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt; &lt;!-- 定义手机浏览器展示页面的窗口，表示禁用缩放，兼容手机 --&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt; &lt;!-- 告诉IE使用最新内核渲染 --&gt;
+    &lt;title&gt;Document&lt;/title&gt; &lt;!-- 标题，会在浏览器tab上显示 --&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h1 id="3-html章节标签">3. html章节标签</h1>
+
+<ul>
+<li>标题 h1-h6</li>
+<li>章节 section</li>
+<li>文章 article</li>
+<li>段落 p</li>
+<li>头部 header</li>
+<li>脚部 footer</li>
+<li>主要内容 main</li>
+<li>旁支内容 aside</li>
+<li>划分 div</li>
+</ul>
+
+<h1 id="4-html全局属性">4. html全局属性</h1>
+
+<pre><code>所有标签都有的属性
+</code></pre>
+
+<ul>
+<li>class
+
+<ul>
+<li>class 的值是一个以空格分隔的元素的类名（classes ）列表，它允许 CSS 和 Javascript 通过类选择器 (class selectors) 或DOM方法( document.getElementsByClassName)来选择和访问特定的元素。</li>
+</ul></li>
+<li>contenteditable
+
+<ul>
+<li>是一个枚举属性，表示元素是否可被用户编辑。</li>
+<li>如果可以，浏览器会修改元素的部件以允许编辑。</li>
+</ul></li>
+<li>hidden
+
+<ul>
+<li>全局属性 hidden 是一个布尔属性，表示一个元素尚未或者不再相关。</li>
+<li>例如，它可以被用来隐藏一个页面元素直到登录完毕。</li>
+<li>如果一个元素设置了这个属性，它就不会被显示。</li>
+</ul></li>
+<li>id
+
+<ul>
+<li>id 全局属性定义了一个全文档唯一的标识符 (ID)。(但是唯一性并不会被检查)</li>
+<li>它用于在链接（使用片段）、脚本和样式（通过 CSS）中辨识元素。</li>
+</ul></li>
+<li>style
+
+<ul>
+<li>style 全局属性 包含应用到元素的 CSS 样式声明。</li>
+<li>要注意样式最好定义在单独的文件中。</li>
+<li>这个属性以及 <style> 元素的主要目的是快速装饰。例如用于测试目的。</li>
+</ul></li>
+<li>tabindex
+
+<ul>
+<li>tabindex 全局属性 指示其元素是否可以聚焦，以及它是否/在何处参与顺序键盘导航（通常使用Tab键，因此得名）。</li>
+</ul></li>
+<li>title
+
+<ul>
+<li>title 全局属性 包含了表示咨询信息文本，和它属于的元素相关。这个信息通常存在，但绝不必要，作为提示信息展示给用户。</li>
+</ul></li>
+<li>&hellip;&hellip;</li>
+</ul>
+
+<h1 id="5-html常用的内容标签">5. html常用的内容标签</h1>
+
+<ul>
+<li>ol + li (ordered list + list item)</li>
+<li>ul + li (unordered list + list item)</li>
+<li>dl + dt + dd (description list + term + data)</li>
+<li>pre (preview)</li>
+<li>hr (horizontal line, 旧时是水平线，现表示段落级元素之间的主题变化)</li>
+<li>br (break)</li>
+<li>a (anchor)</li>
+<li>em (emphasis，表示要求着重阅读的文本)</li>
+<li>strong (表示文本十分重要)</li>
+<li>code (呈现一段计算机代码)</li>
+<li>q (quote, 内联引用)</li>
+<li>blockquote (块级引用)</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Polly-foz </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://yangpeiya.xyz/html1/>http://yangpeiya.xyz/html1/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://yangpeiya.xyz/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://yangpeiya.xyz/hugo-blog/" class="prev" rel="prev" title="Hugo搭建个人博客"><i class="iconfont icon-left"></i>&nbsp;Hugo搭建个人博客</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://yangpeiya.xyz/">Polly-foz</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

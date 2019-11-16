@@ -6,10 +6,22 @@
     <description>Recent content in Posts on Polly-foz&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 06 Nov 2019 18:15:36 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 15 Nov 2019 22:22:21 +0800</lastBuildDate>
     
 	<atom:link href="http://yangpeiya.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HTML入门笔记1</title>
+      <link>http://yangpeiya.xyz/html1/</link>
+      <pubDate>Fri, 15 Nov 2019 22:22:21 +0800</pubDate>
+      
+      <guid>http://yangpeiya.xyz/html1/</guid>
+      <description>html起源 html起手式 html章节标签 html全局属性 html常用的内容标签  HTML(HyperText Markup Language, 超文本标记语言)是一种用于创建网页的标准标记语言。HTML元素是构建网站的基石。HTML允许嵌入图像与对象，并且可以用于创建交互式表单，它被用来结构化信息——例如标题、段落和列表等等，也可用来在一定程度上描述文档的外观和语义。
+1. html起源 Tim Berners-Lee 在工作时，感觉同事之间共享文档太麻烦，需要拿着硬盘将文档从一个电脑拷贝到另一个电脑。于是他想，能不能通过互联网来共享文档。HTML就是基于这么一个初衷的产物。Tim Berners-Lee规定HTML并在1990年底写出浏览器和服务器软件。HTML格式的文件，可以被浏览器读取，并渲染成可视化网页。
+2. html起手式 vscode安装Emmet插件后，可以自动生成html5模板，模板如下：
+&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;!-- 文档类型为html --&amp;gt; &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;&amp;lt;!-- lang定义了元素的语言，可以改为zh-cn，表示中文 --&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;&amp;lt;!-- 字符编码方式，utf-8可以表示所有语言 --&amp;gt; &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1.0&amp;quot;&amp;gt; &amp;lt;!-- 定义手机浏览器展示页面的窗口，表示禁用缩放，兼容手机 --&amp;gt; &amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;ie=edge&amp;quot;&amp;gt; &amp;lt;!-- 告诉IE使用最新内核渲染 --&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;!-- 标题，会在浏览器tab上显示 --&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;  3. html章节标签  标题 h1-h6 章节 section 文章 article 段落 p 头部 header 脚部 footer 主要内容 main 旁支内容 aside 划分 div  4.</description>
+    </item>
     
     <item>
       <title>Hugo搭建个人博客</title>
