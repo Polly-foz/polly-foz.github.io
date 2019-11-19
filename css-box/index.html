@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Polly-foz">
+  <meta name="description" content="Polly-foz的个人网站">
+  <meta name="keywords" content="Polly-foz,front-end">
+  
+  <link rel="prev" href="http://yangpeiya.xyz/html-common-label/" />
+  
+  <link rel="canonical" href="http://yangpeiya.xyz/css-box/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           CSS盒模型 | Polly-foz&#39;s Blog
+       
+  </title>
+  <meta name="title" content="CSS盒模型 | Polly-foz&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/yangpeiya.xyz\/"
+    },
+    "articleSection" : "posts",
+    "name" : "CSS盒模型",
+    "headline" : "CSS盒模型",
+    "description" : "CSS 盒模型(Box Model) 两种 CSS 盒模型  content-box 内容盒（W3C 标准盒模型） border-box 边框盒（IE 盒模型） CSS 盒模型的设置  行内元素占用空间 margin 合并  会发生 margin 合并的情况 如何阻止合并   1. CSS 盒模型(Box Model) CSS 盒模型是对一个文档进行布局时，浏览器渲染元素的标准之一。它将所有的元素表示为一个个矩形的盒子。一个盒子由边距(margin)，边框(border)，填充(padding)和实际内容(content)组成，如下图所示：  内容区域 content area  容纳着元素的“真实”内容，如文本、图像或一个视频播放器。 它通常含有一个背景颜色（默认为透明）或背景图像。  填充区域 padding area  内容区域的扩展，负责延伸内容区域的背景，填充内容与边框之间的区域。  边框区域 border area  扩展自内边距区域，是容纳边框的区域。  边距区域 margin area  用空白区域扩展边框区域，以分开相邻的元素。   2. 两种 CSS 盒模型 根据 width 和 height 计算方式的不同，有下面两种常见的 CSS 盒模型。",
+    "inLanguage" : "zh-cn",
+    "author" : "Polly-foz",
+    "creator" : "Polly-foz",
+    "publisher": "Polly-foz",
+    "accountablePerson" : "Polly-foz",
+    "copyrightHolder" : "Polly-foz",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-19 23:39:22 \x2b0800 CST",
+    "dateModified" : "2019-11-19 23:39:22 \x2b0800 CST",
+    "url" : "http:\/\/yangpeiya.xyz\/css-box\/",
+    "wordCount" : "314",
+    "keywords" : [  "Polly-foz\x27s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/search/" title="">搜索</a>
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/contacts/" title="">联系我</a>
+                
+                <a class="menu-item" href="/wechat-subscribe/" title="">订阅</a>
+                
+                <a class="menu-item" href="https://www.ximalaya.com/keji/12837765/" title="">电台</a>
+                
+                <a class="menu-item" href="/index.xml" title="">RSS</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/search/" title="">搜索</a>
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/contacts/" title="">联系我</a>
+                
+                <a class="menu-item" href="/wechat-subscribe/" title="">订阅</a>
+                
+                <a class="menu-item" href="https://www.ximalaya.com/keji/12837765/" title="">电台</a>
+                
+                <a class="menu-item" href="/index.xml" title="">RSS</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">CSS盒模型</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://yangpeiya.xyz/" rel="author">Polly-foz</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-11-19 itemprop="datePublished">November 19, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<!-- TOC -->
+
+<ul>
+<li><a href="#css-盒模型box-model">CSS 盒模型(Box Model)</a></li>
+<li><a href="#两种-css-盒模型">两种 CSS 盒模型</a>
+
+<ul>
+<li><a href="#content-box-内容盒w3c-标准盒模型">content-box 内容盒（W3C 标准盒模型）</a></li>
+<li><a href="#border-box-边框盒ie-盒模型">border-box 边框盒（IE 盒模型）</a></li>
+<li><a href="#css-盒模型的设置">CSS 盒模型的设置</a></li>
+</ul></li>
+<li><a href="#行内元素占用空间">行内元素占用空间</a></li>
+<li><a href="#margin-合并">margin 合并</a>
+
+<ul>
+<li><a href="#会发生-margin-合并的情况">会发生 margin 合并的情况</a></li>
+<li><a href="#如何阻止合并">如何阻止合并</a></li>
+</ul></li>
+</ul>
+
+<!-- /TOC -->
+
+<h1 id="1-css-盒模型-box-model">1. CSS 盒模型(Box Model)</h1>
+
+<p>CSS 盒模型是对一个文档进行布局时，浏览器渲染元素的标准之一。它将所有的元素表示为一个个矩形的盒子。一个盒子由边距(margin)，边框(border)，填充(padding)和实际内容(content)组成，如下图所示：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/css-box/box-model.gif" alt="css box model" class="lazyload"><figcaption class="image-caption">css box model</figcaption></figure></p>
+
+<ul>
+<li>内容区域 content area
+
+<ul>
+<li>容纳着元素的“真实”内容，如文本、图像或一个视频播放器。</li>
+<li>它通常含有一个背景颜色（默认为透明）或背景图像。</li>
+</ul></li>
+<li>填充区域 padding area
+
+<ul>
+<li>内容区域的扩展，负责延伸内容区域的背景，填充内容与边框之间的区域。</li>
+</ul></li>
+<li>边框区域 border area
+
+<ul>
+<li>扩展自内边距区域，是容纳边框的区域。</li>
+</ul></li>
+<li>边距区域 margin area
+
+<ul>
+<li>用空白区域扩展边框区域，以分开相邻的元素。</li>
+</ul></li>
+</ul>
+
+<h1 id="2-两种-css-盒模型">2. 两种 CSS 盒模型</h1>
+
+<p>根据 width 和 height 计算方式的不同，有下面两种常见的 CSS 盒模型。</p>
+
+<h2 id="2-1-content-box-内容盒-w3c-标准盒模型">2.1. content-box 内容盒（W3C 标准盒模型）</h2>
+
+<ul>
+<li>content-box width = content width</li>
+<li>content-box height = content height</li>
+</ul>
+
+<h2 id="2-2-border-box-边框盒-ie-盒模型">2.2. border-box 边框盒（IE 盒模型）</h2>
+
+<ul>
+<li>border-box width = content width + padding + border width</li>
+<li>border-box height = content height + padding + border width
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/css-box/box-model-comparison.jpg" alt="comparison between 2 box models" class="lazyload"><figcaption class="image-caption">comparison between 2 box models</figcaption></figure></li>
+</ul>
+
+<h2 id="2-3-css-盒模型的设置">2.3. CSS 盒模型的设置</h2>
+
+<ul>
+<li>默认的 CSS 盒模型是 content-box。</li>
+<li>通过设置 CSS 中的 box-sizing 属性，可以指定 CSS 盒模型。
+
+<ul>
+<li>box-sizing 取值：</li>
+<li>content-box</li>
+<li>border-box</li>
+</ul></li>
+<li>一般情况下，尤其是实现响应式布局，建议使用 border-box 模型。</li>
+</ul>
+
+<h1 id="3-行内元素占用空间">3. 行内元素占用空间</h1>
+
+<p>除可替换元素外，对于行内元素来说，尽管内容周围存在内边距与边框，但其占用空间（每一行文字的高度）则由 line-height 属性决定，即使边框和内边距仍会显示在内容周围。</p>
+
+<ul>
+<li>可替换元素以 img 为例</li>
+
+<li><p>行内元素以 span 为例
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/css-box/inline.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot; /&gt;
+&lt;title&gt;JS Bin&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div&gt;
+  &lt;span class=&quot;border-box span1&quot;&gt;i'm span1&lt;/span&gt;
+&lt;/div&gt;
+&lt;div&gt;
+  &lt;span class=&quot;border-box span2&quot;&gt;i'm span2&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;span class=&quot;border-box span3&quot;&gt;i'm span3&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;img
+    class=&quot;border-box&quot;
+    alt=&quot;...&quot;
+    src=&quot;https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1574787397&amp;di=fe4f14a289d13dc182b04073c8e98f19&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fpic5.58cdn.com.cn%2Fzhuanzh%2Fn_v2b73ed86f6dd54564b7eba138a1ec15a5.jpg%3Fw%3D750%26amp%3Bh%3D0&quot;
+  /&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<pre><code class="language-css">.border-box {
+box-sizing: border-box;
+border: 5px solid red;
+}
+div {
+border: 5px solid black;
+margin: 30px;
+width: 200px;
+}
+.span1 {
+padding: 10px;
+background: green;
+}
+.span2 {
+padding: 10px;
+background: green;
+line-height: 100px;
+}
+.span3 {
+background: green;
+line-height: 100px;
+}
+
+img {
+height: 100px;
+padding: 10px;
+}
+</code></pre></li>
+</ul>
+
+<h1 id="4-margin-合并">4. margin 合并</h1>
+
+<p>块级元素的上边距和下边距有时会合并（或折叠）为一个外边距，其大小取其中的最大者，这种行为称为边距折叠（margin collapsing），有时也翻译为边距合并。注意浮动元素和绝对定位元素的边距不会折叠。</p>
+
+<h2 id="4-1-会发生-margin-合并的情况">4.1. 会发生 margin 合并的情况</h2>
+
+<ul>
+<li>相邻元素之间（兄弟合并）</li>
+<li>父元素与其第一个或最后一个子元素之间（父子合并）</li>
+<li>空的块级元素
+
+<ul>
+<li>前提：</li>
+<li>在其 margin-top 与 margin-bottom 之间没有 border、padding、content、height、min-height 将两者分开。</li>
+<li>结果：</li>
+<li>该元素的上下外边距会折叠。</li>
+</ul></li>
+</ul>
+
+<h2 id="4-2-如何阻止合并">4.2. 如何阻止合并</h2>
+
+<ul>
+<li>父子合并
+
+<ul>
+<li>用 padding/border 挡住</li>
+<li>or 用 overflow:hidden 挡住</li>
+<li>or 用 display:flex</li>
+</ul></li>
+
+<li><p>兄弟合并</p>
+
+<ul>
+<li>是符合预期的</li>
+<li>可以用 inline-block 消除</li>
+</ul></li>
+
+<li><p>下图发生了如下合并：</p>
+
+<ul>
+<li>父子合并</li>
+<li>上下 margin 发生了合并</li>
+<li>左右 margin 没有发生合并</li>
+<li>兄弟合并
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/css-box/collapse.PNG" alt="消除前" class="lazyload"><figcaption class="image-caption">消除前</figcaption></figure></li>
+</ul></li>
+
+<li><p>消除父子合并后
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/css-box/collapse1.PNG" alt="消除父子合并后" class="lazyload"><figcaption class="image-caption">消除父子合并后</figcaption></figure></p></li>
+
+<li><p>消除兄弟合并
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/css-box/collapse2.PNG" alt="消除兄弟合并后" class="lazyload"><figcaption class="image-caption">消除兄弟合并后</figcaption></figure></p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot; /&gt;
+&lt;title&gt;JS Bin&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;div0&quot;&gt;
+  &lt;div class=&quot;div1&quot;&gt;第1个元素&lt;/div&gt;
+  &lt;div class=&quot;div2&quot;&gt;第2个元素&lt;/div&gt;
+  &lt;div class=&quot;div3&quot;&gt;第3个元素&lt;/div&gt;
+  &lt;div class=&quot;div4&quot;&gt;第4个元素&lt;/div&gt;
+  &lt;div class=&quot;div5&quot;&gt;第5个元素&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<pre><code class="language-css">body {
+border: 3px solid green;
+}
+.div0 {
+margin: 20px;
+/*overflow:hidden;*/
+}
+div {
+width: 100%;
+margin: 20px;
+/*border:3px solid black;*/
+/*display:inline-block;*/
+}
+</code></pre></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Polly-foz </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://yangpeiya.xyz/css-box/>http://yangpeiya.xyz/css-box/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://yangpeiya.xyz/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://yangpeiya.xyz/html-common-label/" class="prev" rel="prev" title="HTML常用标签"><i class="iconfont icon-left"></i>&nbsp;HTML常用标签</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://yangpeiya.xyz/">Polly-foz</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

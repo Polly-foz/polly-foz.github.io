@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Polly-foz&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 16 Nov 2019 14:14:46 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 19 Nov 2019 23:39:22 +0800</lastBuildDate>
     
 	<atom:link href="http://yangpeiya.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CSS盒模型</title>
+      <link>http://yangpeiya.xyz/css-box/</link>
+      <pubDate>Tue, 19 Nov 2019 23:39:22 +0800</pubDate>
+      
+      <guid>http://yangpeiya.xyz/css-box/</guid>
+      <description>CSS 盒模型(Box Model) 两种 CSS 盒模型  content-box 内容盒（W3C 标准盒模型） border-box 边框盒（IE 盒模型） CSS 盒模型的设置  行内元素占用空间 margin 合并  会发生 margin 合并的情况 如何阻止合并   1. CSS 盒模型(Box Model) CSS 盒模型是对一个文档进行布局时，浏览器渲染元素的标准之一。它将所有的元素表示为一个个矩形的盒子。一个盒子由边距(margin)，边框(border)，填充(padding)和实际内容(content)组成，如下图所示：  内容区域 content area  容纳着元素的“真实”内容，如文本、图像或一个视频播放器。 它通常含有一个背景颜色（默认为透明）或背景图像。  填充区域 padding area  内容区域的扩展，负责延伸内容区域的背景，填充内容与边框之间的区域。  边框区域 border area  扩展自内边距区域，是容纳边框的区域。  边距区域 margin area  用空白区域扩展边框区域，以分开相邻的元素。   2. 两种 CSS 盒模型 根据 width 和 height 计算方式的不同，有下面两种常见的 CSS 盒模型。</description>
+    </item>
     
     <item>
       <title>HTML常用标签</title>
