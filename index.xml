@@ -6,10 +6,21 @@
     <description>Recent content on Polly-foz&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 19 Nov 2019 23:39:22 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 30 Nov 2019 14:59:28 +0800</lastBuildDate>
     
 	<atom:link href="http://yangpeiya.xyz/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CSS 知识总结</title>
+      <link>http://yangpeiya.xyz/css-summary/</link>
+      <pubDate>Sat, 30 Nov 2019 14:59:28 +0800</pubDate>
+      
+      <guid>http://yangpeiya.xyz/css-summary/</guid>
+      <description>autoauto- 浏览器渲染原理auto - 浏览器渲染过程auto - 更新样式auto - 如何更新样式auto - 三种更新方式auto- CSS 动画的两种做法（transition 和 animaautoauto- 1. 浏览器渲染原理auto - 1.1. 浏览器渲染过程auto - 1.2. 更新样式auto - 1.2.1. 如何更新样式auto - 1.2.2. 三种更新方式auto- 2. CSS 动画的两种做法（transition 和 animation）auto - 2.1. Transition（过渡）auto - 2.1.1. 改变状态的方式auto - 2.1.2. 可以设置的过渡相关属性auto - 2.2. Animationauto - 2.2.1. 关键帧auto - 2.2.2. animation相关属性autoautotion）autoauto1. 浏览器渲染原理 渲染，简单说，就是浏览器将html，css，js源代码转化为用户可以看见的网页。
+1.1. 浏览器渲染过程  根据HTML构建HTML树（DOM） 根据CSS构建CSS树（CSSOM） CSSOM 树和 DOM 树合并成渲染树（Render Tree）  渲染树只包含渲染网页所需的节点(可见节点)。  display:none元素从渲染树中完全移除 visibility:hidden仍占据着布局空间，被渲染成一个空框
+  最终输出的渲染同时包含了屏幕上的所有可见内容及其样式信息。   布局计算每个对象的精确位置和大小。 绘制，将渲染树转换成屏幕上的实际像素。 合成，根据层叠关系展示画面  1.</description>
+    </item>
     
     <item>
       <title>CSS盒模型</title>
