@@ -1,20 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Polly-foz&#39;s Blog on Polly-foz&#39;s Blog</title>
+    <title>Polly-foz&#39;s Blog</title>
     <link>http://yangpeiya.xyz/</link>
-    <description>Recent content in Polly-foz&#39;s Blog on Polly-foz&#39;s Blog</description>
+    <description>Recent content on Polly-foz&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 19 Nov 2019 23:39:22 +0800</lastBuildDate>
-    <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://yangpeiya.xyz/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
-      <title>Posts</title>
-      <link>http://yangpeiya.xyz/posts/</link>
+      <title>CSS盒模型</title>
+      <link>http://yangpeiya.xyz/css-box/</link>
       <pubDate>Tue, 19 Nov 2019 23:39:22 +0800</pubDate>
       
-      <guid>http://yangpeiya.xyz/posts/</guid>
-      <description></description>
+      <guid>http://yangpeiya.xyz/css-box/</guid>
+      <description>CSS 盒模型(Box Model) 两种 CSS 盒模型  content-box 内容盒（W3C 标准盒模型） border-box 边框盒（IE 盒模型） CSS 盒模型的设置  行内元素占用空间 margin 合并  会发生 margin 合并的情况 如何阻止合并   1. CSS 盒模型(Box Model) CSS 盒模型是对一个文档进行布局时，浏览器渲染元素的标准之一。它将所有的元素表示为一个个矩形的盒子。一个盒子由边距(margin)，边框(border)，填充(padding)和实际内容(content)组成，如下图所示：  内容区域 content area  容纳着元素的“真实”内容，如文本、图像或一个视频播放器。 它通常含有一个背景颜色（默认为透明）或背景图像。  填充区域 padding area  内容区域的扩展，负责延伸内容区域的背景，填充内容与边框之间的区域。  边框区域 border area  扩展自内边距区域，是容纳边框的区域。  边距区域 margin area  用空白区域扩展边框区域，以分开相邻的元素。   2. 两种 CSS 盒模型 根据 width 和 height 计算方式的不同，有下面两种常见的 CSS 盒模型。</description>
+    </item>
+    
+    <item>
+      <title>HTML常用标签</title>
+      <link>http://yangpeiya.xyz/html-common-label/</link>
+      <pubDate>Sat, 16 Nov 2019 14:14:46 +0800</pubDate>
+      
+      <guid>http://yangpeiya.xyz/html-common-label/</guid>
+      <description>a标签的用法  作用 属性  img标签的用法  作用 属性 事件 响应式  table标签的用法  作用 相关的标签 相关的样式  可替换元素  1. a标签的用法 1.1. 作用 a(anchor) 元素可以创建通向其他网页、文件、同一页面内的位置、电子邮件地址或任何其他 URL 的超链接。
+1.2. 属性  href(hyper reference)  包含超链接指向的 URL 或 URL 片段。 取值： 网址  https://google.com http://google.com //google.com  路径  /a/b/c 以及 a/b/c index.html 以及./index.html  伪协议  javascript:代码; 点击会执行代码 &amp;lt;a href=&amp;quot;javascript:;&amp;quot;&amp;gt;查看&amp;lt;/a&amp;gt;  上面的链接点击以后不会发生任何事情，不会刷新，也不会跳转到页面顶部。某些特殊情况下适用。  mailto:邮箱 tel:手机号  id  href=#xxx 跳转到id位xxx的元素   target  该属性指定在何处显示链接的资源。 取值： 程序员的命名  标签（tab），窗口（window），或框架（iframe）等浏览上下文的名称。 内置名字 _self: 当前页面加载。（默认值） _blank: 新窗口打开 _parent: 层叠页面上一层页面 _top: 层叠页面最外层页面   download  此属性指示浏览器下载 URL 而不是导航到它，因此将提示用户将其保存为本地文件。 如果属性有一个值，那么此值将在下载保存过程中作为预填充的文件名（如果用户需要，仍然可以更改文件名）。 此属性对允许的值没有限制，但是 / 和 \ 会被转换为下划线。大多数文件系统限制了文件名中的标点符号，故此，浏览器将相应地调整建议的文件名。 问题： 不是所有浏览器都支持，尤其是手机浏览器可能不支持。   2.</description>
+    </item>
+    
+    <item>
+      <title>HTML入门笔记1</title>
+      <link>http://yangpeiya.xyz/html1/</link>
+      <pubDate>Fri, 15 Nov 2019 22:22:21 +0800</pubDate>
+      
+      <guid>http://yangpeiya.xyz/html1/</guid>
+      <description>html起源 html起手式 html章节标签 html全局属性 html常用的内容标签  HTML(HyperText Markup Language, 超文本标记语言)是一种用于创建网页的标准标记语言。HTML元素是构建网站的基石。HTML允许嵌入图像与对象，并且可以用于创建交互式表单，它被用来结构化信息——例如标题、段落和列表等等，也可用来在一定程度上描述文档的外观和语义。
+1. html起源 Tim Berners-Lee 在工作时，感觉同事之间共享文档太麻烦，需要拿着硬盘将文档从一个电脑拷贝到另一个电脑。于是他想，能不能通过互联网来共享文档。HTML就是基于这么一个初衷的产物。Tim Berners-Lee规定HTML并在1990年底写出浏览器和服务器软件。HTML格式的文件，可以被浏览器读取，并渲染成可视化网页。
+2. html起手式 vscode安装Emmet插件后，可以自动生成html5模板，模板如下：
+&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;!-- 文档类型为html --&amp;gt; &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;&amp;lt;!-- lang定义了元素的语言，可以改为zh-cn，表示中文 --&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;&amp;lt;!-- 字符编码方式，utf-8可以表示所有语言 --&amp;gt; &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1.0&amp;quot;&amp;gt; &amp;lt;!-- 定义手机浏览器展示页面的窗口。网页宽度默认等于屏幕宽度（width=device-width），原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 --&amp;gt; &amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;ie=edge&amp;quot;&amp;gt; &amp;lt;!-- 告诉IE使用最新内核渲染 --&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;!-- 标题，会在浏览器tab上显示 --&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;  3. html章节标签  标题 h1-h6 章节 section 文章 article 段落 p 头部 header 脚部 footer 主要内容 main 旁支内容 aside 划分 div  4.</description>
+    </item>
+    
+    <item>
+      <title>Hugo搭建个人博客</title>
+      <link>http://yangpeiya.xyz/hugo-blog/</link>
+      <pubDate>Wed, 06 Nov 2019 18:15:36 +0800</pubDate>
+      
+      <guid>http://yangpeiya.xyz/hugo-blog/</guid>
+      <description>Hugo官方教程
+1. 安装Hugo 不同操作系统上的安装教程
+以Windows为例
+1.1. 下载Hugo release  进入Hugo release页面 下载与系统对应版本  解压，把hugo.exe放到&amp;hellip;\hugo目录下
+ &amp;hellip;为任意本地路径，建议全英文，不要有空格 以D:\Software\hugo\hugo.exe为例
+   1.2. 配置环境变量 右击开始 &amp;gt; 系统 &amp;gt; 高级系统设置 &amp;gt; 环境变量 &amp;gt; 系统变量 &amp;gt; 选中Path &amp;gt; 编辑 &amp;gt; 新建 &amp;gt; 填入 D:\Software\hugo (你的hugo.exe所在路径) 1.3. 检查hugo是否成功安装 重启终端，运行hugo version查看版本 2. 创建站点 hugo new site blog  在终端进入你想要存放本地站点的路径，运行上述指令，在当前路径创建blog目录，存放本地站点。
+3. 添加主题 可以在hugo官网上挑选心仪的主题， 以LeaveIt为例
+ 下载主题
+进入&amp;hellip;/blog目录，输入以下指令
+cd themes git clone https://github.com/liuzc/LeaveIt.git  设置主题
+打开blog目录下的config.toml文件，根据官方示例配置你的config.toml
+  4.</description>
+    </item>
+    
+    <item>
+      <title>First</title>
+      <link>http://yangpeiya.xyz/first/</link>
+      <pubDate>Fri, 01 Nov 2019 11:15:24 +0800</pubDate>
+      
+      <guid>http://yangpeiya.xyz/first/</guid>
+      <description>  fruit  fruit  apple banana kiwi peach  </description>
     </item>
     
     <item>
@@ -23,8 +77,7 @@
       <pubDate>Fri, 01 Nov 2019 11:13:47 +0800</pubDate>
       
       <guid>http://yangpeiya.xyz/about/</guid>
-      <description>&lt;p&gt;This is about me.&lt;/p&gt;
-</description>
+      <description>This is about me.</description>
     </item>
     
   </channel>

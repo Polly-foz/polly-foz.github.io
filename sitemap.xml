@@ -1,134 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
-    <url>
-      <loc>http://yangpeiya.xyz/css-box/</loc>
-      
-      <lastmod>2019-11-19T23:39:22+08:00</lastmod>
-      
-      
-      
-      
-    </url>
+  <url>
+    <loc>http://yangpeiya.xyz/css-box/</loc>
+    <lastmod>2019-11-19T23:39:22+08:00</lastmod>
+  </url>
   
-    <url>
-      <loc>http://yangpeiya.xyz/</loc>
-      
-      <lastmod>2019-11-19T23:39:22+08:00</lastmod>
-      
-      
-      
-      
-    </url>
+  <url>
+    <loc>http://yangpeiya.xyz/</loc>
+    <lastmod>2019-11-19T23:39:22+08:00</lastmod>
+  </url>
   
-    <url>
-      <loc>http://yangpeiya.xyz/posts/</loc>
-      
-      <lastmod>2019-11-19T23:39:22+08:00</lastmod>
-      
-      
-      
-      
-    </url>
+  <url>
+    <loc>http://yangpeiya.xyz/posts/</loc>
+    <lastmod>2019-11-19T23:39:22+08:00</lastmod>
+  </url>
   
-    <url>
-      <loc>http://yangpeiya.xyz/html-common-label/</loc>
-      
-      <lastmod>2019-11-16T14:14:46+08:00</lastmod>
-      
-      
-      
-      
-    </url>
+  <url>
+    <loc>http://yangpeiya.xyz/html-common-label/</loc>
+    <lastmod>2019-11-16T14:14:46+08:00</lastmod>
+  </url>
   
-    <url>
-      <loc>http://yangpeiya.xyz/html1/</loc>
-      
-      <lastmod>2019-11-15T22:22:21+08:00</lastmod>
-      
-      
-      
-      
-    </url>
+  <url>
+    <loc>http://yangpeiya.xyz/html1/</loc>
+    <lastmod>2019-11-15T22:22:21+08:00</lastmod>
+  </url>
   
-    <url>
-      <loc>http://yangpeiya.xyz/categories/</loc>
-      
-      <lastmod>2019-11-06T18:15:36+08:00</lastmod>
-      
-      
-      
-      
-    </url>
+  <url>
+    <loc>http://yangpeiya.xyz/categories/</loc>
+    <lastmod>2019-11-06T18:15:36+08:00</lastmod>
+  </url>
   
-    <url>
-      <loc>http://yangpeiya.xyz/tags/hugo/</loc>
-      
-      <lastmod>2019-11-06T18:15:36+08:00</lastmod>
-      
-      
-      
-      
-    </url>
+  <url>
+    <loc>http://yangpeiya.xyz/tags/hugo/</loc>
+    <lastmod>2019-11-06T18:15:36+08:00</lastmod>
+  </url>
   
-    <url>
-      <loc>http://yangpeiya.xyz/hugo-blog/</loc>
-      
-      <lastmod>2019-11-06T18:15:36+08:00</lastmod>
-      
-      
-      
-      
-    </url>
+  <url>
+    <loc>http://yangpeiya.xyz/hugo-blog/</loc>
+    <lastmod>2019-11-06T18:15:36+08:00</lastmod>
+  </url>
   
-    <url>
-      <loc>http://yangpeiya.xyz/tags/</loc>
-      
-      <lastmod>2019-11-06T18:15:36+08:00</lastmod>
-      
-      
-      
-      
-    </url>
+  <url>
+    <loc>http://yangpeiya.xyz/tags/</loc>
+    <lastmod>2019-11-06T18:15:36+08:00</lastmod>
+  </url>
   
-    <url>
-      <loc>http://yangpeiya.xyz/tags/%E5%8D%9A%E5%AE%A2/</loc>
-      
-      <lastmod>2019-11-06T18:15:36+08:00</lastmod>
-      
-      
-      
-      
-    </url>
+  <url>
+    <loc>http://yangpeiya.xyz/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2019-11-06T18:15:36+08:00</lastmod>
+  </url>
   
-    <url>
-      <loc>http://yangpeiya.xyz/categories/%E6%97%A0/</loc>
-      
-      <lastmod>2019-11-06T18:15:36+08:00</lastmod>
-      
-      
-      
-      
-    </url>
+  <url>
+    <loc>http://yangpeiya.xyz/categories/%E6%97%A0/</loc>
+    <lastmod>2019-11-06T18:15:36+08:00</lastmod>
+  </url>
   
-    <url>
-      <loc>http://yangpeiya.xyz/first/</loc>
-      
-      <lastmod>2019-11-01T11:15:24+08:00</lastmod>
-      
-      
-      
-      
-    </url>
+  <url>
+    <loc>http://yangpeiya.xyz/first/</loc>
+    <lastmod>2019-11-01T11:15:24+08:00</lastmod>
+  </url>
   
-    <url>
-      <loc>http://yangpeiya.xyz/about/</loc>
-      
-      <lastmod>2019-11-01T11:13:47+08:00</lastmod>
-      
-      
-      
-      
-    </url>
+  <url>
+    <loc>http://yangpeiya.xyz/about/</loc>
+    <lastmod>2019-11-01T11:13:47+08:00</lastmod>
+  </url>
   
 </urlset>
