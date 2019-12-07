@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "浅析 URL",
     "headline" : "浅析 URL",
-    "description" : " URL URL 全称 Uniform Resource Locator, 翻译过来是统一资源定位器。它被用来表示因特网上资源的地址。这里，资源可以是一个HTML页面，CSS文档，一副图像等。\nURL的组成 下面是一些URL的例子\nhttps:\/\/developer.mozilla.org https:\/\/developer.mozilla.org\/en-US\/docs\/Learn\/ https:\/\/developer.mozilla.org\/en-US\/search?q=URL https:\/\/developer.mozilla.org\/en-US\/search?q=URL#license  由上面的例子可以看出，一个URL由不同的部分组成，其中有些是必须的，有些是可选的 1. 协议\n指定使用何种协议处理URL，如http(超文本传输), https(安全的超文本传输), ftp(文件传输), mailto(打开本地邮件客户端)。 2. 域名\/ip\n它表明正在请求哪个Web服务器。上例中为developer.mozilla.org，也可以用ip地址代替域名 3. 端口\n它表明正在请求Web服务器上的哪个服务，若为默认值，则可以省略。端口号跟在域名后面，用:作为分隔符。 上面的例子中，使用https默认的端口号443，端口号被省略。常用协议端口号如下： * http 80 * https 443 * ftp 21 4. 路径\n如\/en-US\/docs\/Learn\/，它表明资源在网络服务器上的路径 5. 参数\n如？q=URL,q是参数名，URL是参数值。它是提供给网络服务器的额外参数。 6. 锚点\n如#license,license是锚点，它指向资源https:\/\/developer.mozilla.org\/en-US\/search?q=URL中id为license的元素位置。\nDNS 向域名发送请求时，浏览器要先将域名转换为ip地址，再向该ip地址发送请求，这个转换是通过DNS实现的。DNS全称Domain Name System，中文可翻译为域名系统， 它是互联网提供的一项服务。\nnslookup命令 这是一个域名解析工具，在一些网页无法打开的问题上，能帮助找出问题所在。\nIP的作用 ping 命令 ",
+    "description" : "URL URL 全称 Uniform Resource Locator, 翻译过来是统一资源定位器。它被用来表示因特网上资源的地址。这里，资源可以是一个HTML页面，CSS文档，一副图像等。\nURL的组成 下面是一些URL的例子\nhttps:\/\/developer.mozilla.org https:\/\/developer.mozilla.org\/en-US\/docs\/Learn\/ https:\/\/developer.mozilla.org\/en-US\/search?q=URL https:\/\/developer.mozilla.org\/en-US\/search?q=URL#license  由上面的例子可以看出，一个URL由不同的部分组成，其中有些是必须的，有些是可选的 1. 协议 指定使用何种协议处理URL，如http(超文本传输), https(安全的超文本传输), ftp(文件传输), mailto(打开本地邮件客户端)。 2. 域名\/ip 它表明正在请求哪个Web服务器。上例中为developer.mozilla.org，也可以用ip地址代替域名 3. 端口 它表明正在请求Web服务器上的哪个服务，若为默认值，则可以省略。端口号跟在域名后面，用:作为分隔符。 上面的例子中，使用https默认的端口号443，端口号被省略。常用协议端口号如下： * http 80 * https 443 * ftp 21 4. 路径 如\/en-US\/docs\/Learn\/，它表明资源在网络服务器上的路径 5. 参数 如？q=URL,q是参数名，URL是参数值。它是提供给网络服务器的额外参数。 6. 锚点 如#license,license是锚点，它指向资源https:\/\/developer.mozilla.org\/en-US\/search?q=URL中id为license的元素位置。\nnslookup 在命令行输入man nslookup可以查看nslookup的手册。 nslookup是一个用来查询互联网域名服务器的程序。\nDNS 向域名发送请求时，浏览器要先将域名转换为ip地址，再向该ip地址发送请求，这个转换是通过DNS实现的。DNS全称Domain Name System，中文可翻译为域名系统， 它是互联网提供的一项服务。\nnslookup的两种模式 nslookup有两种模式：交互模式和非交互模式。交互模式允许用户向域名服务器查询不同主机和域名的信息，或打印一个域名内的所有主机列表。非交互模式用于打印一个主机或一个域名的名字和查询信息。\n交互模式可以通过以下方式进入:\n 在命令行输入nslookup 在命令行输入nslookup - [域名服务器的主机名\/ip地址]  非交互模式格式：\nnslookup [-选项] \x26lt;要查询的ip地址\/名字\x26gt; [域名服务器的主机名\/ip地址] * 第一个参数必填 * 第二个参数可选",
     "inLanguage" : "zh-cn",
     "author" : "Polly-foz",
     "creator" : "Polly-foz",
@@ -57,7 +57,7 @@
     "datePublished": "2019-12-06 21:07:25 \x2b0800 CST",
     "dateModified" : "2019-12-06 21:07:25 \x2b0800 CST",
     "url" : "http:\/\/yangpeiya.xyz\/url\/",
-    "wordCount" : "55",
+    "wordCount" : "90",
     "keywords" : [  "Polly-foz\x27s Blog"]
 }
 </script>
@@ -138,6 +138,8 @@
         
 
         
+            
+        
 
         
         
@@ -167,33 +169,78 @@ https://developer.mozilla.org/en-US/search?q=URL#license
 </code></pre>
 
 <p>由上面的例子可以看出，一个URL由不同的部分组成，其中有些是必须的，有些是可选的
-1. 协议<br />
+1. 协议
 指定使用何种协议处理URL，如http(超文本传输), https(安全的超文本传输), ftp(文件传输), mailto(打开本地邮件客户端)。
-2. 域名/ip<br />
+2. 域名/ip
 它表明正在请求哪个Web服务器。上例中为<code>developer.mozilla.org</code>，也可以用ip地址代替域名
-3. 端口<br />
+3. 端口
 它表明正在请求Web服务器上的哪个服务，若为默认值，则可以省略。端口号跟在域名后面，用<code>:</code>作为分隔符。 上面的例子中，使用https默认的端口号443，端口号被省略。常用协议端口号如下：
    * http 80
    * https 443
    * ftp 21
-4. 路径<br />
+4. 路径
 如<code>/en-US/docs/Learn/</code>，它表明资源在网络服务器上的路径
-5. 参数<br />
+5. 参数
 如<code>？q=URL</code>,q是参数名，URL是参数值。它是提供给网络服务器的额外参数。
-6. 锚点<br />
+6. 锚点
 如<code>#license</code>,license是锚点，它指向资源<code>https://developer.mozilla.org/en-US/search?q=URL</code>中id为license的元素位置。</p>
 
-<h1 id="dns">DNS</h1>
+<h1 id="nslookup">nslookup</h1>
+
+<p>在命令行输入<code>man nslookup</code>可以查看nslookup的手册。
+nslookup是一个用来查询互联网域名服务器的程序。</p>
+
+<h2 id="dns">DNS</h2>
 
 <p>向域名发送请求时，浏览器要先将域名转换为ip地址，再向该ip地址发送请求，这个转换是通过DNS实现的。DNS全称Domain Name System，中文可翻译为域名系统， 它是互联网提供的一项服务。</p>
 
-<h2 id="nslookup命令">nslookup命令</h2>
+<h2 id="nslookup的两种模式">nslookup的两种模式</h2>
 
-<p>这是一个域名解析工具，在一些网页无法打开的问题上，能帮助找出问题所在。</p>
+<p>nslookup有两种模式：交互模式和非交互模式。交互模式允许用户向域名服务器查询不同主机和域名的信息，或打印一个域名内的所有主机列表。非交互模式用于打印一个主机或一个域名的名字和查询信息。</p>
 
-<h1 id="ip的作用">IP的作用</h1>
+<p>交互模式可以通过以下方式进入:</p>
 
-<h2 id="ping-命令">ping 命令</h2>
+<ol>
+<li>在命令行输入<code>nslookup</code></li>
+<li>在命令行输入<code>nslookup - [域名服务器的主机名/ip地址]</code></li>
+</ol>
+
+<p>非交互模式格式：</p>
+
+<p>nslookup [-选项] &lt;要查询的ip地址/名字&gt; [域名服务器的主机名/ip地址]
+   * 第一个参数必填
+   * 第二个参数可选</p>
+
+<h2 id="例子">例子</h2>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/url/nslookup1.jpg" alt="查询百度ip地址" class="lazyload"><figcaption class="image-caption">查询百度ip地址</figcaption></figure>
+1. 本机DNS服务器是192.168.0.1
+2. 该请求是由www.baidu.com给出的非权威应答
+3. ‘www.baidu.com’对应两个ip‘183.232.231.172’和‘183.232.231.174’</p>
+
+<h1 id="ping命令">ping命令</h1>
+
+<p>ping程序用于查询指定主机是否处于可连接状态，主机可通过域名或ip指定。</p>
+
+<h2 id="ip地址的作用">IP地址的作用</h2>
+
+<p>IP地址是人们在Internet上为了区分数以亿计的主机而给每台主机分配的一个专门的地址，通过IP地址就可以访问到每一台主机。</p>
+
+<h1 id="域名">域名</h1>
+
+<p>维基百科上可以看到域名的定义：</p>
+
+<p>网域名称（英语：Domain Name，简称：Domain），简称域名、网域，是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个IP地址的代称，目的是为了便于记忆后者。</p>
+
+<h2 id="域名层次">域名层次</h2>
+
+<p>以<code>www.baidu.com</code>为例：</p>
+
+<ul>
+<li>com是顶级域名</li>
+<li>baidu是二级域名</li>
+<li>www是三级域名</li>
+</ul>
 
     </div>
 
@@ -268,8 +315,9 @@ https://developer.mozilla.org/en-US/search?q=URL#license
 
 
     
-    
-    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
     
   
 
