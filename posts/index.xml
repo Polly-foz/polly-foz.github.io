@@ -19,13 +19,14 @@
       <guid>http://yangpeiya.xyz/url/</guid>
       <description>URL URL 全称 Uniform Resource Locator, 翻译过来是统一资源定位器。它被用来表示因特网上资源的地址。这里，资源可以是一个HTML页面，CSS文档，一副图像等。
 URL的组成 下面是一些URL的例子
-https://developer.mozilla.org https://developer.mozilla.org/en-US/docs/Learn/ https://developer.mozilla.org/en-US/search?q=URL https://developer.mozilla.org/en-US/search?q=URL#license  由上面的例子可以看出，一个URL由不同的部分组成，其中有些是必须的，有些是可选的 1. 协议 指定使用何种协议处理URL，如http(超文本传输), https(安全的超文本传输), ftp(文件传输), mailto(打开本地邮件客户端)。 2. 域名/ip 它表明正在请求哪个Web服务器。上例中为developer.mozilla.org，也可以用ip地址代替域名 3. 端口 它表明正在请求Web服务器上的哪个服务，若为默认值，则可以省略。端口号跟在域名后面，用:作为分隔符。 上面的例子中，使用https默认的端口号443，端口号被省略。常用协议端口号如下： * http 80 * https 443 * ftp 21 4. 路径 如/en-US/docs/Learn/，它表明资源在网络服务器上的路径 5. 参数 如？q=URL,q是参数名，URL是参数值。它是提供给网络服务器的额外参数。 6. 锚点 如#license,license是锚点，它指向资源https://developer.mozilla.org/en-US/search?q=URL中id为license的元素位置。
-nslookup 在命令行输入man nslookup可以查看nslookup的手册。 nslookup是一个用来查询互联网域名服务器的程序。
+https://developer.mozilla.org https://developer.mozilla.org/en-US/docs/Learn/ https://developer.mozilla.org/en-US/search?q=URL https://developer.mozilla.org/en-US/search?q=URL#license  由上面的例子可以看出，一个URL由不同的部分组成，其中有些是必须的，有些是可选的
+ 协议 指定使用何种协议处理URL，如http(超文本传输), https(安全的超文本传输), ftp(文件传输), mailto(打开本地邮件客户端)。 域名/ip 它表明正在请求哪个Web服务器。上例中为developer.mozilla.org，也可以用ip地址代替域名 端口 它表明正在请求Web服务器上的哪个服务，若为默认值，则可以省略。端口号跟在域名后面，用:作为分隔符。 上面的例子中，使用https默认的端口号443，端口号被省略。常用协议端口号如下：  http 80 https 443 ftp 21  路径 如/en-US/docs/Learn/，它表明资源在网络服务器上的路径 参数 如？q=URL,q是参数名，URL是参数值。它是提供给网络服务器的额外参数。 锚点 如#license,license是锚点，它指向资源https://developer.mozilla.org/en-US/search?q=URL中id为license的元素位置。  nslookup 在命令行输入man nslookup可以查看nslookup的手册。 nslookup是一个用来查询互联网域名服务器的程序。
 DNS 向域名发送请求时，浏览器要先将域名转换为ip地址，再向该ip地址发送请求，这个转换是通过DNS实现的。DNS全称Domain Name System，中文可翻译为域名系统， 它是互联网提供的一项服务。
 nslookup的两种模式 nslookup有两种模式：交互模式和非交互模式。交互模式允许用户向域名服务器查询不同主机和域名的信息，或打印一个域名内的所有主机列表。非交互模式用于打印一个主机或一个域名的名字和查询信息。
 交互模式可以通过以下方式进入:
  在命令行输入nslookup 在命令行输入nslookup - [域名服务器的主机名/ip地址]  非交互模式格式：
-nslookup [-选项] &amp;lt;要查询的ip地址/名字&amp;gt; [域名服务器的主机名/ip地址] * 第一个参数必填 * 第二个参数可选</description>
+nslookup [-选项] &amp;lt;要查询的ip地址/名字&amp;gt; [域名服务器的主机名/ip地址]
+ 第一个参数必填 第二个参数可选  例子  本机DNS服务器是192.</description>
     </item>
     
     <item>
