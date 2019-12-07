@@ -9,9 +9,9 @@
   <meta name="description" content="Polly-foz的个人网站">
   <meta name="keywords" content="Polly-foz,front-end">
   
+  <link rel="prev" href="http://yangpeiya.xyz/test/" />
   
-  <link rel="next" href="http://yangpeiya.xyz/hugo-blog/" />
-  <link rel="canonical" href="http://yangpeiya.xyz/first/" />
+  <link rel="canonical" href="http://yangpeiya.xyz/url/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           First | Polly-foz&#39;s Blog
+           浅析 URL | Polly-foz&#39;s Blog
        
   </title>
-  <meta name="title" content="First | Polly-foz&#39;s Blog">
+  <meta name="title" content="浅析 URL | Polly-foz&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "http:\/\/yangpeiya.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "First",
-    "headline" : "First",
-    "description" : "  fruit  fruit  apple banana kiwi peach  ",
+    "name" : "浅析 URL",
+    "headline" : "浅析 URL",
+    "description" : " URL URL 全称 Uniform Resource Locator, 翻译过来是统一资源定位器。它被用来表示因特网上资源的地址。这里，资源可以是一个HTML页面，CSS文档，一副图像等。\nURL的组成 下面是一些URL的例子\nhttps:\/\/developer.mozilla.org https:\/\/developer.mozilla.org\/en-US\/docs\/Learn\/ https:\/\/developer.mozilla.org\/en-US\/search?q=URL https:\/\/developer.mozilla.org\/en-US\/search?q=URL#license  由上面的例子可以看出，一个URL由不同的部分组成，其中有些是必须的，有些是可选的 1. 协议\n指定使用何种协议处理URL，如http(超文本传输), https(安全的超文本传输), ftp(文件传输), mailto(打开本地邮件客户端)。 2. 域名\/ip\n它表明正在请求哪个Web服务器。上例中为developer.mozilla.org，也可以用ip地址代替域名 3. 端口\n它表明正在请求Web服务器上的哪个服务，若为默认值，则可以省略。端口号跟在域名后面，用:作为分隔符。 上面的例子中，使用https默认的端口号443，端口号被省略。常用协议端口号如下： * http 80 * https 443 * ftp 21 4. 路径\n如\/en-US\/docs\/Learn\/，它表明资源在网络服务器上的路径 5. 参数\n如？q=URL,q是参数名，URL是参数值。它是提供给网络服务器的额外参数。 6. 锚点\n如#license,license是锚点，它指向资源https:\/\/developer.mozilla.org\/en-US\/search?q=URL中id为license的元素位置。\nDNS 向域名发送请求时，浏览器要先将域名转换为ip地址，再向该ip地址发送请求，这个转换是通过DNS实现的。DNS全称Domain Name System，中文可翻译为域名系统， 它是互联网提供的一项服务。\nnslookup命令 这是一个域名解析工具，在一些网页无法打开的问题上，能帮助找出问题所在。\nIP的作用 ping 命令 ",
     "inLanguage" : "zh-cn",
     "author" : "Polly-foz",
     "creator" : "Polly-foz",
@@ -54,10 +54,10 @@
     "accountablePerson" : "Polly-foz",
     "copyrightHolder" : "Polly-foz",
     "copyrightYear" : "2019",
-    "datePublished": "2019-11-01 11:15:24 \x2b0800 CST",
-    "dateModified" : "2019-11-01 11:15:24 \x2b0800 CST",
-    "url" : "http:\/\/yangpeiya.xyz\/first\/",
-    "wordCount" : "6",
+    "datePublished": "2019-12-06 21:07:25 \x2b0800 CST",
+    "dateModified" : "2019-12-06 21:07:25 \x2b0800 CST",
+    "url" : "http:\/\/yangpeiya.xyz\/url\/",
+    "wordCount" : "55",
     "keywords" : [  "Polly-foz\x27s Blog"]
 }
 </script>
@@ -124,11 +124,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">First</h1>
+        <h1 class="post-title" itemprop="name headline">浅析 URL</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="http://yangpeiya.xyz/" rel="author">Polly-foz</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-11-01 itemprop="datePublished">November 1, 2019</time>
+                on <time datetime=2019-12-06 itemprop="datePublished">December 6, 2019</time>
                 </span>
                 in
                 
@@ -152,22 +152,48 @@
 
           
 
-<!-- TOC -->
+<h1 id="url">URL</h1>
 
-<ul>
-<li><a href="#fruit">fruit</a></li>
-</ul>
+<p>URL 全称 Uniform Resource Locator, 翻译过来是统一资源定位器。它被用来表示因特网上资源的地址。这里，资源可以是一个HTML页面，CSS文档，一副图像等。</p>
 
-<!-- /TOC -->
+<h2 id="url的组成">URL的组成</h2>
 
-<h2 id="fruit">fruit</h2>
+<p>下面是一些URL的例子</p>
 
-<ul>
-<li>apple</li>
-<li>banana</li>
-<li>kiwi</li>
-<li>peach</li>
-</ul>
+<pre><code>https://developer.mozilla.org
+https://developer.mozilla.org/en-US/docs/Learn/
+https://developer.mozilla.org/en-US/search?q=URL
+https://developer.mozilla.org/en-US/search?q=URL#license
+</code></pre>
+
+<p>由上面的例子可以看出，一个URL由不同的部分组成，其中有些是必须的，有些是可选的
+1. 协议<br />
+指定使用何种协议处理URL，如http(超文本传输), https(安全的超文本传输), ftp(文件传输), mailto(打开本地邮件客户端)。
+2. 域名/ip<br />
+它表明正在请求哪个Web服务器。上例中为<code>developer.mozilla.org</code>，也可以用ip地址代替域名
+3. 端口<br />
+它表明正在请求Web服务器上的哪个服务，若为默认值，则可以省略。端口号跟在域名后面，用<code>:</code>作为分隔符。 上面的例子中，使用https默认的端口号443，端口号被省略。常用协议端口号如下：
+   * http 80
+   * https 443
+   * ftp 21
+4. 路径<br />
+如<code>/en-US/docs/Learn/</code>，它表明资源在网络服务器上的路径
+5. 参数<br />
+如<code>？q=URL</code>,q是参数名，URL是参数值。它是提供给网络服务器的额外参数。
+6. 锚点<br />
+如<code>#license</code>,license是锚点，它指向资源<code>https://developer.mozilla.org/en-US/search?q=URL</code>中id为license的元素位置。</p>
+
+<h1 id="dns">DNS</h1>
+
+<p>向域名发送请求时，浏览器要先将域名转换为ip地址，再向该ip地址发送请求，这个转换是通过DNS实现的。DNS全称Domain Name System，中文可翻译为域名系统， 它是互联网提供的一项服务。</p>
+
+<h2 id="nslookup命令">nslookup命令</h2>
+
+<p>这是一个域名解析工具，在一些网页无法打开的问题上，能帮助找出问题所在。</p>
+
+<h1 id="ip的作用">IP的作用</h1>
+
+<h2 id="ping-命令">ping 命令</h2>
 
     </div>
 
@@ -182,7 +208,7 @@
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=http://yangpeiya.xyz/first/>http://yangpeiya.xyz/first/</span>
+                    <a href=http://yangpeiya.xyz/url/>http://yangpeiya.xyz/url/</span>
             </p>
             
             
@@ -198,9 +224,9 @@
     </div>
 
     <div class="post-nav">
-         
         
-        <a href="http://yangpeiya.xyz/hugo-blog/" class="next" rel="next" title="Hugo搭建个人博客">Hugo搭建个人博客&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="http://yangpeiya.xyz/test/" class="prev" rel="prev" title="Test"><i class="iconfont icon-left"></i>&nbsp;Test</a>
+         
         
     </div>
 
