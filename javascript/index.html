@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "JavaScript的历史",
     "headline" : "JavaScript的历史",
-    "description" : "JavaScript诞生 1994年，网景公司（Netscape）发布了Navigator浏览器0.9版。这是历史上第一个比较成熟的网络浏览器，轰动一时。但是，这个版本的浏览器只能用来浏览，不具备与访问者互动的能力。网景公司急需一种网页脚本语言，使得浏览器可以与网页互动。\n网景决定发明一种与Java搭配使用的辅助脚本语言并且语法上有些类似。为了应付公司安排，Brendan Eich用10天时间就把Javascript原型设计出来了。他的设计思路如下：\n 借鉴C语言的基本语法； 借鉴Java语言的数据类型和内存管理； 借鉴Scheme语言，将函数提升到\x26rdquo;第一等公民\x26rdquo;（first class）的地位； 借鉴Self语言，使用基于原型（prototype）的继承机制。  Javascript语言实际上是两种语言风格的混合产物\x26mdash;-（简化的）函数式编程\x2b（简化的）面向对象编程。\n最初网景公司将其命名为Mocha，后又改名为LiveScript。网景公司与昇阳电脑公司组成的开发联盟为了让这门语言搭上Java这个编程语言“热词”，又将其改名为JavaScript。\n标准化 为了取得技术优势，微软推出了JScript来迎战JavaScript的脚本语言。为了互用性，Ecma国际（前身为欧洲计算机制造商协会）创建了ECMA-262标准（ECMAScript）。两者都属于ECMAScript的实现。1996年11月，为了压制微软，网景正式向ECMA（欧洲计算机制造商协会）提交语言标准。1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript标准规范ECMA-262。JavaScript成为了ECMAScript最著名的实现之一。除此之外，ActionScript和JScript也都是ECMAScript规范的实现语言。尽管JavaScript作为给非程序人员的脚本语言，而非作为给程序人员的脚本语言来推广和宣传，但是JavaScript具有非常丰富的特性。\nJavaScript的设计缺陷  不适合开发大型程序  Javascript没有名称空间（namespace），很难模块化；没有如何将代码分布在多个文件的规范；允许同名函数的重复定义，后面的定义可以覆盖前面的定义，很不利于模块化加载。\n 非常小的标准库  Javascript提供的标准函数库非常小，只能完成一些基本操作，很多功能都不具备。\n null和undefined  null属于对象（object）的一种，意思是该对象为空；undefined则是一种数据类型，表示未定义。在编程实践中，null几乎没用，根本不应该设计它。\n 全局变量难以控制  Javascript的全局变量，在所有模块中都是可见的；任何一个函数内部都可以生成全局变量，这大大加剧了程序的复杂性。\n 自动插入行尾分号  Javascript的所有语句，都必须以分号结尾。但是，如果你忘记加分号，解释器并不报错，而是为你自动加上分号。有时候，这会导致一些难以发现的错误。\n 加号运算符  \x2b号作为运算符，有两个含义，可以表示数字与数字的和，也可以表示字符与字符的连接。如果一个操作项是字符，另一个操作项是数字，则数字自动转化为字符。这样的设计，不必要地加剧了运算的复杂性，完全可以另行设置一个字符连接的运算符。\n NaN  NaN是一种数字，表示超出了解释器的极限。它有一些很奇怪的特性。与其设计NaN，不如解释器直接报错，反而有利于简化程序。\n 数组和对象的区分  由于Javascript的数组也属于对象（object），所以要区分一个对象到底是不是数组，相当麻烦。\n == 和 ===  ==用来判断两个值是否相等。当两个值类型不同时，会发生自动转换，得到的结果非常不符合直觉。因此，推荐任何时候都使用\x26rdquo;===\x26ldquo;（精确判断）比较符。\n 基本类型的包装对象  Javascript有三种基本数据类型：字符串、数字和布尔值。它们都有相应的建构函数，可以生成字符串对象、数字对象和布尔值对象。与基本数据类型对应的对象类型，作用很小，造成的混淆却很大。\n参考 https:\/\/zh.wikipedia.org\/wiki\/JavaScript#%E5%8E%86%E5%8F%B2\nhttps:\/\/baike.baidu.com\/item\/javascript#4\nhttp:\/\/www.ruanyifeng.com\/blog\/2011\/06\/birth_of_javascript.html\nhttp:\/\/www.ruanyifeng.com\/blog\/2011\/06\/10_design_defects_in_javascript.html",
+    "description" : "JavaScript诞生 1994年，网景公司（Netscape）发布了Navigator浏览器0.9版。这是历史上第一个比较成熟的网络浏览器，轰动一时。但是，这个版本的浏览器只能用来浏览，不具备与访问者互动的能力。网景公司急需一种网页脚本语言，使得浏览器可以与网页互动。\n网景决定发明一种与Java搭配使用的辅助脚本语言并且语法上有些类似。为了应付公司安排，Brendan Eich用10天时间就把Javascript原型设计出来了。他的设计思路如下：\n 借鉴C语言的基本语法； 借鉴Java语言的数据类型和内存管理； 借鉴Scheme语言，将函数提升到\x26rdquo;第一等公民\x26rdquo;（first class）的地位； 借鉴Self语言，使用基于原型（prototype）的继承机制。  Javascript语言实际上是两种语言风格的混合产物\x26mdash;-（简化的）函数式编程\x2b（简化的）面向对象编程。\n最初网景公司将其命名为Mocha，后又改名为LiveScript。网景公司与昇阳电脑公司组成的开发联盟为了让这门语言搭上Java这个编程语言“热词”，又将其改名为JavaScript。\n标准化 为了取得技术优势，微软推出了JScript来迎战JavaScript的脚本语言。为了互用性，Ecma国际（前身为欧洲计算机制造商协会）创建了ECMA-262标准（ECMAScript）。两者都属于ECMAScript的实现。1996年11月，为了压制微软，网景正式向ECMA（欧洲计算机制造商协会）提交语言标准。1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript标准规范ECMA-262。JavaScript成为了ECMAScript最著名的实现之一。除此之外，ActionScript和JScript也都是ECMAScript规范的实现语言。尽管JavaScript作为给非程序人员的脚本语言，而非作为给程序人员的脚本语言来推广和宣传，但是JavaScript具有非常丰富的特性。\nJavaScript的设计缺陷 1. 不适合开发大型程序 Javascript没有名称空间（namespace），很难模块化；没有如何将代码分布在多个文件的规范；允许同名函数的重复定义，后面的定义可以覆盖前面的定义，很不利于模块化加载。\n2. 非常小的标准库 Javascript提供的标准函数库非常小，只能完成一些基本操作，很多功能都不具备。\n3. null和undefined null属于对象（object）的一种，意思是该对象为空；undefined则是一种数据类型，表示未定义。在编程实践中，null几乎没用，根本不应该设计它。\n4. 全局变量难以控制 Javascript的全局变量，在所有模块中都是可见的；任何一个函数内部都可以生成全局变量，这大大加剧了程序的复杂性。\n5. 自动插入行尾分号 Javascript的所有语句，都必须以分号结尾。但是，如果你忘记加分号，解释器并不报错，而是为你自动加上分号。有时候，这会导致一些难以发现的错误。\n6. 加号运算符 \x2b号作为运算符，有两个含义，可以表示数字与数字的和，也可以表示字符与字符的连接。如果一个操作项是字符，另一个操作项是数字，则数字自动转化为字符。这样的设计，不必要地加剧了运算的复杂性，完全可以另行设置一个字符连接的运算符。\n7. NaN NaN是一种数字，表示超出了解释器的极限。它有一些很奇怪的特性。与其设计NaN，不如解释器直接报错，反而有利于简化程序。\n8. 数组和对象的区分 由于Javascript的数组也属于对象（object），所以要区分一个对象到底是不是数组，相当麻烦。\n9. == 和 === ==用来判断两个值是否相等。当两个值类型不同时，会发生自动转换，得到的结果非常不符合直觉。因此，推荐任何时候都使用\x26rdquo;===\x26ldquo;（精确判断）比较符。\n10. 基本类型的包装对象 Javascript有三种基本数据类型：字符串、数字和布尔值。它们都有相应的建构函数，可以生成字符串对象、数字对象和布尔值对象。与基本数据类型对应的对象类型，作用很小，造成的混淆却很大。\n参考 https:\/\/zh.wikipedia.org\/wiki\/JavaScript#%E5%8E%86%E5%8F%B2\nhttps:\/\/baike.baidu.com\/item\/javascript#4\nhttp:\/\/www.ruanyifeng.com\/blog\/2011\/06\/birth_of_javascript.html\nhttp:\/\/www.ruanyifeng.com\/blog\/2011\/06\/10_design_defects_in_javascript.html",
     "inLanguage" : "zh-cn",
     "author" : "Polly-foz",
     "creator" : "Polly-foz",
@@ -57,7 +57,7 @@
     "datePublished": "2019-12-16 19:51:52 \x2b0800 CST",
     "dateModified" : "2019-12-16 19:51:52 \x2b0800 CST",
     "url" : "http:\/\/yangpeiya.xyz\/javascript\/",
-    "wordCount" : "41",
+    "wordCount" : "51",
     "keywords" : [  "Polly-foz\x27s Blog"]
 }
 </script>
@@ -175,63 +175,43 @@
 
 <h1 id="javascript的设计缺陷">JavaScript的设计缺陷</h1>
 
-<ol>
-<li>不适合开发大型程序</li>
-</ol>
+<h2 id="1-不适合开发大型程序">1. 不适合开发大型程序</h2>
 
 <p>Javascript没有名称空间（namespace），很难模块化；没有如何将代码分布在多个文件的规范；允许同名函数的重复定义，后面的定义可以覆盖前面的定义，很不利于模块化加载。</p>
 
-<ol>
-<li>非常小的标准库</li>
-</ol>
+<h2 id="2-非常小的标准库">2. 非常小的标准库</h2>
 
 <p>Javascript提供的标准函数库非常小，只能完成一些基本操作，很多功能都不具备。</p>
 
-<ol>
-<li>null和undefined</li>
-</ol>
+<h2 id="3-null和undefined">3. null和undefined</h2>
 
 <p>null属于对象（object）的一种，意思是该对象为空；undefined则是一种数据类型，表示未定义。在编程实践中，null几乎没用，根本不应该设计它。</p>
 
-<ol>
-<li>全局变量难以控制</li>
-</ol>
+<h2 id="4-全局变量难以控制">4. 全局变量难以控制</h2>
 
 <p>Javascript的全局变量，在所有模块中都是可见的；任何一个函数内部都可以生成全局变量，这大大加剧了程序的复杂性。</p>
 
-<ol>
-<li>自动插入行尾分号</li>
-</ol>
+<h2 id="5-自动插入行尾分号">5. 自动插入行尾分号</h2>
 
 <p>Javascript的所有语句，都必须以分号结尾。但是，如果你忘记加分号，解释器并不报错，而是为你自动加上分号。有时候，这会导致一些难以发现的错误。</p>
 
-<ol>
-<li>加号运算符</li>
-</ol>
+<h2 id="6-加号运算符">6. 加号运算符</h2>
 
 <p>+号作为运算符，有两个含义，可以表示数字与数字的和，也可以表示字符与字符的连接。如果一个操作项是字符，另一个操作项是数字，则数字自动转化为字符。这样的设计，不必要地加剧了运算的复杂性，完全可以另行设置一个字符连接的运算符。</p>
 
-<ol>
-<li>NaN</li>
-</ol>
+<h2 id="7-nan">7. NaN</h2>
 
 <p>NaN是一种数字，表示超出了解释器的极限。它有一些很奇怪的特性。与其设计NaN，不如解释器直接报错，反而有利于简化程序。</p>
 
-<ol>
-<li>数组和对象的区分</li>
-</ol>
+<h2 id="8-数组和对象的区分">8. 数组和对象的区分</h2>
 
 <p>由于Javascript的数组也属于对象（object），所以要区分一个对象到底是不是数组，相当麻烦。</p>
 
-<ol>
-<li>== 和 ===</li>
-</ol>
+<h2 id="9-和">9. == 和 ===</h2>
 
 <p>==用来判断两个值是否相等。当两个值类型不同时，会发生自动转换，得到的结果非常不符合直觉。因此，推荐任何时候都使用&rdquo;===&ldquo;（精确判断）比较符。</p>
 
-<ol>
-<li>基本类型的包装对象</li>
-</ol>
+<h2 id="10-基本类型的包装对象">10. 基本类型的包装对象</h2>
 
 <p>Javascript有三种基本数据类型：字符串、数字和布尔值。它们都有相应的建构函数，可以生成字符串对象、数字对象和布尔值对象。与基本数据类型对应的对象类型，作用很小，造成的混淆却很大。</p>
 
