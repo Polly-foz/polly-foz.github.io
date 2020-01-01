@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Polly-foz">
+  <meta name="description" content="Polly-foz的个人网站">
+  <meta name="keywords" content="Polly-foz,front-end">
+  
+  <link rel="prev" href="http://yangpeiya.xyz/javascript/" />
+  
+  <link rel="canonical" href="http://yangpeiya.xyz/javascript-grammar/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Javascript基本语法 | Polly-foz&#39;s Blog
+       
+  </title>
+  <meta name="title" content="Javascript基本语法 | Polly-foz&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/yangpeiya.xyz\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Javascript基本语法",
+    "headline" : "Javascript基本语法",
+    "description" : "表达式与语句 表达式  表达式（expression），指一个为了得到返回值的计算式 1\x2b2是表达式，值为3 add(1,2)表达式的值为函数的返回值 console.log表达式的值为函数本身 console.log(3)表达式的值为undefined  语句  语句（statement）是为了完成某种任务而进行的操作 var a = 1 是一个语句  二者区别  表达式一般都有值，语句可能有，也可能没有 语句一般会改变环境（声明，赋值） 上面两句话并不是绝对的  变量  变量是用来存储数据的容器 变量需要声明，初始化后使用 由于JS引擎的“变量提升”机制，变量可以在声明之前进行初始化和使用。但是如果没有初始化，就不能使用它们（会返回undefined) 变量可以用var或let关键字来定义（也可能不使用关键字）  let命令是es6新增的 “变量提升”不适用于let let声明的变量只在所在的代码块有效   标识符  代码中用来标识变量、函数、或属性的字符序列 在JavaScript中，标识符只能包含Unicode字母或数字或下划线（“_”）或美元符号（“$”），且不能以数字开头  if else 语句 if (condition1){ statements1 }else if (condition2){ statements2 }else if (condition3){ statements3 }... else{ statementsN }  单行代码可以省略大括号，嵌套由缩进决定\nwhile 语句 var n = 0; while (n \x26lt; 3) { n\x2b\x2b; console.",
+    "inLanguage" : "zh-cn",
+    "author" : "Polly-foz",
+    "creator" : "Polly-foz",
+    "publisher": "Polly-foz",
+    "accountablePerson" : "Polly-foz",
+    "copyrightHolder" : "Polly-foz",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-01 18:13:15 \x2b0800 CST",
+    "dateModified" : "2020-01-01 18:13:15 \x2b0800 CST",
+    "url" : "http:\/\/yangpeiya.xyz\/javascript-grammar\/",
+    "wordCount" : "278",
+    "keywords" : [ "语法", "Polly-foz\x27s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/search/" title="">搜索</a>
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/contacts/" title="">联系我</a>
+                
+                <a class="menu-item" href="/wechat-subscribe/" title="">订阅</a>
+                
+                <a class="menu-item" href="/index.xml" title="">RSS</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/search/" title="">搜索</a>
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/contacts/" title="">联系我</a>
+                
+                <a class="menu-item" href="/wechat-subscribe/" title="">订阅</a>
+                
+                <a class="menu-item" href="/index.xml" title="">RSS</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Javascript基本语法</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://yangpeiya.xyz/" rel="author">Polly-foz</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-01-01 itemprop="datePublished">January 1, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://yangpeiya.xyz/categories/javascript/"> JavaScript </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h1 id="表达式与语句">表达式与语句</h1>
+
+<h2 id="表达式">表达式</h2>
+
+<ul>
+<li>表达式（expression），指一个为了得到返回值的计算式</li>
+<li><code>1+2</code>是表达式，值为3</li>
+<li>add(1,2)表达式的值为函数的返回值</li>
+<li>console.log表达式的值为函数本身</li>
+<li>console.log(3)表达式的值为undefined</li>
+</ul>
+
+<h2 id="语句">语句</h2>
+
+<ul>
+<li>语句（statement）是为了完成某种任务而进行的操作</li>
+<li>var a = 1 是一个语句</li>
+</ul>
+
+<h2 id="二者区别">二者区别</h2>
+
+<ul>
+<li>表达式一般都有值，语句可能有，也可能没有</li>
+<li>语句一般会改变环境（声明，赋值）</li>
+<li>上面两句话并不是绝对的</li>
+</ul>
+
+<h1 id="变量">变量</h1>
+
+<ul>
+<li>变量是用来存储数据的容器</li>
+<li>变量需要声明，初始化后使用</li>
+<li>由于JS引擎的“变量提升”机制，变量可以在声明之前进行初始化和使用。但是如果没有初始化，就不能使用它们（会返回undefined)</li>
+<li>变量可以用<code>var</code>或<code>let</code>关键字来定义（也可能不使用关键字）
+
+<ul>
+<li><code>let</code>命令是es6新增的</li>
+<li>“变量提升”不适用于<code>let</code></li>
+<li><code>let</code>声明的变量只在所在的代码块有效</li>
+</ul></li>
+</ul>
+
+<h1 id="标识符">标识符</h1>
+
+<ul>
+<li>代码中用来标识变量、函数、或属性的字符序列</li>
+<li>在JavaScript中，标识符只能包含Unicode字母或数字或下划线（“_”）或美元符号（“$”），且不能以数字开头</li>
+</ul>
+
+<h1 id="if-else-语句">if else 语句</h1>
+
+<pre><code class="language-javascript">if (condition1){
+   statements1
+}else if (condition2){
+   statements2
+}else if (condition3){
+   statements3
+}...
+else{
+   statementsN
+}
+</code></pre>
+
+<p>单行代码可以省略大括号，嵌套由缩进决定</p>
+
+<h1 id="while-语句">while 语句</h1>
+
+<pre><code class="language-javascript">var n = 0;
+
+while (n &lt; 3) {
+  n++;
+  console.log(n);
+}
+</code></pre>
+
+<h1 id="do-while-语句">do while 语句</h1>
+
+<pre><code class="language-javascript">var i = 0;
+do {
+   i += 1;
+   console.log(i);
+} while (i &lt; 5);
+</code></pre>
+
+<h1 id="break-语句">break 语句</h1>
+
+<p>终止当前的循环，switch 或 label 语句，使程序跳到下一个语句执行。</p>
+
+<h1 id="continue-语句">continue 语句</h1>
+
+<p>终止执行当前或标签循环的语句，直接执行下一个迭代循环。</p>
+
+<h1 id="falsy值">Falsy值</h1>
+
+<p>JavaScript 在需要用到布尔类型值的上下文中使用强制类型转换(Type Conversion )将值转换为布尔值，例如条件语句和循环语句。</p>
+
+<p>falsy 值 (虚值) 是在 Boolean 上下文中认定为 false 的值。 与falsy值相对的是truthy值（真值我）。</p>
+
+<p>在 JavaScript 中只有 7 个 falsy 值。其余都是truthy值。
+<table>
+ <tbody>
+  <tr>
+   <td><code>false</code></td>
+   <td>false&nbsp;关键字</td>
+  </tr>
+  <tr>
+   <td>0</td>
+   <td>数值&nbsp;zero</td>
+   <td></td>
+  </tr>
+  <tr>
+   <td>0n</td>
+   <td>当&nbsp;BigInt&nbsp;作为布尔值使用时, 遵从其作为数值的规则.&nbsp;<code>0n</code>&nbsp;是&nbsp;<em>falsy </em>值.</td>
+  </tr>
+  <tr>
+   <td>&rdquo;&ldquo;, &ldquo;, <code>&lt;/td&gt;
+   &lt;td&gt;
+    &lt;p&gt;这是一个空字符串 (字符串的长度为零). JavaScript 中的字符串可用双引号&amp;nbsp;&lt;code&gt;&lt;strong&gt;&quot;&quot;&lt;/strong&gt;&lt;/code&gt;, 单引号&amp;nbsp;&lt;code&gt;''&lt;/code&gt;, 或&amp;nbsp;模板字面量&amp;nbsp;&lt;strong&gt;&lt;code&gt;</code></code></strong> 定义。</p>
+   </td>
+  </tr>
+  <tr>
+   <td>null</td>
+   <td>null&nbsp;- 缺少值</td>
+  </tr>
+  <tr>
+   <td>undefined</td>
+   <td>undefined&nbsp;- 原始值</td>
+  </tr>
+  <tr>
+   <td>NaN</td>
+   <td>NaN&nbsp;- 非数值</td>
+  </tr>
+ </tbody>
+</table></p>
+
+<h1 id="label">label</h1>
+
+<p>标记语句可以和 break 或 continue 语句一起使用。标记就是在一条语句前面加个可以引用的标识符（identifier）。</p>
+
+<pre><code class="language-javascript">    var i, j;
+
+    loop1:
+    for (i = 0; i &lt; 3; i++) {      //The first for statement is labeled &quot;loop1&quot;
+       loop2:
+       for (j = 0; j &lt; 3; j++) {   //The second for statement is labeled &quot;loop2&quot;
+          if (i === 1 &amp;&amp; j === 1) {
+             continue loop1;
+          }
+          console.log('i = ' + i + ', j = ' + j);
+       }
+    }
+
+// Output is:
+//   &quot;i = 0, j = 0&quot;
+//   &quot;i = 0, j = 1&quot;
+//   &quot;i = 0, j = 2&quot;
+//   &quot;i = 1, j = 0&quot;
+//   &quot;i = 2, j = 0&quot;
+//   &quot;i = 2, j = 1&quot;
+//   &quot;i = 2, j = 2&quot;
+// Notice how it skips both &quot;i = 1, j = 1&quot; and &quot;i = 1, j = 2&quot;
+</code></pre>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Polly-foz </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://yangpeiya.xyz/javascript-grammar/>http://yangpeiya.xyz/javascript-grammar/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://yangpeiya.xyz/tags/%E8%AF%AD%E6%B3%95/">
+                    #语法</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://yangpeiya.xyz/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://yangpeiya.xyz/javascript/" class="prev" rel="prev" title="JavaScript的历史"><i class="iconfont icon-left"></i>&nbsp;JavaScript的历史</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://yangpeiya.xyz/">Polly-foz</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

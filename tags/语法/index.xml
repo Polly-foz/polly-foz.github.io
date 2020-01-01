@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>语法 on Polly-foz&#39;s Blog</title>
+    <link>http://yangpeiya.xyz/tags/%E8%AF%AD%E6%B3%95/</link>
+    <description>Recent content in 语法 on Polly-foz&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 01 Jan 2020 18:13:15 +0800</lastBuildDate>
+    
+	<atom:link href="http://yangpeiya.xyz/tags/%E8%AF%AD%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Javascript基本语法</title>
+      <link>http://yangpeiya.xyz/javascript-grammar/</link>
+      <pubDate>Wed, 01 Jan 2020 18:13:15 +0800</pubDate>
+      
+      <guid>http://yangpeiya.xyz/javascript-grammar/</guid>
+      <description>表达式与语句 表达式  表达式（expression），指一个为了得到返回值的计算式 1+2是表达式，值为3 add(1,2)表达式的值为函数的返回值 console.log表达式的值为函数本身 console.log(3)表达式的值为undefined  语句  语句（statement）是为了完成某种任务而进行的操作 var a = 1 是一个语句  二者区别  表达式一般都有值，语句可能有，也可能没有 语句一般会改变环境（声明，赋值） 上面两句话并不是绝对的  变量  变量是用来存储数据的容器 变量需要声明，初始化后使用 由于JS引擎的“变量提升”机制，变量可以在声明之前进行初始化和使用。但是如果没有初始化，就不能使用它们（会返回undefined) 变量可以用var或let关键字来定义（也可能不使用关键字）  let命令是es6新增的 “变量提升”不适用于let let声明的变量只在所在的代码块有效   标识符  代码中用来标识变量、函数、或属性的字符序列 在JavaScript中，标识符只能包含Unicode字母或数字或下划线（“_”）或美元符号（“$”），且不能以数字开头  if else 语句 if (condition1){ statements1 }else if (condition2){ statements2 }else if (condition3){ statements3 }... else{ statementsN }  单行代码可以省略大括号，嵌套由缩进决定
+while 语句 var n = 0; while (n &amp;lt; 3) { n++; console.</description>
+    </item>
+    
+  </channel>
+</rss>
