@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Polly-foz">
+  <meta name="description" content="Polly-foz的个人网站">
+  <meta name="keywords" content="Polly-foz,front-end">
+  
+  <link rel="prev" href="http://yangpeiya.xyz/javascript-grammar/" />
+  
+  <link rel="canonical" href="http://yangpeiya.xyz/js-object/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           JavaScript 对象基本用法 | Polly-foz&#39;s Blog
+       
+  </title>
+  <meta name="title" content="JavaScript 对象基本用法 | Polly-foz&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/yangpeiya.xyz\/"
+    },
+    "articleSection" : "posts",
+    "name" : "JavaScript 对象基本用法",
+    "headline" : "JavaScript 对象基本用法",
+    "description" : "最新的 ECMAScript 标准定义了 8 种数据类型:\n 7 种原始类型:  Boolean Null Undefined Number BigInt String Symbol  和 Object  除 Object 以外的所有类型都是不可变的（值本身无法被改变）。\n创建Object实例的两种语法 let obj = {\x27name\x27:\x27Peppa\x27,\x27age\x27:3} let obj = new Object({\x27name\x27:\x27Peppa\x27,\x27age\x27:3})   对象是无序的数据集合 对象是键值对的集合，键名是属性名，键值是属性值 键名是字符串，不是标识符，可以包含任意字符 引号可省略，省略之后就只能写标识符 就算引号省略了，键名也还是字符串，JavaScript会将属性名自动变成字符串  1 -\x26gt; \x26lsquo;1\x26rsquo; 3.2 -\x26gt; \x26lsquo;3.2\x26rsquo; 1e2 -\x26gt; \x26lsquo;100\x26rsquo; 1e-2 -\x26gt; \x26lsquo;0.01\x26rsquo; .234 -\x26gt; \x26lsquo;0.234\x26rsquo; 0xFF -\x26gt; \x26lsquo;255\x26rsquo;   删除对象的属性 let obj = {xxx:\x27yyy\x27} \/\/1. 删除属性的两种语法 delete obj.",
+    "inLanguage" : "zh-cn",
+    "author" : "Polly-foz",
+    "creator" : "Polly-foz",
+    "publisher": "Polly-foz",
+    "accountablePerson" : "Polly-foz",
+    "copyrightHolder" : "Polly-foz",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-01 22:01:25 \x2b0800 CST",
+    "dateModified" : "2020-01-01 22:01:25 \x2b0800 CST",
+    "url" : "http:\/\/yangpeiya.xyz\/js-object\/",
+    "wordCount" : "266",
+    "keywords" : [ "对象", "Polly-foz\x27s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/search/" title="">搜索</a>
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/contacts/" title="">联系我</a>
+                
+                <a class="menu-item" href="/wechat-subscribe/" title="">订阅</a>
+                
+                <a class="menu-item" href="/index.xml" title="">RSS</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/search/" title="">搜索</a>
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/contacts/" title="">联系我</a>
+                
+                <a class="menu-item" href="/wechat-subscribe/" title="">订阅</a>
+                
+                <a class="menu-item" href="/index.xml" title="">RSS</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">JavaScript 对象基本用法</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://yangpeiya.xyz/" rel="author">Polly-foz</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-01-01 itemprop="datePublished">January 1, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://yangpeiya.xyz/categories/javascript/"> JavaScript </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>最新的 ECMAScript 标准定义了 8 种数据类型:</p>
+
+<ul>
+<li>7 种原始类型:
+
+<ul>
+<li>Boolean</li>
+<li>Null</li>
+<li>Undefined</li>
+<li>Number</li>
+<li>BigInt</li>
+<li>String</li>
+<li>Symbol</li>
+</ul></li>
+<li>和 Object</li>
+</ul>
+
+<p>除 Object 以外的所有类型都是不可变的（值本身无法被改变）。</p>
+
+<h1 id="创建object实例的两种语法">创建Object实例的两种语法</h1>
+
+<pre><code class="language-javascript">let obj = {'name':'Peppa','age':3}
+let obj = new Object({'name':'Peppa','age':3})
+</code></pre>
+
+<ul>
+<li>对象是无序的数据集合</li>
+<li>对象是键值对的集合，键名是属性名，键值是属性值</li>
+<li>键名是字符串，不是标识符，可以包含任意字符</li>
+<li>引号可省略，省略之后就只能写标识符</li>
+<li><strong>就算引号省略了，键名也还是字符串，JavaScript会将属性名自动变成字符串</strong>
+
+<ul>
+<li>1 -&gt; &lsquo;1&rsquo;</li>
+<li>3.2 -&gt; &lsquo;3.2&rsquo;</li>
+<li>1e2 -&gt; &lsquo;100&rsquo;</li>
+<li>1e-2 -&gt; &lsquo;0.01&rsquo;</li>
+<li>.234 -&gt; &lsquo;0.234&rsquo;</li>
+<li>0xFF -&gt; &lsquo;255&rsquo;</li>
+</ul></li>
+</ul>
+
+<h1 id="删除对象的属性">删除对象的属性</h1>
+
+<pre><code class="language-javascript">let obj = {xxx:'yyy'}
+//1. 删除属性的两种语法
+delete obj.xxx
+delete obj['xxx']
+//2. 不包含属性xxx
+'xxx' in obj === false // true
+//3. 含有属性xxx，但是值为undefined
+'xxx' in obj &amp;&amp; obj.xxx === undefined  //false
+//4. obj.xxx === undefined 不能断定‘xxx’是否为obj的属性
+obj.xxx = undefined
+obj.xxx === undefined //true
+</code></pre>
+
+<h1 id="查看对象的属性">查看对象的属性</h1>
+
+<pre><code class="language-javascript">let obj = {k1:'v1',k2:'v2',k3:'v3'}
+//1. 查看自身所有属性
+Object.keys(obj)    //[&quot;k1&quot;, &quot;k2&quot;, &quot;k3&quot;]
+//2. 查看自身+共有属性
+//2.1. 法1
+console.dir(obj)
+//2.2 法2
+function getAllPropertyNames(obj){
+    let temp = obj
+    while(temp != null){
+        console.log(Object.getOwnPropertyNames(temp))
+        temp = temp.__proto__
+    }
+}
+getAllPropertyNames(obj)
+//3. 判断一个属性是自身的还是共有的
+obj.hasOwnProperty('toString')  //false
+// true: 自身的
+// false: 共有的
+
+//4， 查看单个属性的两种方法
+obj['k1']
+obj.k1
+</code></pre>
+
+<h1 id="修改或增加对象的属性">修改或增加对象的属性</h1>
+
+<pre><code class="language-javascript">let obj = {name: 'Peppa'}
+//1. 修改属性
+//1.1. 直接赋值
+obj.name = 'Pig'
+obj['name'] = 'Pig'
+let key = name
+obj[key] = 'Pig'
+//1.2. 批量赋值
+Object.assign(obj,{age:3,gender:'male'})
+
+//2. 修改或增加共有属性
+let obj1={},obj2={} //共有toString
+obj1.__proto__.toString = 'xxx' //不推荐用__proto__
+Object.prototype.toString = 'xxx'
+obj2.toString //'xxx'
+
+//3. 修改隐藏属性
+//3.1. 直接修改__proto__ (不推荐)
+let obj1 = {name:'Peppa'}
+let obj2 = {name:'Pig'}
+let common = {color:'pink'}
+obj1.__proto__ = common
+obj2.__proto__ = common
+//3.2. 推荐使用Object.create
+let obj1 = Object.create(common)
+obj1.name = 'Peppa'
+let obj2 = Object.create(common)
+obj2.name = 'Pig'
+</code></pre>
+
+<h1 id="name-in-obj和obj-hasownproperty-name-的区别">&lsquo;name&rsquo; in obj和obj.hasOwnProperty(&lsquo;name&rsquo;) 的区别</h1>
+
+<pre><code class="language-javascript">let common = {color:'pink'}
+let obj = Object.create(common)
+obj.name = 'Peppa'
+console.log(&quot;'color' in obj: &quot; + ('color' in obj))//true
+console.log(&quot;'name' in obj: &quot; + ('color' in obj))//true
+console.log(&quot;obj.hasOwnProperty('color'): &quot; + obj.hasOwnProperty('color'))//false
+console.log(&quot;obj.hasOwnProperty('name'): &quot; + obj.hasOwnProperty('name'))//true
+</code></pre>
+
+<p>&lsquo;name&rsquo; in obj 检查obj自身和共有属性
+obj.hasOwnProperty(&lsquo;name&rsquo;) 只检查obj自身属性</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Polly-foz </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://yangpeiya.xyz/js-object/>http://yangpeiya.xyz/js-object/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://yangpeiya.xyz/tags/%E5%AF%B9%E8%B1%A1/">
+                    #对象</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://yangpeiya.xyz/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://yangpeiya.xyz/javascript-grammar/" class="prev" rel="prev" title="Javascript基本语法"><i class="iconfont icon-left"></i>&nbsp;Javascript基本语法</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://yangpeiya.xyz/">Polly-foz</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

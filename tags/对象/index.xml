@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>对象 on Polly-foz&#39;s Blog</title>
+    <link>http://yangpeiya.xyz/tags/%E5%AF%B9%E8%B1%A1/</link>
+    <description>Recent content in 对象 on Polly-foz&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 01 Jan 2020 22:01:25 +0800</lastBuildDate>
+    
+	<atom:link href="http://yangpeiya.xyz/tags/%E5%AF%B9%E8%B1%A1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JavaScript 对象基本用法</title>
+      <link>http://yangpeiya.xyz/js-object/</link>
+      <pubDate>Wed, 01 Jan 2020 22:01:25 +0800</pubDate>
+      
+      <guid>http://yangpeiya.xyz/js-object/</guid>
+      <description>最新的 ECMAScript 标准定义了 8 种数据类型:
+ 7 种原始类型:  Boolean Null Undefined Number BigInt String Symbol  和 Object  除 Object 以外的所有类型都是不可变的（值本身无法被改变）。
+创建Object实例的两种语法 let obj = {&#39;name&#39;:&#39;Peppa&#39;,&#39;age&#39;:3} let obj = new Object({&#39;name&#39;:&#39;Peppa&#39;,&#39;age&#39;:3})   对象是无序的数据集合 对象是键值对的集合，键名是属性名，键值是属性值 键名是字符串，不是标识符，可以包含任意字符 引号可省略，省略之后就只能写标识符 就算引号省略了，键名也还是字符串，JavaScript会将属性名自动变成字符串  1 -&amp;gt; &amp;lsquo;1&amp;rsquo; 3.2 -&amp;gt; &amp;lsquo;3.2&amp;rsquo; 1e2 -&amp;gt; &amp;lsquo;100&amp;rsquo; 1e-2 -&amp;gt; &amp;lsquo;0.01&amp;rsquo; .234 -&amp;gt; &amp;lsquo;0.234&amp;rsquo; 0xFF -&amp;gt; &amp;lsquo;255&amp;rsquo;   删除对象的属性 let obj = {xxx:&#39;yyy&#39;} //1. 删除属性的两种语法 delete obj.</description>
+    </item>
+    
+  </channel>
+</rss>
