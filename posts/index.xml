@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Polly-foz&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 03 Jan 2020 14:20:43 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jan 2020 19:11:36 +0800</lastBuildDate>
     
 	<atom:link href="http://yangpeiya.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>常见排序算法的JavaScript实现</title>
+      <link>http://yangpeiya.xyz/js-sort/</link>
+      <pubDate>Sun, 05 Jan 2020 19:11:36 +0800</pubDate>
+      
+      <guid>http://yangpeiya.xyz/js-sort/</guid>
+      <description>1. 选择排序 /* * 选择排序 * 首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置， * 然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。 * 以此类推，直到所有元素均排序完毕。 */ // min ： 查找并返回数组中最小元素的值和下标 // T(n) = O(n), S(n) = O(1) let reducer = (currentMin,currentValue,currentIndex) =&amp;gt; currentMin[0] &amp;lt; currentValue ? currentMin : [currentValue,currentIndex] let min = (arr) =&amp;gt; arr.reduce(reducer,[Infinity,-1]) // 循环实现 // T(n) = O(n**2) S(n) = O(1) let selection_sort_loop = (arr)=&amp;gt;{ for(let i = 0; i &amp;lt; arr.length; i++){ let minValue = Infinity let minIndex = -1 for(let j = i; j &amp;lt; arr.</description>
+    </item>
     
     <item>
       <title>JS 函数的执行时机</title>
