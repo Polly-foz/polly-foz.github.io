@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Polly-foz">
+  <meta name="description" content="Polly-foz的个人网站">
+  <meta name="keywords" content="Polly-foz,front-end">
+  
+  <link rel="prev" href="http://yangpeiya.xyz/js-sort/" />
+  
+  <link rel="canonical" href="http://yangpeiya.xyz/jquery/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           JQuery设计思想 | Polly-foz&#39;s Blog
+       
+  </title>
+  <meta name="title" content="JQuery设计思想 | Polly-foz&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/yangpeiya.xyz\/"
+    },
+    "articleSection" : "posts",
+    "name" : "JQuery设计思想",
+    "headline" : "JQuery设计思想",
+    "description" : "1. 选择网页元素 2. 改变结果集 3. 链式操作 4. 元素的操作  4.1. 取值和赋值 4.2. 移动 4.3. 复制，删除和创建  5. 工具方法  1. 选择网页元素 \x26quot;选择某个网页元素，然后对其进行某种操作\x26quot;是jQuery的基本设计思想和主要用法。使用jQuery的第一步，往往是将一个选择表达式放进构造函数jQuery()（简写为$()），然后得到匹配的一组元素。 详细用法见jQuery()。\n$( \x26quot;div.foo\x26quot; ); \/\/ 选择class为foo的div元素 $( \x26quot;div.foo\x26quot; ).click(function() { $( \x26quot;span\x26quot;, this ).addClass( \x26quot;bar\x26quot; ); \/\/选择class为foo的div元素中的span，并在点击class为foo的div元素时，为其中的span添加类bar \/\/$( \x26quot;span\x26quot;, this )相当于$(this).find(\x26quot;span\x26quot;) \/\/this是被点击的原生dom元素 });  传入jQuery的selector参数可以使用jQuery特有的表达式\n2. 改变结果集 jQuery设计思想之二，就是提供各种强大的[过滤器](https:\/\/www.jquery123.com\/category\/traversing\/filtering\/)，对结果集进行筛选，缩小选择结果。\n$(\x27li\x27).filter(\x27:even\x27).css(\x27background-color\x27, \x27red\x27); \/\/给索引为偶数的li设置红色背景（记得:even 和 :odd使用基于0的索引）  有时候，我们需要从结果集出发，移动到附近的相关元素，jQuery也提供了在DOM树上的[移动方法](https:\/\/www.jquery123.com\/category\/traversing\/tree-traversal\/)。\n3. 链式操作 jQuery设计思想之三，就是最终选中网页元素以后，可以对它进行一系列操作，并且所有操作可以连接在一起，以链条的形式写出来。\n$(\x27div\x27).find(\x27h3\x27).eq(2).html(\x27Hello\x27); \/\/分解开来，即： $(\x27div\x27) \/\/找到div元素 .find(\x27h3\x27) \/\/选择其中的h3元素 .eq(2) \/\/选择第3个h3元素 .",
+    "inLanguage" : "zh-cn",
+    "author" : "Polly-foz",
+    "creator" : "Polly-foz",
+    "publisher": "Polly-foz",
+    "accountablePerson" : "Polly-foz",
+    "copyrightHolder" : "Polly-foz",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-09 16:29:50 \x2b0800 HKT",
+    "dateModified" : "2020-01-09 16:29:50 \x2b0800 HKT",
+    "url" : "http:\/\/yangpeiya.xyz\/jquery\/",
+    "wordCount" : "109",
+    "keywords" : [ "jQuery", "Polly-foz\x27s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/search/" title="">搜索</a>
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/contacts/" title="">联系我</a>
+                
+                <a class="menu-item" href="/wechat-subscribe/" title="">订阅</a>
+                
+                <a class="menu-item" href="/index.xml" title="">RSS</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/search/" title="">搜索</a>
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/contacts/" title="">联系我</a>
+                
+                <a class="menu-item" href="/wechat-subscribe/" title="">订阅</a>
+                
+                <a class="menu-item" href="/index.xml" title="">RSS</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">JQuery设计思想</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://yangpeiya.xyz/" rel="author">Polly-foz</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-01-09 itemprop="datePublished">January 9, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://yangpeiya.xyz/categories/javascript/"> JavaScript </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<ul>
+<li><a href="#1-%e9%80%89%e6%8b%a9%e7%bd%91%e9%a1%b5%e5%85%83%e7%b4%a0">1. 选择网页元素</a></li>
+<li><a href="#2-%e6%94%b9%e5%8f%98%e7%bb%93%e6%9e%9c%e9%9b%86">2. 改变结果集</a></li>
+<li><a href="#3-%e9%93%be%e5%bc%8f%e6%93%8d%e4%bd%9c">3. 链式操作</a></li>
+<li><a href="#4-%e5%85%83%e7%b4%a0%e7%9a%84%e6%93%8d%e4%bd%9c">4. 元素的操作</a>
+
+<ul>
+<li><a href="#41-%e5%8f%96%e5%80%bc%e5%92%8c%e8%b5%8b%e5%80%bc">4.1. 取值和赋值</a></li>
+<li><a href="#42-%e7%a7%bb%e5%8a%a8">4.2. 移动</a></li>
+<li><a href="#43-%e5%a4%8d%e5%88%b6%e5%88%a0%e9%99%a4%e5%92%8c%e5%88%9b%e5%bb%ba">4.3. 复制，删除和创建</a></li>
+</ul></li>
+<li><a href="#5-%e5%b7%a5%e5%85%b7%e6%96%b9%e6%b3%95">5. 工具方法</a></li>
+</ul>
+
+<h2 id="1-选择网页元素">1. 选择网页元素</h2>
+
+<p><code>&quot;选择某个网页元素，然后对其进行某种操作&quot;</code>是jQuery的基本设计思想和主要用法。使用jQuery的第一步，往往是将一个选择表达式放进构造函数jQuery()（简写为$()），然后得到匹配的一组元素。 详细用法见<a href="https://www.jquery123.com/jQuery/" rel="nofollow noreferrer" target="_blank">jQuery()</a>。</p>
+
+<pre><code class="language-javascript">$( &quot;div.foo&quot; ); // 选择class为foo的div元素
+
+$( &quot;div.foo&quot; ).click(function() {
+  $(  &quot;span&quot;, this ).addClass( &quot;bar&quot; ); //选择class为foo的div元素中的span，并在点击class为foo的div元素时，为其中的span添加类bar
+  //$(  &quot;span&quot;, this )相当于$(this).find(&quot;span&quot;)
+  //this是被点击的原生dom元素
+});
+</code></pre>
+
+<p>传入jQuery的<strong>selector</strong>参数可以使用<a href="https://api.jquery.com/category/selectors/" rel="nofollow noreferrer" target="_blank">jQuery特有的表达式</a></p>
+
+<h2 id="2-改变结果集">2. 改变结果集</h2>
+
+<p><code>jQuery设计思想之二，就是提供各种强大的[过滤器](https://www.jquery123.com/category/traversing/filtering/)，对结果集进行筛选，缩小选择结果。</code></p>
+
+<pre><code class="language-javascript"> $('li').filter(':even').css('background-color', 'red');
+//给索引为偶数的li设置红色背景（记得:even 和 :odd使用基于0的索引）
+</code></pre>
+
+<p><code>有时候，我们需要从结果集出发，移动到附近的相关元素，jQuery也提供了在DOM树上的[移动方法](https://www.jquery123.com/category/traversing/tree-traversal/)。</code></p>
+
+<h2 id="3-链式操作">3. 链式操作</h2>
+
+<p><code>jQuery设计思想之三，就是最终选中网页元素以后，可以对它进行一系列操作，并且所有操作可以连接在一起，以链条的形式写出来。</code></p>
+
+<pre><code class="language-javascript">$('div').find('h3').eq(2).html('Hello');
+//分解开来，即：
+$('div') //找到div元素
+ .find('h3') //选择其中的h3元素
+ .eq(2) //选择第3个h3元素
+ .html('Hello'); //将它的内容改为Hello
+</code></pre>
+
+<p>jQuery还提供了<a href="https://www.jquery123.com/end/" rel="nofollow noreferrer" target="_blank">.end()</a>方法，使得结果集可以后退一步</p>
+
+<h2 id="4-元素的操作">4. 元素的操作</h2>
+
+<h3 id="4-1-取值和赋值">4.1. 取值和赋值</h3>
+
+<p><code>jQuery设计思想之四，就是使用同一个函数，来完成取值（getter）和赋值（setter）。</code>
+决定进行取值或赋值操作的是函数的参数。常见的取值和赋值函数如下：</p>
+
+<pre><code>　　.html() 取出或设置html内容
+　　.text() 取出或设置text内容
+　　.attr() 取出或设置某个属性的值
+　　.width() 取出或设置某个元素的宽度
+　　.height() 取出或设置某个元素的高度
+　　.val() 取出某个表单元素的值
+</code></pre>
+
+<p>需要注意的是，如果结果集包含多个元素，那么赋值的时候，将对其中所有的元素赋值；取值的时候，则是只取出第一个元素的值（.text()例外，它取出所有元素的text内容）。</p>
+
+<h3 id="4-2-移动">4.2. 移动</h3>
+
+<p><code>jQuery设计思想之五，就是提供两组方法，来操作元素在网页中的位置移动。一组方法是直接移动该元素，另一组方法是移动其他元素，使得目标元素达到我们想要的位置。</code></p>
+
+<pre><code class="language-javascript">//下面两行代码实现的效果相同，即把div移到p后面
+$('div').insertAfter($('p'));
+$('p').after($('div'));
+//但是它们返回的元素不一样。第一种方法返回div元素，第二种方法返回p元素。你可以根据需要，选择到底使用哪一种方法。
+</code></pre>
+
+<p>使用这种模式的操作方法共有4对：</p>
+
+<pre><code>　　.insertAfter()和.after()：在现存元素的外部，从后面插入元素
+　　.insertBefore()和.before()：在现存元素的外部，从前面插入元素
+　　.appendTo()和.append()：在现存元素的内部，从后面插入元素
+　　.prependTo()和.prepend()：在现存元素的内部，从前面插入元素
+</code></pre>
+
+<h3 id="4-3-复制-删除和创建">4.3. 复制，删除和创建</h3>
+
+<p>除了元素的位置移动之外，jQuery还提供其他几种操作元素的重要方法。</p>
+
+<p>复制元素使用.clone()。</p>
+
+<p>删除元素使用.remove()和.detach()。两者的区别在于，前者不保留被删除元素的事件，后者保留，有利于重新插入文档时使用。</p>
+
+<p>清空元素内容（但是不删除该元素）使用.empty()。</p>
+
+<p>创建新元素的方法非常简单，只要把新元素直接传入jQuery的构造函数就行了。</p>
+
+<h2 id="5-工具方法">5. 工具方法</h2>
+
+<p><code>jQuery设计思想之六：除了对选中的元素进行操作以外，还提供一些与元素无关的[工具方法（utility）](https://www.jquery123.com/category/utilities/)。不必选中元素，就可以直接使用这些方法。</code></p>
+
+<p>总结自<a href="http://www.ruanyifeng.com/blog/2011/07/jquery_fundamentals.html" rel="nofollow noreferrer" target="_blank">jQuery 设计思想</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Polly-foz </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://yangpeiya.xyz/jquery/>http://yangpeiya.xyz/jquery/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://yangpeiya.xyz/tags/jquery/">
+                    #jQuery</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://yangpeiya.xyz/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://yangpeiya.xyz/js-sort/" class="prev" rel="prev" title="常见排序算法的JavaScript实现"><i class="iconfont icon-left"></i>&nbsp;常见排序算法的JavaScript实现</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://yangpeiya.xyz/">Polly-foz</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

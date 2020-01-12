@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jQuery on Polly-foz&#39;s Blog</title>
+    <link>http://yangpeiya.xyz/tags/jquery/</link>
+    <description>Recent content in jQuery on Polly-foz&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 09 Jan 2020 16:29:50 +0800</lastBuildDate>
+    
+	<atom:link href="http://yangpeiya.xyz/tags/jquery/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JQuery设计思想</title>
+      <link>http://yangpeiya.xyz/jquery/</link>
+      <pubDate>Thu, 09 Jan 2020 16:29:50 +0800</pubDate>
+      
+      <guid>http://yangpeiya.xyz/jquery/</guid>
+      <description>1. 选择网页元素 2. 改变结果集 3. 链式操作 4. 元素的操作  4.1. 取值和赋值 4.2. 移动 4.3. 复制，删除和创建  5. 工具方法  1. 选择网页元素 &amp;quot;选择某个网页元素，然后对其进行某种操作&amp;quot;是jQuery的基本设计思想和主要用法。使用jQuery的第一步，往往是将一个选择表达式放进构造函数jQuery()（简写为$()），然后得到匹配的一组元素。 详细用法见jQuery()。
+$( &amp;quot;div.foo&amp;quot; ); // 选择class为foo的div元素 $( &amp;quot;div.foo&amp;quot; ).click(function() { $( &amp;quot;span&amp;quot;, this ).addClass( &amp;quot;bar&amp;quot; ); //选择class为foo的div元素中的span，并在点击class为foo的div元素时，为其中的span添加类bar //$( &amp;quot;span&amp;quot;, this )相当于$(this).find(&amp;quot;span&amp;quot;) //this是被点击的原生dom元素 });  传入jQuery的selector参数可以使用jQuery特有的表达式
+2. 改变结果集 jQuery设计思想之二，就是提供各种强大的[过滤器](https://www.jquery123.com/category/traversing/filtering/)，对结果集进行筛选，缩小选择结果。
+$(&#39;li&#39;).filter(&#39;:even&#39;).css(&#39;background-color&#39;, &#39;red&#39;); //给索引为偶数的li设置红色背景（记得:even 和 :odd使用基于0的索引）  有时候，我们需要从结果集出发，移动到附近的相关元素，jQuery也提供了在DOM树上的[移动方法](https://www.jquery123.com/category/traversing/tree-traversal/)。
+3. 链式操作 jQuery设计思想之三，就是最终选中网页元素以后，可以对它进行一系列操作，并且所有操作可以连接在一起，以链条的形式写出来。
+$(&#39;div&#39;).find(&#39;h3&#39;).eq(2).html(&#39;Hello&#39;); //分解开来，即： $(&#39;div&#39;) //找到div元素 .find(&#39;h3&#39;) //选择其中的h3元素 .eq(2) //选择第3个h3元素 .</description>
+    </item>
+    
+  </channel>
+</rss>
