@@ -6,19 +6,10 @@
     <description>Recent content in Posts on Polly-foz&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 21 Jan 2020 22:01:07 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 21 Jan 2020 21:55:13 +0800</lastBuildDate>
     
 	<atom:link href="http://yangpeiya.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>JavaScript变量与作用域</title>
-      <link>http://yangpeiya.xyz/js-scope/</link>
-      <pubDate>Tue, 21 Jan 2020 22:01:07 +0800</pubDate>
-      
-      <guid>http://yangpeiya.xyz/js-scope/</guid>
-      <description> 作用域 全局作用域 特点 如何声明全局作用域内的变量  用关键字var声明 不用关键字声明变量  </description>
-    </item>
     
     <item>
       <title>闭包</title>

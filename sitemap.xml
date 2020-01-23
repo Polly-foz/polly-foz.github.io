@@ -2,36 +2,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>http://yangpeiya.xyz/js-scope/</loc>
-      
-      <lastmod>2020-01-21T22:01:07+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>http://yangpeiya.xyz/</loc>
-      
-      <lastmod>2020-01-21T22:01:07+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>http://yangpeiya.xyz/posts/</loc>
-      
-      <lastmod>2020-01-21T22:01:07+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
       <loc>http://yangpeiya.xyz/categories/</loc>
       
       <lastmod>2020-01-21T21:55:13+08:00</lastmod>
@@ -43,6 +13,26 @@
   
     <url>
       <loc>http://yangpeiya.xyz/categories/javascript/</loc>
+      
+      <lastmod>2020-01-21T21:55:13+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://yangpeiya.xyz/</loc>
+      
+      <lastmod>2020-01-21T21:55:13+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://yangpeiya.xyz/posts/</loc>
       
       <lastmod>2020-01-21T21:55:13+08:00</lastmod>
       
