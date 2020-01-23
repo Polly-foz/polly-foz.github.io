@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Polly-foz">
+  <meta name="description" content="Polly-foz的个人网站">
+  <meta name="keywords" content="Polly-foz,front-end">
+  
+  <link rel="prev" href="http://yangpeiya.xyz/js-closure/" />
+  
+  <link rel="canonical" href="http://yangpeiya.xyz/js-call-apply-bind/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           JavaScript中call、apply、bind 的用法 | Polly-foz&#39;s Blog
+       
+  </title>
+  <meta name="title" content="JavaScript中call、apply、bind 的用法 | Polly-foz&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/yangpeiya.xyz\/"
+    },
+    "articleSection" : "posts",
+    "name" : "JavaScript中call、apply、bind 的用法",
+    "headline" : "JavaScript中call、apply、bind 的用法",
+    "description" : "1. 用法 Function.prototype.call(),Function.prototype.apply(),Function.prototype.bind()是所有函数共有的方法。\n这三个函数存在的意义是改变函数执行时的上下文。简单说，这三个函数可以改变函数运行时this的指向。\n    call apply bind     语法 function.call(thisArg, arg1, arg2, \x26hellip;) func.apply(thisArg, [argsArray]) function.bind(thisArg[, arg1[, arg2[, \x26hellip;]]])   作用 使用一个指定的 this 值和单独给出的一个或多个参数来调用一个函数。 使用一个指定的 this 值和作为一个数组（或类似数组对象）提供的参数来调用一个函数。 创建一个绑定this值和初始参数值的新函数    2. 区别  call() 与 apply() 方法类似，只有一个区别，就是 call() 方法接受的是一个参数列表，而 apply() 方法接受的是一个包含多个参数的数组。 bind()方法与另外两个方法的区别是:  bind改变了函数执行上下文后没有立即执行函数 bind绑定了this和参数值后，无论怎么调用，绑定的this和参数都不会被改变。 bind绑定的参数值会从arguments[0]开始存储。调用绑定函数时，显式传入的参数会从arguments中存储的绑定参数后面开始存储。 bind创建了一个新函数   3. 示例 3.1. 用call实现继承 function Animal(name){ this.name = name this.run = function(){console.",
+    "inLanguage" : "zh-cn",
+    "author" : "Polly-foz",
+    "creator" : "Polly-foz",
+    "publisher": "Polly-foz",
+    "accountablePerson" : "Polly-foz",
+    "copyrightHolder" : "Polly-foz",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-23 20:05:49 \x2b0800 HKT",
+    "dateModified" : "2020-01-23 20:05:49 \x2b0800 HKT",
+    "url" : "http:\/\/yangpeiya.xyz\/js-call-apply-bind\/",
+    "wordCount" : "173",
+    "keywords" : [ "函数", "Polly-foz\x27s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/search/" title="">搜索</a>
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/contacts/" title="">联系我</a>
+                
+                <a class="menu-item" href="/wechat-subscribe/" title="">订阅</a>
+                
+                <a class="menu-item" href="/index.xml" title="">RSS</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/search/" title="">搜索</a>
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/contacts/" title="">联系我</a>
+                
+                <a class="menu-item" href="/wechat-subscribe/" title="">订阅</a>
+                
+                <a class="menu-item" href="/index.xml" title="">RSS</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">JavaScript中call、apply、bind 的用法</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://yangpeiya.xyz/" rel="author">Polly-foz</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-01-23 itemprop="datePublished">January 23, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://yangpeiya.xyz/categories/javascript/"> JavaScript </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="1-用法">1. 用法</h2>
+
+<p>Function.prototype.call(),Function.prototype.apply(),Function.prototype.bind()是所有函数共有的方法。</p>
+
+<p>这三个函数存在的意义是改变函数执行时的上下文。简单说，这三个函数可以改变函数运行时this的指向。</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>call</th>
+<th>apply</th>
+<th>bind</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>语法</td>
+<td>function.call(thisArg, arg1, arg2, &hellip;)</td>
+<td>func.apply(thisArg, [argsArray])</td>
+<td>function.bind(thisArg[, arg1[, arg2[, &hellip;]]])</td>
+</tr>
+
+<tr>
+<td>作用</td>
+<td>使用一个指定的 this 值和单独给出的一个或多个参数来调用一个函数。</td>
+<td>使用一个指定的 this 值和作为一个数组（或类似数组对象）提供的参数来调用一个函数。</td>
+<td>创建一个绑定this值和初始参数值的新函数</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="2-区别">2. 区别</h2>
+
+<ol>
+<li>call() 与 apply() 方法类似，只有一个区别，就是 call() 方法接受的是一个参数列表，而 apply() 方法接受的是一个包含多个参数的数组。</li>
+<li>bind()方法与另外两个方法的区别是:
+
+<ol>
+<li>bind改变了函数执行上下文后没有立即执行函数</li>
+<li>bind绑定了this和参数值后，无论怎么调用，绑定的this和参数都不会被改变。</li>
+<li>bind绑定的参数值会从arguments[0]开始存储。调用绑定函数时，显式传入的参数会从arguments中存储的绑定参数后面开始存储。</li>
+<li>bind创建了一个新函数</li>
+</ol></li>
+</ol>
+
+<h2 id="3-示例">3. 示例</h2>
+
+<h3 id="3-1-用call实现继承">3.1. 用call实现继承</h3>
+
+<pre><code class="language-javascript">function Animal(name){
+    this.name = name
+    this.run = function(){console.log(`${this.name} is running...`)}
+}
+
+function Cat(name){
+    Animal.call(this, name)
+    this.category = 'Cat'
+    this.speak = function(){console.log('miao~')}
+}
+
+function Dog(name){
+    Animal.call(this, name)
+    this.category = 'Dog'
+    this.speak = function(){console.log('wang~')}
+}
+
+let catty = new Cat('catty')
+let doggy = new Dog('doggy')
+console.log(catty.name)//catty
+console.log(doggy.name)//doggy
+catty.run()//catty is running...
+doggy.run()//doggy is running...
+</code></pre>
+
+<h3 id="3-2-用call和apply方法传递参数-并且指定上下文的this">3.2. 用call和apply方法传递参数，并且指定上下文的this</h3>
+
+<pre><code class="language-javascript">function A(name){
+    this.name = name
+    this.showInfo = function(){
+        console.log(&quot;name: &quot;,this.name)
+        console.log(&quot;age: &quot;,arguments[0])
+        console.log(&quot;gender: &quot;,arguments[1])
+    }
+}
+
+let a = new A(&quot;a&quot;)
+let b = {
+    name: 'b'
+}
+
+a.showInfo(3,'female')//name:a,age:3,gender:female
+a.showInfo.call(b,18,'male')//name:b,age:18,gender:male
+a.showInfo.apply({name:'c'},[9,'female'])//name:c,age:9,gender:female
+
+</code></pre>
+
+<h3 id="3-3-用bind方法给函数绑定this和参数">3.3. 用bind方法给函数绑定this和参数</h3>
+
+<p>对象中的方法被拿出来后，再调用时，方法中的this不再是原来的对象。用bind方法可以将原来的this绑定在拿出来的方法上。</p>
+
+<pre><code class="language-javascript">this.name = 'window' // 浏览器中，this指向全局的window对象
+let a = {
+    name: 'a',
+    getInfo: function(age){
+        console.log(`name:${this.name}, age:${age}`，gender:arguments[1])
+    }
+}
+
+a.getInfo()//name:a, age:undefined, gender:undefined
+
+let retrieveInfo = a.getInfo
+retrieveInfo(3)//name:window, age:3, gender:undefined
+//函数被取出后，this的值变为全局的window
+
+retrieveInfo.bind(a,10)
+retrieveInfo()//name:window, age:undefined, gender:undefined
+//bind不改变原函数，而是创建了一个新的函数
+
+let bindedRetrieveInfo = retrieveInfo.bind(a,10)
+bindedRetrieveInfo('male')//name:a, age:10, gender:male
+//bind给bindedRetrieveInfo绑定了this为a,绑定了形参age（即arguments[0]）的值为10，传入的'male'可以在函数内通过arguments[1]获得
+</code></pre>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Polly-foz </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://yangpeiya.xyz/js-call-apply-bind/>http://yangpeiya.xyz/js-call-apply-bind/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://yangpeiya.xyz/tags/%E5%87%BD%E6%95%B0/">
+                    #函数</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://yangpeiya.xyz/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://yangpeiya.xyz/js-closure/" class="prev" rel="prev" title="闭包"><i class="iconfont icon-left"></i>&nbsp;闭包</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://yangpeiya.xyz/">Polly-foz</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
