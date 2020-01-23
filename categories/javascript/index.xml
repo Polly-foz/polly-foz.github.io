@@ -17,7 +17,7 @@
       <pubDate>Tue, 21 Jan 2020 21:55:13 +0800</pubDate>
       
       <guid>http://yangpeiya.xyz/js-closure/</guid>
-      <description>1. 闭包是什么 2. 闭包的用途 3. 闭包的缺点  1. 闭包是什么 维基百科对于[闭包](https://zh.wikipedia.org/wiki/%E9%97%AD%E5%8C%85_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)是这样描述的：
+      <description>1. 闭包是什么 2. 闭包的用途 3. 闭包的缺点  1. 闭包是什么 维基百科对于 [闭包](https://zh.wikipedia.org/wiki/%E9%97%AD%E5%8C%85_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6) 是这样描述的：
 闭包是引用了自由变量的函数。这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造它的环境也不例外。 ...... 在一些语言中，在函数中可以（嵌套）定义另一个函数时，如果内部的函数引用了外部的函数的变量，则可能产生闭包。运行时，一旦外部的 函数被执行，一个闭包就形成了，闭包中包含了内部函数的代码，以及所需外部函数中的变量的引用。其中所引用的变量称作上值(upvalue)。  简而言之，闭包由函数及其引用的一组在函数外部的变量组成。被引用的变量会和这个函数共同存在。
 function makeAdder(x) { return function(y) { return x + y; }; } var add5 = makeAdder(5); var add10 = makeAdder(10); console.log(add5(2)); // 7 console.log(add10(2)); // 12  上面的例子中，被赋值为5的x和add5是一个闭包，x是makeAdder的一个局部变量，add5是makeAdder返回的一个函数。makeAdder返回后，由于x还被一个闭包引用着，所以x没有被销毁。
 同理，被赋值为10的x和add10也是一个闭包。
