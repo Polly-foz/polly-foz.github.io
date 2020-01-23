@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Polly-foz">
+  <meta name="description" content="Polly-foz的个人网站">
+  <meta name="keywords" content="Polly-foz,front-end">
+  
+  <link rel="prev" href="http://yangpeiya.xyz/jquery/" />
+  <link rel="next" href="http://yangpeiya.xyz/js-scope/" />
+  <link rel="canonical" href="http://yangpeiya.xyz/js-closure/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           闭包 | Polly-foz&#39;s Blog
+       
+  </title>
+  <meta name="title" content="闭包 | Polly-foz&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/yangpeiya.xyz\/"
+    },
+    "articleSection" : "posts",
+    "name" : "闭包",
+    "headline" : "闭包",
+    "description" : "1. 闭包是什么 2. 闭包的用途 3. 闭包的缺点  1. 闭包是什么 维基百科对于[闭包](https:\/\/zh.wikipedia.org\/wiki\/%E9%97%AD%E5%8C%85_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)是这样描述的：\n闭包是引用了自由变量的函数。这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造它的环境也不例外。 ...... 在一些语言中，在函数中可以（嵌套）定义另一个函数时，如果内部的函数引用了外部的函数的变量，则可能产生闭包。运行时，一旦外部的 函数被执行，一个闭包就形成了，闭包中包含了内部函数的代码，以及所需外部函数中的变量的引用。其中所引用的变量称作上值(upvalue)。  简而言之，闭包由函数及其引用的一组在函数外部的变量组成。被引用的变量会和这个函数共同存在。\nfunction makeAdder(x) { return function(y) { return x \x2b y; }; } var add5 = makeAdder(5); var add10 = makeAdder(10); console.log(add5(2)); \/\/ 7 console.log(add10(2)); \/\/ 12  上面的例子中，被赋值为5的x和add5是一个闭包，x是makeAdder的一个局部变量，add5是makeAdder返回的一个函数。makeAdder返回后，由于x还被一个闭包引用着，所以x没有被销毁。\n同理，被赋值为10的x和add10也是一个闭包。\n2. 闭包的用途 [闭包提供了许多与面向对象编程相关的好处 —— 特别是数据隐藏和封装。](https:\/\/developer.mozilla.org\/zh-CN\/docs\/Web\/JavaScript\/Closures)\nJava对象将一组属性和对属性的操作(方法)封装起来。当属性或方法被声明为私有(private)时，用户不能通过对象.属性名的方式直接获得该属性或方法，只能通过对象提供的方法来操作该属性或方法（当然，还有反射机制。。）。\nJavaScript没有提供私有属性的语法。闭包可以用于模拟私有属性和方法。\nvar Counter = (function() { var privateCounter = 0; function changeBy(val) { privateCounter \x2b= val; } return { increment: function() { changeBy(1); }, decrement: function() { changeBy(-1); }, value: function() { return privateCounter; } } })(); console.",
+    "inLanguage" : "zh-cn",
+    "author" : "Polly-foz",
+    "creator" : "Polly-foz",
+    "publisher": "Polly-foz",
+    "accountablePerson" : "Polly-foz",
+    "copyrightHolder" : "Polly-foz",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-21 21:55:13 \x2b0800 HKT",
+    "dateModified" : "2020-01-21 21:55:13 \x2b0800 HKT",
+    "url" : "http:\/\/yangpeiya.xyz\/js-closure\/",
+    "wordCount" : "107",
+    "keywords" : [ "闭包", "Polly-foz\x27s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/search/" title="">搜索</a>
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/contacts/" title="">联系我</a>
+                
+                <a class="menu-item" href="/wechat-subscribe/" title="">订阅</a>
+                
+                <a class="menu-item" href="/index.xml" title="">RSS</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/search/" title="">搜索</a>
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/contacts/" title="">联系我</a>
+                
+                <a class="menu-item" href="/wechat-subscribe/" title="">订阅</a>
+                
+                <a class="menu-item" href="/index.xml" title="">RSS</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">闭包</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://yangpeiya.xyz/" rel="author">Polly-foz</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-01-21 itemprop="datePublished">January 21, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://yangpeiya.xyz/categories/javascript/"> JavaScript </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<ul>
+<li><a href="#1-%e9%97%ad%e5%8c%85%e6%98%af%e4%bb%80%e4%b9%88">1. 闭包是什么</a></li>
+<li><a href="#2-%e9%97%ad%e5%8c%85%e7%9a%84%e7%94%a8%e9%80%94">2. 闭包的用途</a></li>
+<li><a href="#3-%e9%97%ad%e5%8c%85%e7%9a%84%e7%bc%ba%e7%82%b9">3. 闭包的缺点</a></li>
+</ul>
+
+<h2 id="1-闭包是什么">1. 闭包是什么</h2>
+
+<p>维基百科对于[闭包](<a href="https://zh.wikipedia.org/wiki/%E9%97%AD%E5%8C%85_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)是这样描述的：" rel="nofollow noreferrer" target="_blank">https://zh.wikipedia.org/wiki/%E9%97%AD%E5%8C%85_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)是这样描述的：</a></p>
+
+<pre><code>闭包是引用了自由变量的函数。这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造它的环境也不例外。
+......
+在一些语言中，在函数中可以（嵌套）定义另一个函数时，如果内部的函数引用了外部的函数的变量，则可能产生闭包。运行时，一旦外部的 函数被执行，一个闭包就形成了，闭包中包含了内部函数的代码，以及所需外部函数中的变量的引用。其中所引用的变量称作上值(upvalue)。
+</code></pre>
+
+<p>简而言之，闭包由函数及其引用的一组在函数外部的变量组成。被引用的变量会和这个函数共同存在。</p>
+
+<pre><code class="language-javascript">function makeAdder(x) {
+  return function(y) {
+    return x + y;
+  };
+}
+
+var add5 = makeAdder(5);
+var add10 = makeAdder(10);
+
+console.log(add5(2));  // 7
+console.log(add10(2)); // 12
+</code></pre>
+
+<p>上面的例子中，被赋值为5的<code>x</code>和<code>add5</code>是一个闭包，<code>x</code>是<code>makeAdder</code>的一个局部变量，<code>add5</code>是<code>makeAdder</code>返回的一个函数。<code>makeAdder</code>返回后，由于<code>x</code>还被一个闭包引用着，所以<code>x</code>没有被销毁。</p>
+
+<p>同理，被赋值为10的<code>x</code>和<code>add10</code>也是一个闭包。</p>
+
+<h2 id="2-闭包的用途">2. 闭包的用途</h2>
+
+<p><code>[闭包提供了许多与面向对象编程相关的好处 —— 特别是数据隐藏和封装。](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures)</code></p>
+
+<p>Java对象将一组属性和对属性的操作(方法)封装起来。当属性或方法被声明为私有(private)时，用户不能通过对象.属性名的方式直接获得该属性或方法，只能通过对象提供的方法来操作该属性或方法（当然，还有反射机制。。）。</p>
+
+<p>JavaScript没有提供私有属性的语法。闭包可以用于模拟私有属性和方法。</p>
+
+<pre><code class="language-javascript">var Counter = (function() {
+  var privateCounter = 0;
+  function changeBy(val) {
+    privateCounter += val;
+  }
+  return {
+    increment: function() {
+      changeBy(1);
+    },
+    decrement: function() {
+      changeBy(-1);
+    },
+    value: function() {
+      return privateCounter;
+    }
+  }   
+})();
+
+console.log(Counter.value()); /* logs 0 */
+Counter.increment();
+Counter.increment();
+console.log(Counter.value()); /* logs 2 */
+Counter.decrement();
+console.log(Counter.value()); /* logs 1 */
+</code></pre>
+
+<p>上面的例子声明了一个匿名的立即执行函数。<code>privateCounter</code>,<code>changeBy</code>和<code>Counter</code>形成一个闭包。<code>privateCounter</code>和<code>changeBy</code>不能被直接访问。只能通过调用<code>Counter</code>的<code>increment</code>和<code>decrement</code>方法来间接调用<code>changeBy</code>，操作（增加，删除）<code>privateCounter</code>的值。</p>
+
+<h2 id="3-闭包的缺点">3. 闭包的缺点</h2>
+
+<p>IE6时代有bug，闭包会造成内存泄漏，这个现在已经无须考虑了。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Polly-foz </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://yangpeiya.xyz/js-closure/>http://yangpeiya.xyz/js-closure/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://yangpeiya.xyz/tags/%E9%97%AD%E5%8C%85/">
+                    #闭包</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://yangpeiya.xyz/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://yangpeiya.xyz/jquery/" class="prev" rel="prev" title="JQuery设计思想"><i class="iconfont icon-left"></i>&nbsp;JQuery设计思想</a>
+         
+        
+        <a href="http://yangpeiya.xyz/js-scope/" class="next" rel="next" title="JavaScript变量与作用域">JavaScript变量与作用域&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://yangpeiya.xyz/">Polly-foz</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
