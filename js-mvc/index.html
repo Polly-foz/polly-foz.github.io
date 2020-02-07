@@ -178,7 +178,7 @@
 
 <p>V &lt;&ndash;&gt; C &lt;&ndash;&gt; M</p>
 
-<pre><code>Model = {
+<pre><code class="language-javascript">Model = {
     data: 数据
     get(){return data}
     set(data){
@@ -228,7 +228,7 @@ eventBus.trigger(&quot;data:set&quot;)
 
 <p><code>表驱动方法是一种使你可以在表中查找信息，而不必用很多的逻辑语句（if或Case）来把它们找出来的方法。</code></p>
 
-<pre><code>Controller = {
+<pre><code class="language-javascript">Controller = {
     bindEvents(){
         dom1.on(&quot;event1&quot;,f1)
         dom2.on(&quot;event2&quot;,f2)
@@ -248,7 +248,7 @@ eventBus.trigger(&quot;data:set&quot;)
 
 <p>上面的代码看起来有些许冗余，借用表驱动编程的部分思想，可以使上面的代码看起来没那么冗余。</p>
 
-<pre><code>Controller = {
+<pre><code class="language-javascript">Controller = {
     events:{
         &quot;event1 dom1&quot;:&quot;f1&quot;
         &quot;event2 dom2&quot;:&quot;f2&quot;
