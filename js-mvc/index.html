@@ -9,9 +9,9 @@
   <meta name="description" content="Polly-foz的个人网站">
   <meta name="keywords" content="Polly-foz,front-end">
   
-  <link rel="prev" href="http://yangpeiya.xyz/css-summary/" />
-  <link rel="next" href="http://yangpeiya.xyz/url/" />
-  <link rel="canonical" href="http://yangpeiya.xyz/test/" />
+  <link rel="prev" href="http://yangpeiya.xyz/http-status-code/" />
+  
+  <link rel="canonical" href="http://yangpeiya.xyz/js-mvc/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Test | Polly-foz&#39;s Blog
+           浅析MVC | Polly-foz&#39;s Blog
        
   </title>
-  <meta name="title" content="Test | Polly-foz&#39;s Blog">
+  <meta name="title" content="浅析MVC | Polly-foz&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,20 +44,20 @@
          "@id": "http:\/\/yangpeiya.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "Test",
-    "headline" : "Test",
-    "description" : "this is a test file",
+    "name" : "浅析MVC",
+    "headline" : "浅析MVC",
+    "description" : "MVC是什么 EventBus  用法  表驱动编程 模块化  优点 缺点   MVC是什么  M - Model（数据模型） 程序要操作的数据和对数据的基本操作 V - View（视图） 负责界面的布局和显示 C - Controller（控制器） 负责模型和界面之间的交互，用于控制应用程序的流程，处理用户的行为和数据model上的改变  V \x26lt;\x26ndash;\x26gt; C \x26lt;\x26ndash;\x26gt; M\nModel = { data: 数据 get(){return data} set(data){ 编辑数据 触发数据变化事件\x27data:set\x27 } } View = { el: 界面的挂载点 html: 界面的内容 render(){将this.html挂载到el上} } Controller = { bindEvents(){ 在dom元素上绑定事件监听器 监听数据变化事件\x27data:set\x27(){ View.render() } } }  EventBus 上面模型中，数据变化事件的触发与监听可以通过EventBus实现。\n用法 \/\/创建eventBus \/\/用jquery实现 const eventBus = $(window) \/\/监听数据变化事件\x27data:set\x27 eventBus.",
     "inLanguage" : "zh-cn",
     "author" : "Polly-foz",
     "creator" : "Polly-foz",
     "publisher": "Polly-foz",
     "accountablePerson" : "Polly-foz",
     "copyrightHolder" : "Polly-foz",
-    "copyrightYear" : "2019",
-    "datePublished": "2019-12-06 20:58:25 \x2b0800 CST",
-    "dateModified" : "2019-12-06 20:58:25 \x2b0800 CST",
-    "url" : "http:\/\/yangpeiya.xyz\/test\/",
-    "wordCount" : "5",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-02-06 20:03:56 \x2b0800 CST",
+    "dateModified" : "2020-02-06 20:03:56 \x2b0800 CST",
+    "url" : "http:\/\/yangpeiya.xyz\/js-mvc\/",
+    "wordCount" : "138",
     "keywords" : [  "Polly-foz\x27s Blog"]
 }
 </script>
@@ -124,11 +124,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Test</h1>
+        <h1 class="post-title" itemprop="name headline">浅析MVC</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="http://yangpeiya.xyz/" rel="author">Polly-foz</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-12-06 itemprop="datePublished">December 6, 2019</time>
+                on <time datetime=2020-02-06 itemprop="datePublished">February 6, 2020</time>
                 </span>
                 in
                 
@@ -150,7 +150,147 @@
           
           
 
-          <p>this is a test file</p>
+          
+
+<ul>
+<li><a href="#mvc%e6%98%af%e4%bb%80%e4%b9%88">MVC是什么</a></li>
+<li><a href="#eventbus">EventBus</a>
+
+<ul>
+<li><a href="#%e7%94%a8%e6%b3%95">用法</a></li>
+</ul></li>
+<li><a href="#%e8%a1%a8%e9%a9%b1%e5%8a%a8%e7%bc%96%e7%a8%8b">表驱动编程</a></li>
+<li><a href="#%e6%a8%a1%e5%9d%97%e5%8c%96">模块化</a>
+
+<ul>
+<li><a href="#%e4%bc%98%e7%82%b9">优点</a></li>
+<li><a href="#%e7%bc%ba%e7%82%b9">缺点</a></li>
+</ul></li>
+</ul>
+
+<h2 id="mvc是什么">MVC是什么</h2>
+
+<ul>
+<li>M - Model（数据模型） 程序要操作的数据和对数据的基本操作</li>
+<li>V - View（视图） 负责界面的布局和显示</li>
+<li>C - Controller（控制器） 负责模型和界面之间的交互，用于控制应用程序的流程，处理用户的行为和数据model上的改变</li>
+</ul>
+
+<p>V &lt;&ndash;&gt; C &lt;&ndash;&gt; M</p>
+
+<pre><code>Model = {
+    data: 数据
+    get(){return data}
+    set(data){
+        编辑数据
+        触发数据变化事件'data:set'
+    }
+}
+
+View = {
+   el: 界面的挂载点
+   html: 界面的内容
+   render(){将this.html挂载到el上}
+}
+
+Controller = {
+    bindEvents(){
+        在dom元素上绑定事件监听器
+        监听数据变化事件'data:set'(){
+            View.render()
+        }
+    }
+
+}
+</code></pre>
+
+<h2 id="eventbus">EventBus</h2>
+
+<p>上面模型中，数据变化事件的触发与监听可以通过EventBus实现。</p>
+
+<h3 id="用法">用法</h3>
+
+<pre><code class="language-javascript">//创建eventBus
+//用jquery实现
+const eventBus = $(window)
+
+//监听数据变化事件'data:set'
+eventBus.on(&quot;data:set&quot;,()=&gt;{View.render()})
+
+//取消监听数据变化事件'data:set'
+eventBus.off(&quot;data:set&quot;)
+
+//触发数据变化事件'data:set'
+eventBus.trigger(&quot;data:set&quot;)
+</code></pre>
+
+<h2 id="表驱动编程">表驱动编程</h2>
+
+<p><code>表驱动方法是一种使你可以在表中查找信息，而不必用很多的逻辑语句（if或Case）来把它们找出来的方法。</code></p>
+
+<pre><code>Controller = {
+    bindEvents(){
+        dom1.on(&quot;event1&quot;,f1)
+        dom2.on(&quot;event2&quot;,f2)
+        dom3.on(&quot;event3&quot;,f3)
+        dom4.on(&quot;event4&quot;,f4)
+        ......
+        domn.on(&quot;eventn&quot;,fn)
+    }
+    f1(){}
+    f2(){}
+    f3(){}
+    f4(){}
+    ...
+    fn(){}
+}
+</code></pre>
+
+<p>上面的代码看起来有些许冗余，借用表驱动编程的部分思想，可以使上面的代码看起来没那么冗余。</p>
+
+<pre><code>Controller = {
+    events:{
+        &quot;event1 dom1&quot;:&quot;f1&quot;
+        &quot;event2 dom2&quot;:&quot;f2&quot;
+        &quot;event3 dom3&quot;:&quot;f3&quot;
+        &quot;event4 dom4&quot;:&quot;f4&quot;
+        ......
+        &quot;eventn domn&quot;:&quot;fn&quot;
+    }
+    bindEvents(){
+        for(let key in Controller.events){
+            event = key空格前的部分
+            dom = key空格后的部分
+            View.el.on(event,dom,Controller[Controller.events[key]])
+        }
+    }
+    f1(){}
+    f2(){}
+    f3(){}
+    f4(){}
+    ...
+    fn(){}
+}
+</code></pre>
+
+<h2 id="模块化">模块化</h2>
+
+<p>模块化是指将实现特定功能的代码分离成一个独立的js文件。1个js文件就是一个模块。</p>
+
+<h3 id="优点">优点</h3>
+
+<ol>
+<li>便于多人协作开发，各模块可以独立开发</li>
+<li>便于调试</li>
+<li>利于代码复用</li>
+<li>利于功能扩充</li>
+</ol>
+
+<h3 id="缺点">缺点</h3>
+
+<ol>
+<li>模块间通信消耗额外性能</li>
+</ol>
 
     </div>
 
@@ -165,7 +305,7 @@
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=http://yangpeiya.xyz/test/>http://yangpeiya.xyz/test/</span>
+                    <a href=http://yangpeiya.xyz/js-mvc/>http://yangpeiya.xyz/js-mvc/</span>
             </p>
             
             
@@ -182,10 +322,8 @@
 
     <div class="post-nav">
         
-        <a href="http://yangpeiya.xyz/css-summary/" class="prev" rel="prev" title="CSS 知识总结"><i class="iconfont icon-left"></i>&nbsp;CSS 知识总结</a>
+        <a href="http://yangpeiya.xyz/http-status-code/" class="prev" rel="prev" title="HTTP状态码"><i class="iconfont icon-left"></i>&nbsp;HTTP状态码</a>
          
-        
-        <a href="http://yangpeiya.xyz/url/" class="next" rel="next" title="浅析 URL">浅析 URL&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

@@ -6,10 +6,41 @@
     <description>Recent content in Posts on Polly-foz&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 23 Jan 2020 20:05:49 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 06 Feb 2020 20:03:56 +0800</lastBuildDate>
     
 	<atom:link href="http://yangpeiya.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>浅析MVC</title>
+      <link>http://yangpeiya.xyz/js-mvc/</link>
+      <pubDate>Thu, 06 Feb 2020 20:03:56 +0800</pubDate>
+      
+      <guid>http://yangpeiya.xyz/js-mvc/</guid>
+      <description>MVC是什么 EventBus  用法  表驱动编程 模块化  优点 缺点   MVC是什么  M - Model（数据模型） 程序要操作的数据和对数据的基本操作 V - View（视图） 负责界面的布局和显示 C - Controller（控制器） 负责模型和界面之间的交互，用于控制应用程序的流程，处理用户的行为和数据model上的改变  V &amp;lt;&amp;ndash;&amp;gt; C &amp;lt;&amp;ndash;&amp;gt; M
+Model = { data: 数据 get(){return data} set(data){ 编辑数据 触发数据变化事件&#39;data:set&#39; } } View = { el: 界面的挂载点 html: 界面的内容 render(){将this.html挂载到el上} } Controller = { bindEvents(){ 在dom元素上绑定事件监听器 监听数据变化事件&#39;data:set&#39;(){ View.render() } } }  EventBus 上面模型中，数据变化事件的触发与监听可以通过EventBus实现。
+用法 //创建eventBus //用jquery实现 const eventBus = $(window) //监听数据变化事件&#39;data:set&#39; eventBus.</description>
+    </item>
+    
+    <item>
+      <title>HTTP状态码</title>
+      <link>http://yangpeiya.xyz/http-status-code/</link>
+      <pubDate>Fri, 24 Jan 2020 22:33:47 +0800</pubDate>
+      
+      <guid>http://yangpeiya.xyz/http-status-code/</guid>
+      <description>1. 介绍 HTTP状态码(HTTP Status Code)是用以表示网页服务器超文本传输协议响应状态的3位数字代码。
+HTTP响应类型一共分五大类，所有状态码的第一个数字代表了响应的五种状态之一:
+ 消息响应 成功响应 重定向 客户端错误 服务器端错误  2. HTTP状态码举例 200 OK 成功 请求成功.成功的意义根据请求所使用的方法不同而不同
+ GET: 资源已被提取,并作为响应体传回客户端 HEAD: 实体头已作为响应头传回客户端 POST: 经过服务器处理客户端传来的数据,适合的资源作为响应体传回客户端 TRACE: 服务器收到请求消息作为响应体传回客户端  206 Partial Content 部分内容 当客户端通过使用range头字段进行文件分段下载时使用该状态码。
+表示服务器已经成功处理了部分GET请求。类似于FlashGet或者迅雷这类的HTTP 下载工具，都是使用此类响应实现断点续传，或者将一个大文档分解为多个下载段同时下载。
+301 Moved Permanently 永久移动 该状态码表示所请求的URI资源路径已经改变,新的URL会在响应的Location:头字段里找到。
+302 Found 临时移动 该状态码表示所请求的URI资源路径临时改变,并且还可能继续改变。因此客户端在以后访问时还得继续使用该URI。新的URL会在响应的Location:头字段里找到。
+400 Bad Request 错误请求 因发送的请求语法错误,服务器无法正常读取。
+ 语义有误，当前请求无法被服务器理解。除非进行修改，否则客户端不应该重复提交这个请求。 请求参数有误。  401 Unauthorized 未授权 需要身份验证后才能获取所请求的内容,类似于403错误。不同点是,401错误后,只要正确输入帐号密码,验证即可通过。
+403 Forbidden 禁止访问 客户端没有权利访问所请求内容,服务器拒绝本次请求.
+404 Not Found 未找到 服务器找不到所请求的资源。由于经常发生此种情况,所以该状态码在上网时是非常常见的。
+500 Internal Server Error 内部服务器错误 服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。</description>
+    </item>
     
     <item>
       <title>JavaScript中call、apply、bind 的用法</title>
