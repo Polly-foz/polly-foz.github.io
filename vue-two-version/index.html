@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Polly-foz">
+  <meta name="description" content="Polly-foz的个人网站">
+  <meta name="keywords" content="Polly-foz,front-end">
+  
+  <link rel="prev" href="http://yangpeiya.xyz/js-mvc/" />
+  <link rel="next" href="http://yangpeiya.xyz/vue-data-responsive/" />
+  <link rel="canonical" href="http://yangpeiya.xyz/vue-two-version/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           vue.js 与 vue.runtime.js | Polly-foz&#39;s Blog
+       
+  </title>
+  <meta name="title" content="vue.js 与 vue.runtime.js | Polly-foz&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/yangpeiya.xyz\/"
+    },
+    "articleSection" : "posts",
+    "name" : "vue.js 与 vue.runtime.js",
+    "headline" : "vue.js 与 vue.runtime.js",
+    "description" : "1. 区别 方方老师的总结： ||Vue 完整版|Vue 非完整版|评价| |\x26mdash;|\x26mdash;|\x26mdash;|\x26mdash;| |特点|有compiler|没有compiler|compiler占40%体积| |视图|写在HTML里，或者写在template选项|写在render函数里，用h来创建标签|h是尤雨溪写好传给render的| |cdn引入|vue.js|vue.runtime.js|文件名不同，生成环境后缀名为.min.js| |webpack引入|需要配置alias|默认使用此版|尤雨溪配置的| |@vue\/cli引入|需要额外配置|默认使用此版|尤雨溪、蒋豪群配置的|\n最佳实践：\n使用vue.runtime.js \x2b compiler，compiler会将template编译成render\n2. template和render 2.1. template使用 使用 vue.js 或者 vue.runtime.js \x2b compiler 时，可以用template。\npublic\/index.html body部分\n\x26lt;body\x26gt; \x26lt;noscript\x26gt; \x26lt;strong\x26gt;We\x27re sorry but \x26lt;%= htmlWebpackPlugin.options.title %\x26gt; doesn\x27t work properly without JavaScript enabled. Please enable it to continue.\x26lt;\/strong\x26gt; \x26lt;\/noscript\x26gt; \x26lt;div id=\x26quot;demo-2version\x26quot;\x26gt; \x26lt;div\x26gt;这是demo-2version内的html内容\x26lt;\/div\x26gt; \x26lt;\/div\x26gt; \x26lt;!-- built files will be auto injected --\x26gt; \x26lt;\/body\x26gt;  scr\/main.js\nimport Vue from \x27vue\x27 Vue.config.productionTip = false new Vue({ el:\x27#demo-2version\x27, template:` 这是template给出的模版-div外 \x26lt;img src=\x26quot;\x26quot; alt=\x26quot;hi\x26quot;\x26gt; \x26lt;a href=\x26quot;\x26quot;\x26gt;template-a\x26lt;\/a\x26gt; \x26lt;div\x26gt;这是template给出的模版-div1\x26lt;\/div\x26gt; \x26lt;div\x26gt;这是template给出的模版-div2\x26lt;\/div\x26gt; 这是template给出的模版-div外 ` })  运行后生成的html body部分",
+    "inLanguage" : "zh-cn",
+    "author" : "Polly-foz",
+    "creator" : "Polly-foz",
+    "publisher": "Polly-foz",
+    "accountablePerson" : "Polly-foz",
+    "copyrightHolder" : "Polly-foz",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-02-07 21:56:25 \x2b0800 CST",
+    "dateModified" : "2020-02-07 21:56:25 \x2b0800 CST",
+    "url" : "http:\/\/yangpeiya.xyz\/vue-two-version\/",
+    "wordCount" : "240",
+    "keywords" : [  "Polly-foz\x27s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/search/" title="">搜索</a>
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/contacts/" title="">联系我</a>
+                
+                <a class="menu-item" href="/wechat-subscribe/" title="">订阅</a>
+                
+                <a class="menu-item" href="/index.xml" title="">RSS</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/search/" title="">搜索</a>
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/contacts/" title="">联系我</a>
+                
+                <a class="menu-item" href="/wechat-subscribe/" title="">订阅</a>
+                
+                <a class="menu-item" href="/index.xml" title="">RSS</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">vue.js 与 vue.runtime.js</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://yangpeiya.xyz/" rel="author">Polly-foz</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-02-07 itemprop="datePublished">February 7, 2020</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="1-区别">1. 区别</h2>
+
+<p>方方老师的总结：
+||Vue 完整版|Vue 非完整版|评价|
+|&mdash;|&mdash;|&mdash;|&mdash;|
+|特点|有compiler|没有compiler|compiler占40%体积|
+|视图|写在HTML里，或者写在template选项|写在render函数里，用h来创建标签|h是尤雨溪写好传给render的|
+|cdn引入|vue.js|vue.runtime.js|文件名不同，生成环境后缀名为.min.js|
+|webpack引入|需要配置alias|默认使用此版|尤雨溪配置的|
+|@vue/cli引入|需要额外配置|默认使用此版|尤雨溪、蒋豪群配置的|</p>
+
+<p>最佳实践：</p>
+
+<p>使用vue.runtime.js + compiler，compiler会将template编译成render</p>
+
+<h2 id="2-template和render">2. template和render</h2>
+
+<h3 id="2-1-template使用">2.1. template使用</h3>
+
+<p>使用 vue.js 或者 vue.runtime.js + compiler 时，可以用template。</p>
+
+<p>public/index.html body部分</p>
+
+<pre><code class="language-html">&lt;body&gt;
+    &lt;noscript&gt;
+      &lt;strong&gt;We're sorry but &lt;%= htmlWebpackPlugin.options.title %&gt; doesn't work properly without JavaScript enabled. Please enable it to continue.&lt;/strong&gt;
+    &lt;/noscript&gt;
+    &lt;div id=&quot;demo-2version&quot;&gt;
+      &lt;div&gt;这是demo-2version内的html内容&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- built files will be auto injected --&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p>scr/main.js</p>
+
+<pre><code class="language-javascript">import Vue from 'vue'
+
+Vue.config.productionTip = false
+
+new Vue({
+    el:'#demo-2version',
+    template:`
+        这是template给出的模版-div外
+        &lt;img src=&quot;&quot; alt=&quot;hi&quot;&gt;
+        &lt;a href=&quot;&quot;&gt;template-a&lt;/a&gt;
+        &lt;div&gt;这是template给出的模版-div1&lt;/div&gt;
+        &lt;div&gt;这是template给出的模版-div2&lt;/div&gt;
+        这是template给出的模版-div外
+    `
+})
+</code></pre>
+
+<p>运行后生成的html body部分</p>
+
+<pre><code class="language-html">&lt;body&gt;
+    &lt;noscript&gt;
+      &lt;strong&gt;We're sorry but vue-demo-1 doesn't work properly without JavaScript enabled. Please enable it to continue.&lt;/strong&gt;
+    &lt;/noscript&gt;
+    &lt;img src=&quot;&quot; alt=&quot;hi&quot;&gt;
+    &lt;!-- built files will be auto injected --&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;/js/chunk-vendors.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/app.js&quot;&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+</code></pre>
+
+<p>NOTE：</p>
+
+<p>template里的第一个标签替换了挂载元素</p>
+
+<h3 id="2-2-render使用">2.2. render使用</h3>
+
+<p>使用vue.runtime.js 或 vue.runtime.js + compiler，可以用render。</p>
+
+<p>public/index.html内容同2.1.</p>
+
+<p>新增文件src/Demo-2version.vue</p>
+
+<pre><code class="language-javascript">&lt;template&gt;
+    &lt;div&gt;
+        这是template给出的模版
+        &lt;img src=&quot;&quot; alt=&quot;hi&quot;&gt;
+        &lt;a href=&quot;&quot;&gt;template-a&lt;/a&gt;
+        &lt;div&gt;这是template给出的模版-div1&lt;/div&gt;
+        &lt;div&gt;这是template给出的模版-div2&lt;/div&gt;
+        这是template给出的模版
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    export default {
+        name: &quot;demo-2version&quot;
+    }
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+
+&lt;/style&gt;
+</code></pre>
+
+<p>scr/main.js</p>
+
+<pre><code class="language-javascript">import Vue from 'vue'
+import Demo2Vesion from './Demo-2version.vue'
+
+Vue.config.productionTip = false
+
+new Vue({
+    el:'#demo-2version',
+    render:h=&gt;h(Demo2Vesion)
+})
+</code></pre>
+
+<p>运行后生成的html body部分</p>
+
+<pre><code class="language-html">&lt;body&gt;
+    &lt;noscript&gt;
+      &lt;strong&gt;We're sorry but vue-demo-1 doesn't work properly without JavaScript enabled. Please enable it to continue.&lt;/strong&gt;
+    &lt;/noscript&gt;
+    &lt;div data-v-a93c0c32=&quot;&quot;&gt; 这是template给出的模版 &lt;img data-v-a93c0c32=&quot;&quot; src=&quot;&quot; alt=&quot;hi&quot;&gt;&lt;a data-v-a93c0c32=&quot;&quot; href=&quot;&quot;&gt;template-a&lt;/a&gt;&lt;div data-v-a93c0c32=&quot;&quot;&gt;这是template给出的模版-div1&lt;/div&gt;&lt;div data-v-a93c0c32=&quot;&quot;&gt;这是template给出的模版-div2&lt;/div&gt; 这是template给出的模版 &lt;/div&gt;
+    &lt;!-- built files will be auto injected --&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;/js/chunk-vendors.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/app.js&quot;&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+</code></pre>
+
+<p>NOTE：</p>
+
+<p>src/Demo-2version.vue中的内容必须有个根标签，用于替换挂载元素</p>
+
+<h3 id="优先级">优先级</h3>
+
+<p>优先级：render &gt; template &gt; 挂载元素的内容</p>
+
+<h2 id="3-用codesandbox-io写vue代码">3. 用codesandbox.io写Vue代码</h2>
+
+<p>codesandbox.io &ndash;&gt; 不用登录 &ndash;&gt; create sandbox &ndash;&gt; Vue</p>
+
+<p>一个Vue项目就创建好了！</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Polly-foz </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://yangpeiya.xyz/vue-two-version/>http://yangpeiya.xyz/vue-two-version/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://yangpeiya.xyz/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://yangpeiya.xyz/js-mvc/" class="prev" rel="prev" title="浅析MVC"><i class="iconfont icon-left"></i>&nbsp;浅析MVC</a>
+         
+        
+        <a href="http://yangpeiya.xyz/vue-data-responsive/" class="next" rel="next" title="Vue数据响应式">Vue数据响应式&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://yangpeiya.xyz/">Polly-foz</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

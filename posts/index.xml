@@ -6,10 +6,39 @@
     <description>Recent content in Posts on Polly-foz&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 06 Feb 2020 20:03:56 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 09 Feb 2020 22:33:51 +0800</lastBuildDate>
     
 	<atom:link href="http://yangpeiya.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue数据响应式</title>
+      <link>http://yangpeiya.xyz/vue-data-responsive/</link>
+      <pubDate>Sun, 09 Feb 2020 22:33:51 +0800</pubDate>
+      
+      <guid>http://yangpeiya.xyz/vue-data-responsive/</guid>
+      <description>1. 什么是Vue数据响应式 数据响应 —— 对数据的变化产生响应
+Vue数据响应式 —— 非侵入性的响应式系统
+2. 实现思想 2.1. 数据响应的实现思想 文档中写到：
+当你把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty 把这些属性全部转为 getter/setter。
+下面两端代码浅析了实现思想：
+const data = { a:0, b:&#39;x&#39; } data.a = 1 data.b = &#39;y&#39;  const data = { _a:0, _b:&#39;x&#39; } const myVue = function(data){ Object.getOwnPropertyNames(data).forEach((hiddenPropName,index)=&amp;gt;{ //要使用不同的属性名，否则造成定义get的同时调用get，进入死循环。 const publicPropName = hiddenPropName.substring(1) Object.defineProperty(data,publicPropName,{ set(newValue){ let oldValue = data[hiddenPropName] data[hiddenPropName] = newValue console.log(`监听到${publicPropName}属性的值发生变化：${oldValue}--&amp;gt;${newValue}`) }, get(){ return data[hiddenPropName] } }) }) } myVue(data) data.</description>
+    </item>
+    
+    <item>
+      <title>vue.js 与 vue.runtime.js</title>
+      <link>http://yangpeiya.xyz/vue-two-version/</link>
+      <pubDate>Fri, 07 Feb 2020 21:56:25 +0800</pubDate>
+      
+      <guid>http://yangpeiya.xyz/vue-two-version/</guid>
+      <description>1. 区别 方方老师的总结： ||Vue 完整版|Vue 非完整版|评价| |&amp;mdash;|&amp;mdash;|&amp;mdash;|&amp;mdash;| |特点|有compiler|没有compiler|compiler占40%体积| |视图|写在HTML里，或者写在template选项|写在render函数里，用h来创建标签|h是尤雨溪写好传给render的| |cdn引入|vue.js|vue.runtime.js|文件名不同，生成环境后缀名为.min.js| |webpack引入|需要配置alias|默认使用此版|尤雨溪配置的| |@vue/cli引入|需要额外配置|默认使用此版|尤雨溪、蒋豪群配置的|
+最佳实践：
+使用vue.runtime.js + compiler，compiler会将template编译成render
+2. template和render 2.1. template使用 使用 vue.js 或者 vue.runtime.js + compiler 时，可以用template。
+public/index.html body部分
+&amp;lt;body&amp;gt; &amp;lt;noscript&amp;gt; &amp;lt;strong&amp;gt;We&#39;re sorry but &amp;lt;%= htmlWebpackPlugin.options.title %&amp;gt; doesn&#39;t work properly without JavaScript enabled. Please enable it to continue.&amp;lt;/strong&amp;gt; &amp;lt;/noscript&amp;gt; &amp;lt;div id=&amp;quot;demo-2version&amp;quot;&amp;gt; &amp;lt;div&amp;gt;这是demo-2version内的html内容&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;!-- built files will be auto injected --&amp;gt; &amp;lt;/body&amp;gt;  scr/main.js
+import Vue from &#39;vue&#39; Vue.config.productionTip = false new Vue({ el:&#39;#demo-2version&#39;, template:` 这是template给出的模版-div外 &amp;lt;img src=&amp;quot;&amp;quot; alt=&amp;quot;hi&amp;quot;&amp;gt; &amp;lt;a href=&amp;quot;&amp;quot;&amp;gt;template-a&amp;lt;/a&amp;gt; &amp;lt;div&amp;gt;这是template给出的模版-div1&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;这是template给出的模版-div2&amp;lt;/div&amp;gt; 这是template给出的模版-div外 ` })  运行后生成的html body部分</description>
+    </item>
     
     <item>
       <title>浅析MVC</title>
