@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "vue.js 与 vue.runtime.js",
     "headline" : "vue.js 与 vue.runtime.js",
-    "description" : "1. 区别 方方老师的总结： ||Vue 完整版|Vue 非完整版|评价| |\x26mdash;|\x26mdash;|\x26mdash;|\x26mdash;| |特点|有compiler|没有compiler|compiler占40%体积| |视图|写在HTML里，或者写在template选项|写在render函数里，用h来创建标签|h是尤雨溪写好传给render的| |cdn引入|vue.js|vue.runtime.js|文件名不同，生成环境后缀名为.min.js| |webpack引入|需要配置alias|默认使用此版|尤雨溪配置的| |@vue\/cli引入|需要额外配置|默认使用此版|尤雨溪、蒋豪群配置的|\n最佳实践：\n使用vue.runtime.js \x2b compiler，compiler会将template编译成render\n2. template和render 2.1. template使用 使用 vue.js 或者 vue.runtime.js \x2b compiler 时，可以用template。\npublic\/index.html body部分\n\x26lt;body\x26gt; \x26lt;noscript\x26gt; \x26lt;strong\x26gt;We\x27re sorry but \x26lt;%= htmlWebpackPlugin.options.title %\x26gt; doesn\x27t work properly without JavaScript enabled. Please enable it to continue.\x26lt;\/strong\x26gt; \x26lt;\/noscript\x26gt; \x26lt;div id=\x26quot;demo-2version\x26quot;\x26gt; \x26lt;div\x26gt;这是demo-2version内的html内容\x26lt;\/div\x26gt; \x26lt;\/div\x26gt; \x26lt;!-- built files will be auto injected --\x26gt; \x26lt;\/body\x26gt;  scr\/main.js\nimport Vue from \x27vue\x27 Vue.config.productionTip = false new Vue({ el:\x27#demo-2version\x27, template:` 这是template给出的模版-div外 \x26lt;img src=\x26quot;\x26quot; alt=\x26quot;hi\x26quot;\x26gt; \x26lt;a href=\x26quot;\x26quot;\x26gt;template-a\x26lt;\/a\x26gt; \x26lt;div\x26gt;这是template给出的模版-div1\x26lt;\/div\x26gt; \x26lt;div\x26gt;这是template给出的模版-div2\x26lt;\/div\x26gt; 这是template给出的模版-div外 ` })  运行后生成的html body部分",
+    "description" : "1. 区别 方方老师的总结：\n    Vue 完整版 Vue 非完整版 评价     特点 有compiler 没有compiler compiler占40%体积   视图 写在HTML里，或者写在template选项 写在render函数里，用h来创建标签 h是尤雨溪写好传给render的   cdn引入 vue.js vue.runtime.js 文件名不同，生成环境后缀名为.min.js   webpack引入 需要配置alias 默认使用此版 尤雨溪配置的   @vue\/cli引入 需要额外配置 默认使用此版 尤雨溪、蒋豪群配置的    最佳实践：\n使用vue.runtime.js \x2b compiler，compiler会将template编译成render\n2. template和render 2.1. template使用 使用 vue.js 或者 vue.runtime.js \x2b compiler 时，可以用template。\npublic\/index.html body部分\n\x26lt;body\x26gt; \x26lt;noscript\x26gt; \x26lt;strong\x26gt;We\x27re sorry but \x26lt;%= htmlWebpackPlugin.",
     "inLanguage" : "zh-cn",
     "author" : "Polly-foz",
     "creator" : "Polly-foz",
@@ -57,7 +57,7 @@
     "datePublished": "2020-02-07 21:56:25 \x2b0800 CST",
     "dateModified" : "2020-02-07 21:56:25 \x2b0800 CST",
     "url" : "http:\/\/yangpeiya.xyz\/vue-two-version\/",
-    "wordCount" : "240",
+    "wordCount" : "256",
     "keywords" : [  "Polly-foz\x27s Blog"]
 }
 </script>
@@ -154,14 +154,55 @@
 
 <h2 id="1-区别">1. 区别</h2>
 
-<p>方方老师的总结：
-||Vue 完整版|Vue 非完整版|评价|
-|&mdash;|&mdash;|&mdash;|&mdash;|
-|特点|有compiler|没有compiler|compiler占40%体积|
-|视图|写在HTML里，或者写在template选项|写在render函数里，用h来创建标签|h是尤雨溪写好传给render的|
-|cdn引入|vue.js|vue.runtime.js|文件名不同，生成环境后缀名为.min.js|
-|webpack引入|需要配置alias|默认使用此版|尤雨溪配置的|
-|@vue/cli引入|需要额外配置|默认使用此版|尤雨溪、蒋豪群配置的|</p>
+<p>方方老师的总结：</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Vue 完整版</th>
+<th>Vue 非完整版</th>
+<th>评价</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>特点</td>
+<td>有compiler</td>
+<td>没有compiler</td>
+<td>compiler占40%体积</td>
+</tr>
+
+<tr>
+<td>视图</td>
+<td>写在HTML里，或者写在template选项</td>
+<td>写在render函数里，用h来创建标签</td>
+<td>h是尤雨溪写好传给render的</td>
+</tr>
+
+<tr>
+<td>cdn引入</td>
+<td>vue.js</td>
+<td>vue.runtime.js</td>
+<td>文件名不同，生成环境后缀名为.min.js</td>
+</tr>
+
+<tr>
+<td>webpack引入</td>
+<td>需要配置alias</td>
+<td>默认使用此版</td>
+<td>尤雨溪配置的</td>
+</tr>
+
+<tr>
+<td>@vue/cli引入</td>
+<td>需要额外配置</td>
+<td>默认使用此版</td>
+<td>尤雨溪、蒋豪群配置的</td>
+</tr>
+</tbody>
+</table>
 
 <p>最佳实践：</p>
 
