@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "Vue数据响应式",
     "headline" : "Vue数据响应式",
-    "description" : "1. 什么是Vue数据响应式 数据响应 —— 对数据的变化产生响应\nVue数据响应式 —— 非侵入性的响应式系统\n2. 实现思想 2.1. 数据响应的实现思想 文档中写到：\n当你把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty 把这些属性全部转为 getter\/setter。\n下面两端代码浅析了实现思想：\nconst data = { a:0, b:\x27x\x27 } data.a = 1 data.b = \x27y\x27  const data = { _a:0, _b:\x27x\x27 } const myVue = function(data){ Object.getOwnPropertyNames(data).forEach((hiddenPropName,index)=\x26gt;{ \/\/要使用不同的属性名，否则造成定义get的同时调用get，进入死循环。 const publicPropName = hiddenPropName.substring(1) Object.defineProperty(data,publicPropName,{ set(newValue){ let oldValue = data[hiddenPropName] data[hiddenPropName] = newValue console.log(`监听到${publicPropName}属性的值发生变化：${oldValue}--\x26gt;${newValue}`) }, get(){ return data[hiddenPropName] } }) }) } myVue(data) data.",
+    "description" : "1. 什么是Vue数据响应式 数据响应 —— 对数据的变化产生响应\nVue数据响应式 —— 非侵入性的响应式系统\n2. 数据响应的实现思想 文档中写到：\n当你把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty 把这些属性全部转为 getter\/setter。\n下面两端代码浅析了实现思想：\nconst data = { a:0, b:\x27x\x27 } data.a = 1 data.b = \x27y\x27  const data = { _a:0, _b:\x27x\x27 } const myVue = function(data){ Object.getOwnPropertyNames(data).forEach((hiddenPropName,index)=\x26gt;{ \/\/要使用不同的属性名，否则造成定义get的同时调用get，进入死循环。 const publicPropName = hiddenPropName.substring(1) Object.defineProperty(data,publicPropName,{ set(newValue){ let oldValue = data[hiddenPropName] data[hiddenPropName] = newValue console.log(`监听到${publicPropName}属性的值发生变化：${oldValue}--\x26gt;${newValue}`) }, get(){ return data[hiddenPropName] } }) }) } myVue(data) data.",
     "inLanguage" : "zh-cn",
     "author" : "Polly-foz",
     "creator" : "Polly-foz",
@@ -57,7 +57,7 @@
     "datePublished": "2020-02-09 22:33:51 \x2b0800 CST",
     "dateModified" : "2020-02-09 22:33:51 \x2b0800 CST",
     "url" : "http:\/\/yangpeiya.xyz\/vue-data-responsive\/",
-    "wordCount" : "106",
+    "wordCount" : "249",
     "keywords" : [  "Polly-foz\x27s Blog"]
 }
 </script>
@@ -158,9 +158,7 @@
 
 <p>Vue数据响应式 —— 非侵入性的响应式系统</p>
 
-<h2 id="2-实现思想">2. 实现思想</h2>
-
-<h3 id="2-1-数据响应的实现思想">2.1. 数据响应的实现思想</h3>
+<h2 id="2-数据响应的实现思想">2. 数据响应的实现思想</h2>
 
 <p>文档中写到：</p>
 
@@ -211,23 +209,110 @@ data.b = 'y' // 控制台输出‘监听到b属性的值发生变化：x--&gt;y�
 <li>第二段代码data对象的属性值发生变化时，setter可以监听到变化，并作出响应。</li>
 </ul>
 
-<h4 id="注意事项-vue-无法检测到对象属性的添加或删除">注意事项——Vue 无法检测到对象属性的添加或删除</h4>
+<h3 id="注意事项-vue-无法检测到对象属性的添加或删除">注意事项——Vue 无法检测到对象属性的添加或删除</h3>
+
+<h4 id="问题描述">问题描述</h4>
 
 <p><code>由于 Vue 会在初始化实例时对属性执行 getter/setter 转化，所以属性必须在 data 对象上存在才能让 Vue 将它转换为响应式的。</code></p>
 
-<h3 id="2-2-非侵入性的实现思想">2.2. 非侵入性的实现思想</h3>
+<pre><code class="language-javascript">var vm = new Vue({
+  data:{
+    a:1
+  }
+})
+
+// `vm.a` 是响应式的
+
+vm.b = 2
+// `vm.b` 是非响应式的
+</code></pre>
+
+<h4 id="解决方案">解决方案</h4>
+
+<h5 id="1-把将来要用到的属性都提前声明好">1) 把将来要用到的属性都提前声明好</h5>
+
+<pre><code class="language-javascript">var vm = new Vue({
+  el:'#app',
+  data:{
+    a:1,
+    b:undefined
+  }
+})
+// `vm.a` 是响应式的
+vm.b = 2
+// `vm.b` 是响应式的
+</code></pre>
+
+<h5 id="2-用vue-set-or-this-set-or-object-assign">2) 用Vue.set or this.$set or Object.assign</h5>
+
+<pre><code class="language-javascript">var vm = new Vue({
+  el:'#app',
+  data:{
+    obj:{
+        a:0
+    }
+  },
+  template: `
+    &lt;div&gt;
+      {{obj.a}}
+      {{obj.b}}
+      &lt;button @click=&quot;setB&quot;&gt;set b&lt;/button&gt;
+    &lt;/div&gt;
+  `,
+  methods: {
+    //2. 用this.$set
+    // setB() {
+    //     this.$set(this.obj, &quot;b&quot;, 2);
+    //     this.obj.b = 4;
+    // }
+    //点击按钮后会显示4，vm.obj.b是响应式的
+
+    //3. 用Object.assign创建新对象替换原对象
+    // setB(){
+    //     this.obj = Object.assign({}, this.obj, { a: 1, b: 2 });
+    //     this.obj.b = 4;
+    // }
+    //点击按钮后会显示4，vm.obj.b是响应式的
+  }
+
+})
+// `vm.obj.a` 是响应式的
+
+//1. 用Vue.set
+// Vue.set(vm.obj, &quot;b&quot;, 2);
+// vm.obj.b = 3
+// `vm.obj.b` 是响应式的
+
+</code></pre>
+
+<h2 id="3-对数组的增删的监听-包裹变异方法">3. 对数组的增删的监听——包裹变异方法</h2>
+
+<p>data中有数组时，如果新增数组项，类似于对象，新增的项是无法被监听的。因此，Vue将会改变原始数组的方法（i.e. 变异方法）进行了包裹，使得新增项可以被监听，不需要程序员手动添加监听。这些被包裹的方法包括：</p>
+
+<ul>
+<li>push()</li>
+<li>pop()</li>
+<li>shift()</li>
+<li>unshift()</li>
+<li>splice()</li>
+<li>sort()</li>
+<li>reverse()</li>
+</ul>
+
+<h3 id="注意事项">注意事项</h3>
+
+<p>由于 JavaScript 的限制，Vue 不能检测以下数组的变动：</p>
 
 <ol>
-<li>数据响应——对数据的变化产生响应</li>
-<li>具体实现
+<li>当你利用索引直接设置一个数组项时，例如：vm.items[indexOfItem] = newValue</li>
+<li>当你修改数组的长度时，例如：vm.items.length = newLength</li>
+</ol>
+
+<h4 id="解决方案-1">解决方案</h4>
 
 <ol>
-<li>监听</li>
-<li>代理</li>
-</ol></li>
-<li>对数组的增删的监听——变异方法</li>
-<li>/合并到2.1/vue的data的bug1——监听不存在的属性（vue只检查1级）</li>
-<li>总结里的测试题，看知乎解答</li>
+<li>用Vue.set 或 this.$set</li>
+<li>用被包裹的变异方法splice</li>
 </ol>
 
     </div>

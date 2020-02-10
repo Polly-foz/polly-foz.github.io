@@ -19,7 +19,7 @@
       <guid>http://yangpeiya.xyz/vue-data-responsive/</guid>
       <description>1. 什么是Vue数据响应式 数据响应 —— 对数据的变化产生响应
 Vue数据响应式 —— 非侵入性的响应式系统
-2. 实现思想 2.1. 数据响应的实现思想 文档中写到：
+2. 数据响应的实现思想 文档中写到：
 当你把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty 把这些属性全部转为 getter/setter。
 下面两端代码浅析了实现思想：
 const data = { a:0, b:&#39;x&#39; } data.a = 1 data.b = &#39;y&#39;  const data = { _a:0, _b:&#39;x&#39; } const myVue = function(data){ Object.getOwnPropertyNames(data).forEach((hiddenPropName,index)=&amp;gt;{ //要使用不同的属性名，否则造成定义get的同时调用get，进入死循环。 const publicPropName = hiddenPropName.substring(1) Object.defineProperty(data,publicPropName,{ set(newValue){ let oldValue = data[hiddenPropName] data[hiddenPropName] = newValue console.log(`监听到${publicPropName}属性的值发生变化：${oldValue}--&amp;gt;${newValue}`) }, get(){ return data[hiddenPropName] } }) }) } myVue(data) data.</description>
