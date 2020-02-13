@@ -6,10 +6,23 @@
     <description>Recent content in Posts on Polly-foz&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 09 Feb 2020 22:33:51 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 13 Feb 2020 01:39:53 +0800</lastBuildDate>
     
 	<atom:link href="http://yangpeiya.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue .sync修饰符</title>
+      <link>http://yangpeiya.xyz/vue-sync/</link>
+      <pubDate>Thu, 13 Feb 2020 01:39:53 +0800</pubDate>
+      
+      <guid>http://yangpeiya.xyz/vue-sync/</guid>
+      <description>.sync修饰符是vue2.3.0简化的一个语法糖。
+用法举例：
+ 点击hide隐藏方框及其内容 点击toggle切换方框及其内容显示or隐藏  main.js
+import Vue from &amp;quot;vue&amp;quot;; import Son from &amp;quot;./components/Son.vue&amp;quot;; Vue.config.productionTip = false; new Vue({ data: { visible: true }, components: { Son }, template: ` &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt; &amp;lt;Son :visible=&#39;visible&#39; @update:visible=&amp;quot;value =&amp;gt; visible = value&amp;quot;&amp;gt;&amp;lt;/Son&amp;gt; &amp;lt;button @click=&amp;quot;visible=!visible&amp;quot;&amp;gt;toggle&amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt; ` }).$mount(&amp;quot;#app&amp;quot;);  Son.vue
+&amp;lt;template&amp;gt; &amp;lt;div id=&amp;quot;son&amp;quot; v-if=&amp;quot;visible&amp;quot;&amp;gt; &amp;lt;p&amp;gt;son~&amp;lt;/p&amp;gt; &amp;lt;button @click=&amp;quot;$emit(&#39;update:visible&#39;,false)&amp;quot;&amp;gt;hide&amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script&amp;gt; export default { name: &amp;quot;Son&amp;quot;, props: [&amp;quot;visible&amp;quot;], watch: { hide() { console.log(&amp;quot;hide change &amp;quot; + this.</description>
+    </item>
     
     <item>
       <title>Vue数据响应式</title>
