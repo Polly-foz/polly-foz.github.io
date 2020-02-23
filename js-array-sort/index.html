@@ -9,9 +9,9 @@
   <meta name="description" content="Polly-foz的个人网站">
   <meta name="keywords" content="Polly-foz,front-end">
   
-  <link rel="prev" href="http://yangpeiya.xyz/vue-data-responsive/" />
-  <link rel="next" href="http://yangpeiya.xyz/js-array-sort/" />
-  <link rel="canonical" href="http://yangpeiya.xyz/vue-sync/" />
+  <link rel="prev" href="http://yangpeiya.xyz/vue-sync/" />
+  
+  <link rel="canonical" href="http://yangpeiya.xyz/js-array-sort/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Vue .sync修饰符 | Polly-foz&#39;s Blog
+           Js Array Sort 诡异 | Polly-foz&#39;s Blog
        
   </title>
-  <meta name="title" content="Vue .sync修饰符 | Polly-foz&#39;s Blog">
+  <meta name="title" content="Js Array Sort 诡异 | Polly-foz&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "http:\/\/yangpeiya.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "Vue .sync修饰符",
-    "headline" : "Vue .sync修饰符",
-    "description" : ".sync修饰符是vue2.3.0简化的一个语法糖。\n用法举例：\n 点击hide隐藏方框及其内容 点击toggle切换方框及其内容显示or隐藏  main.js\nimport Vue from \x26quot;vue\x26quot;; import Son from \x26quot;.\/components\/Son.vue\x26quot;; Vue.config.productionTip = false; new Vue({ data: { visible: true }, components: { Son }, template: ` \x26lt;div id=\x26quot;app\x26quot;\x26gt; \x26lt;Son :visible=\x27visible\x27 @update:visible=\x26quot;value =\x26gt; visible = value\x26quot;\x26gt;\x26lt;\/Son\x26gt; \x26lt;button @click=\x26quot;visible=!visible\x26quot;\x26gt;toggle\x26lt;\/button\x26gt; \x26lt;\/div\x26gt; ` }).$mount(\x26quot;#app\x26quot;);  Son.vue\n\x26lt;template\x26gt; \x26lt;div id=\x26quot;son\x26quot; v-if=\x26quot;visible\x26quot;\x26gt; \x26lt;p\x26gt;son~\x26lt;\/p\x26gt; \x26lt;button @click=\x26quot;$emit(\x27update:visible\x27,false)\x26quot;\x26gt;hide\x26lt;\/button\x26gt; \x26lt;\/div\x26gt; \x26lt;\/template\x26gt; \x26lt;script\x26gt; export default { name: \x26quot;Son\x26quot;, props: [\x26quot;visible\x26quot;], watch: { hide() { console.log(\x26quot;hide change \x26quot; \x2b this.",
+    "name" : "Js Array Sort 诡异",
+    "headline" : "Js Array Sort 诡异",
+    "description" : "console.log([5,25,4,39,57,49,93,79,7,8,49,89,2,7,73,88,45,15,34,92,84,38,85,34,16,6,99,0,2,36,68,52,73,50,77,44,61,48].sort())  上面代码输出： [ 0, 15, 16, 2, 2, 25, 34, 34, 36, 38, 39, 4, 44, 45, 48, 49, 49, 5, 50, 52, 57, 6, 61, 68, 7, 7, 73, 73, 77, 79, 8, 84, 85, 88, 89, 92, 93, 99 ]\n显然 结果乱序了。。。\n解决方案\nconsole.log([5,25,4,39,57,49,93,79,7,8,49,89,2,7,73,88,45,15,34,92,84,38,85,34,16,6,99,0,2,36,68,52,73,50,77,44,61,48] .sort(function(n,m){ return n - m; }))  输出：\n[ 0, 2, 2, 4, 5, 6, 7, 7, 8, 15, 16, 25, 34, 34, 36, 38, 39, 44, 45, 48, 49, 49, 50, 52, 57, 61, 68, 73, 73, 77, 79, 84, 85, 88, 89, 92, 93, 99 ]",
     "inLanguage" : "zh-cn",
     "author" : "Polly-foz",
     "creator" : "Polly-foz",
@@ -54,10 +54,10 @@
     "accountablePerson" : "Polly-foz",
     "copyrightHolder" : "Polly-foz",
     "copyrightYear" : "2020",
-    "datePublished": "2020-02-13 01:39:53 \x2b0800 CST",
-    "dateModified" : "2020-02-13 01:39:53 \x2b0800 CST",
-    "url" : "http:\/\/yangpeiya.xyz\/vue-sync\/",
-    "wordCount" : "101",
+    "datePublished": "2020-02-16 01:22:32 \x2b0800 CST",
+    "dateModified" : "2020-02-16 01:22:32 \x2b0800 CST",
+    "url" : "http:\/\/yangpeiya.xyz\/js-array-sort\/",
+    "wordCount" : "93",
     "keywords" : [  "Polly-foz\x27s Blog"]
 }
 </script>
@@ -124,25 +124,19 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Vue .sync修饰符</h1>
+        <h1 class="post-title" itemprop="name headline">Js Array Sort 诡异</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="http://yangpeiya.xyz/" rel="author">Polly-foz</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2020-02-13 itemprop="datePublished">February 13, 2020</time>
+                on <time datetime=2020-02-16 itemprop="datePublished">February 16, 2020</time>
                 </span>
                 in
-                <i class="iconfont icon-folder"></i>
-                <span class="post-category">
-                        <a href="http://yangpeiya.xyz/categories/vue/"> Vue </a>
-                        
-                </span>
+                
         </div>
     </header>
     <div class="post-content">
         
 
-        
-            
         
 
         
@@ -156,78 +150,35 @@
           
           
 
-          <p>.sync修饰符是vue2.3.0简化的一个语法糖。</p>
-
-<p>用法举例：</p>
-
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/vue-sync/1.png" alt="效果" class="lazyload"><figcaption class="image-caption">效果</figcaption></figure></p>
-
-<ul>
-<li>点击hide隐藏方框及其内容</li>
-<li>点击toggle切换方框及其内容显示or隐藏</li>
-</ul>
-
-<p>main.js</p>
-
-<pre><code class="language-javascript">import Vue from &quot;vue&quot;;
-import Son from &quot;./components/Son.vue&quot;;
-
-Vue.config.productionTip = false;
-
-new Vue({
-  data: {
-    visible: true
-  },
-  components: { Son },
-  template: `
-  &lt;div id=&quot;app&quot;&gt;
-    &lt;Son :visible='visible' @update:visible=&quot;value =&gt; visible = value&quot;&gt;&lt;/Son&gt;
-    &lt;button @click=&quot;visible=!visible&quot;&gt;toggle&lt;/button&gt;
-  &lt;/div&gt;
-  `
-}).$mount(&quot;#app&quot;);
-
+          <pre><code class="language-javascript">console.log([5,25,4,39,57,49,93,79,7,8,49,89,2,7,73,88,45,15,34,92,84,38,85,34,16,6,99,0,2,36,68,52,73,50,77,44,61,48].sort())
 </code></pre>
 
-<p>Son.vue</p>
+<p>上面代码输出：
+[
+   0, 15, 16,  2,  2, 25, 34, 34, 36, 38,
+  39,  4, 44, 45, 48, 49, 49,  5, 50, 52,
+  57,  6, 61, 68,  7,  7, 73, 73, 77, 79,
+   8, 84, 85, 88, 89, 92, 93, 99
+]</p>
 
-<pre><code class="language-xml">&lt;template&gt;
-  &lt;div id=&quot;son&quot; v-if=&quot;visible&quot;&gt;
-    &lt;p&gt;son~&lt;/p&gt;
-    &lt;button @click=&quot;$emit('update:visible',false)&quot;&gt;hide&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
+<p>显然 结果乱序了。。。</p>
 
-&lt;script&gt;
-export default {
-  name: &quot;Son&quot;,
-  props: [&quot;visible&quot;],
-  watch: {
-    hide() {
-      console.log(&quot;hide change &quot; + this.visible);
-    }
-  }
-};
-&lt;/script&gt;
-&lt;style scoped&gt;
-#son {
-  width: 10rem;
-  height: 10rem;
-  border: 1px solid black;
-  padding: 1rem;
-}
-&lt;/style&gt;
+<p>解决方案</p>
+
+<pre><code class="language-javascript">console.log([5,25,4,39,57,49,93,79,7,8,49,89,2,7,73,88,45,15,34,92,84,38,85,34,16,6,99,0,2,36,68,52,73,50,77,44,61,48]
+    .sort(function(n,m){
+        return n - m;
+    }))
 </code></pre>
 
-<p>使用.sync修饰符，则main.js中</p>
+<p>输出：</p>
 
-<pre><code class="language-xml">&lt;Son :visible='visible' @update:visible=&quot;value =&gt; visible = value&quot;&gt;&lt;/Son&gt;
-</code></pre>
-
-<p>可简化为</p>
-
-<pre><code class="language-xml">&lt;Son :visible.sync='visible'&gt;&lt;/Son&gt;
-</code></pre>
+<p>[
+   0,  2,  2,  4,  5,  6,  7,  7,  8, 15,
+  16, 25, 34, 34, 36, 38, 39, 44, 45, 48,
+  49, 49, 50, 52, 57, 61, 68, 73, 73, 77,
+  79, 84, 85, 88, 89, 92, 93, 99
+]</p>
 
     </div>
 
@@ -242,7 +193,7 @@ export default {
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=http://yangpeiya.xyz/vue-sync/>http://yangpeiya.xyz/vue-sync/</span>
+                    <a href=http://yangpeiya.xyz/js-array-sort/>http://yangpeiya.xyz/js-array-sort/</span>
             </p>
             
             
@@ -259,10 +210,8 @@ export default {
 
     <div class="post-nav">
         
-        <a href="http://yangpeiya.xyz/vue-data-responsive/" class="prev" rel="prev" title="Vue数据响应式"><i class="iconfont icon-left"></i>&nbsp;Vue数据响应式</a>
+        <a href="http://yangpeiya.xyz/vue-sync/" class="prev" rel="prev" title="Vue .sync修饰符"><i class="iconfont icon-left"></i>&nbsp;Vue .sync修饰符</a>
          
-        
-        <a href="http://yangpeiya.xyz/js-array-sort/" class="next" rel="next" title="Js Array Sort 诡异">Js Array Sort 诡异&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
@@ -304,9 +253,8 @@ export default {
 
 
     
-     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
-      
-     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
     
   
 
