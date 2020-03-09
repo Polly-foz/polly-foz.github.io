@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Polly-foz">
+  <meta name="description" content="Polly-foz的个人网站">
+  <meta name="keywords" content="Polly-foz,front-end">
+  
+  <link rel="prev" href="http://yangpeiya.xyz/webpack/" />
+  <link rel="next" href="http://yangpeiya.xyz/vue-two-version/" />
+  <link rel="canonical" href="http://yangpeiya.xyz/webpack2/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Webpack学习笔记2 | Polly-foz&#39;s Blog
+       
+  </title>
+  <meta name="title" content="Webpack学习笔记2 | Polly-foz&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/yangpeiya.xyz\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Webpack学习笔记2",
+    "headline" : "Webpack学习笔记2",
+    "description" : "1. 用webpack转译JS mkdir webpack-demo-1 cd webpack-demo-1 npm init -y yarn add webpack webpack-cli --dev  构建目录结构 webpack-demo |- package.json |- yarn.lock |- node_modules \x2b |- \/src \x2b |- index.js \x2b |- x.js  index.js\nimport x from \x27.\/x.js\x27 console.log(\x27xxx\x27)  x.js\nexport default \x27xxx\x27  如何调用本地webpack? .\/node_modules\/.bin\/webpack\nor\nnpx webpack\nNOTE:\nnpx免去了我们自己寻找的过程，但是不稳定。\n运行上述代码后，目录结构变为：\nwebpack-demo |- package.json |- yarn.lock |- node_modules |- \/src |- index.js |- x.js \x2b |- \/dist \x2b |- main.",
+    "inLanguage" : "zh-cn",
+    "author" : "Polly-foz",
+    "creator" : "Polly-foz",
+    "publisher": "Polly-foz",
+    "accountablePerson" : "Polly-foz",
+    "copyrightHolder" : "Polly-foz",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-02-07 18:20:14 \x2b0800 HKT",
+    "dateModified" : "2020-02-07 18:20:14 \x2b0800 HKT",
+    "url" : "http:\/\/yangpeiya.xyz\/webpack2\/",
+    "wordCount" : "160",
+    "keywords" : [  "Polly-foz\x27s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Webpack学习笔记2</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://yangpeiya.xyz/" rel="author">Polly-foz</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-02-07 itemprop="datePublished">February 7, 2020</time>
+                updateAt <time datetime=Feb&#32;7,&#32;2020 itemprop="datePublished">Feb 7, 2020</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="1-用webpack转译js">1. 用webpack转译JS</h2>
+
+<pre><code class="language-bash">mkdir webpack-demo-1
+cd webpack-demo-1
+npm init -y
+yarn add webpack webpack-cli --dev
+</code></pre>
+
+<h3 id="构建目录结构">构建目录结构</h3>
+
+<pre><code class="language-bash"> webpack-demo
+  |- package.json
+  |- yarn.lock
+  |- node_modules
++ |- /src
++   |- index.js
++   |- x.js
+</code></pre>
+
+<p>index.js</p>
+
+<pre><code class="language-javascript">import x from './x.js'
+console.log('xxx')
+</code></pre>
+
+<p>x.js</p>
+
+<pre><code class="language-javascript">export default 'xxx'
+</code></pre>
+
+<h3 id="如何调用本地webpack">如何调用本地webpack?</h3>
+
+<p><code>./node_modules/.bin/webpack</code></p>
+
+<p>or</p>
+
+<p><code>npx webpack</code></p>
+
+<p>NOTE:</p>
+
+<p>npx免去了我们自己寻找的过程，但是不稳定。</p>
+
+<p>运行上述代码后，目录结构变为：</p>
+
+<pre><code class="language-text"> webpack-demo
+  |- package.json
+  |- yarn.lock
+  |- node_modules
+  |- /src
+    |- index.js
+    |- x.js
++ |- /dist
++   |- main.js
+</code></pre>
+
+<p>可以看见main.js尾部代码：</p>
+
+<pre><code class="language-javascript">console.log(&quot;xxx&quot;)
+</code></pre>
+
+<p>webpack将js转换成更低版本的语法</p>
+
+<h2 id="2-初始化webpack-config-js">2. 初始化webpack.config.js</h2>
+
+<p>上面代码运行webpack后给出警告，警告内容：</p>
+
+<pre><code class="language-text">WARNING in configuration
+The 'mode' option has not been set, webpack will fallback to 'production' for this value. Set 'mode' option to 'development' or 'production' to enable defaults for each environment.
+You can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/configuration/mode/
+</code></pre>
+
+<p>新建配置文件：</p>
+
+<pre><code class="language-text"> webpack-demo
+  |- package.json
+  |- yarn.lock
+  |- node_modules
+  |- /src
+    |- index.js
+    |- x.js
+  |- /dist
+    |- main.js
++ |- webpack.config.js
+</code></pre>
+
+<p>webpack.config.js
+(CRM大法，官网找config)</p>
+
+<pre><code class="language-javascript">module.exports = {
+    mode: 'development'
+};
+</code></pre>
+
+<p>运行webpack后再看main.js，变化好大！</p>
+
+<p>mode取值：production(default) | development</p>
+
+<table>
+<thead>
+<tr>
+<th>production</th>
+<th>development</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>缩小代码体积，优化用户体验</td>
+<td>开发者用，给出可看懂的代码各式</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="3-webpack-配置entry和output">3. webpack 配置entry和output</h2>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Polly-foz </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://yangpeiya.xyz/webpack2/>http://yangpeiya.xyz/webpack2/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://yangpeiya.xyz/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://yangpeiya.xyz/webpack/" class="prev" rel="prev" title="Webpack学习笔记1"><i class="iconfont icon-left"></i>&nbsp;Webpack学习笔记1</a>
+         
+        
+        <a href="http://yangpeiya.xyz/vue-two-version/" class="next" rel="next" title="vue.js 与 vue.runtime.js">vue.js 与 vue.runtime.js&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://yangpeiya.xyz/">Polly-foz</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

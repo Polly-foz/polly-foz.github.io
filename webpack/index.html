@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Polly-foz">
+  <meta name="description" content="Polly-foz的个人网站">
+  <meta name="keywords" content="Polly-foz,front-end">
+  
+  <link rel="prev" href="http://yangpeiya.xyz/js-mvc/" />
+  <link rel="next" href="http://yangpeiya.xyz/webpack2/" />
+  <link rel="canonical" href="http://yangpeiya.xyz/webpack/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Webpack学习笔记1 | Polly-foz&#39;s Blog
+       
+  </title>
+  <meta name="title" content="Webpack学习笔记1 | Polly-foz&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/yangpeiya.xyz\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Webpack学习笔记1",
+    "headline" : "Webpack学习笔记1",
+    "description" : "1. 概念  JavaScript 应用程序的静态模块打包器(module bundler) 递归构建一个依赖关系图(dependency graph)  包含应用程序的每个模块  将所有这些模块打包成一个或多个bundle  1.1. JavaScript模块 和 webpack模块  模块：离散功能块(discrete chunks of functionality) webpack是支持JavaScript模块化的工具的一种 webpack将模块的概念应用于项目中的任何文件  1.1.1. webpack模块 webpack模块表达它们的依赖关系的例子：\n ES2015 import 语句 CommonJS require() 语句 AMD define 和 require 语句 css\/sass\/less 文件中的 @import 语句。 样式(url(\x26hellip;))或 HTML 文件()中的图片链接(image url)  即webpack可以解析上面形式的依赖关系。\nNOTE：webpack 1 需要特定的 loader 来转换 ES 2015 import，然而通过 webpack 2 可以开箱即用。\n1.1.2. 支持的模块类型  webpack可以支持各种语言和预处理器来编写模块，这是通过loader实现的。 loader 描述了 webpack 如何处理 非 JavaScript(non-JavaScript) _模块_，并且在 bundle 中引入这些依赖。 webpack 社区已经为各种流行语言和语言处理器构建了 loader，包括：  CoffeeScript TypeScript ESNext (Babel) Sass Less Stylus   webpack允许任何技术栈使用。",
+    "inLanguage" : "zh-cn",
+    "author" : "Polly-foz",
+    "creator" : "Polly-foz",
+    "publisher": "Polly-foz",
+    "accountablePerson" : "Polly-foz",
+    "copyrightHolder" : "Polly-foz",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-02-07 15:28:34 \x2b0800 HKT",
+    "dateModified" : "2020-02-07 15:28:34 \x2b0800 HKT",
+    "url" : "http:\/\/yangpeiya.xyz\/webpack\/",
+    "wordCount" : "267",
+    "keywords" : [  "Polly-foz\x27s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Webpack学习笔记1</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://yangpeiya.xyz/" rel="author">Polly-foz</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-02-07 itemprop="datePublished">February 7, 2020</time>
+                updateAt <time datetime=Feb&#32;7,&#32;2020 itemprop="datePublished">Feb 7, 2020</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="1-概念">1. 概念</h2>
+
+<ul>
+<li>JavaScript 应用程序的静态模块打包器(module bundler)</li>
+<li>递归构建一个依赖关系图(dependency graph)
+
+<ul>
+<li>包含应用程序的每个模块</li>
+</ul></li>
+<li>将所有这些模块打包成一个或多个bundle</li>
+</ul>
+
+<h3 id="1-1-javascript模块-和-webpack模块">1.1. JavaScript模块 和 webpack模块</h3>
+
+<ul>
+<li>模块：离散功能块(discrete chunks of functionality)</li>
+<li>webpack是支持JavaScript模块化的工具的一种</li>
+<li>webpack将模块的概念应用于项目中的任何文件</li>
+</ul>
+
+<h4 id="1-1-1-webpack模块">1.1.1. webpack模块</h4>
+
+<p>webpack模块表达它们的依赖关系的例子：</p>
+
+<ul>
+<li>ES2015 import 语句</li>
+<li>CommonJS require() 语句</li>
+<li>AMD define 和 require 语句</li>
+<li>css/sass/less 文件中的 @import 语句。</li>
+<li>样式(url(&hellip;))或 HTML 文件(<img src=...>)中的图片链接(image url)</li>
+</ul>
+
+<p>即webpack可以解析上面形式的依赖关系。</p>
+
+<p>NOTE：webpack 1 需要特定的 loader 来转换 ES 2015 import，然而通过 webpack 2 可以开箱即用。</p>
+
+<h4 id="1-1-2-支持的模块类型">1.1.2. 支持的模块类型</h4>
+
+<ul>
+<li>webpack可以支持各种语言和预处理器来编写模块，这是通过<code>loader</code>实现的。</li>
+<li>loader 描述了 webpack 如何处理 非 JavaScript(non-JavaScript) _模块_，并且在 bundle 中引入这些依赖。</li>
+<li>webpack 社区已经为各种流行语言和语言处理器构建了 loader，包括：
+
+<ul>
+<li>CoffeeScript</li>
+<li>TypeScript</li>
+<li>ESNext (Babel)</li>
+<li>Sass</li>
+<li>Less</li>
+<li>Stylus</li>
+</ul></li>
+</ul>
+
+<p>webpack允许任何技术栈使用。</p>
+
+<h2 id="2-入口-entry">2. 入口(entry)</h2>
+
+<p>入口起点 &ndash; 内部依赖图的开始。</p>
+
+<ul>
+<li>webpack会找出入口起点（直接和间接）依赖的模块和库。</li>
+
+<li><p>每个依赖项随即被处理，最后输出到称之为 <strong>bundles</strong> 的文件。</p></li>
+
+<li><p>通过webpack配置中的entry属性指定</p></li>
+
+<li><p>入口起点可以有一个或多个</p></li>
+
+<li><p>默认值为./src</p></li>
+</ul>
+
+<p>举例：</p>
+
+<p>webpack.config.js</p>
+
+<pre><code class="language-javascript">module.exports = {
+    entry: './path/to/my/entry/file.js'
+}
+</code></pre>
+
+<h2 id="3-出口-output">3. 出口(output)</h2>
+
+<p>output属性 &ndash; 告诉webpack在哪里生成(emit)*bundles*，以及如何命名这些文件</p>
+
+<ul>
+<li>基本上，整个应用程序结构，都会被编译到你指定的输出路径的文件夹中。</li>
+<li>默认值为<code>./dist</code></li>
+<li>通过配置中的output字段配置处理过程</li>
+</ul>
+
+<p>例子：</p>
+
+<p>webpack.config.js</p>
+
+<pre><code class="language-javascript">const path = require('path');
+
+module.exports = {
+  entry: './path/to/my/entry/file.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'my-first-webpack.bundle.js'
+  }
+};
+</code></pre>
+
+<h2 id="4-loader">4. loader</h2>
+
+<p>loader &ndash; webpack 能够去处理那些非 JavaScript 文件（webpack 自身只理解 JavaScript）。</p>
+
+<ul>
+<li>可以将<strong>所有类型</strong>的文件转换为 webpack 能够处理的有效模块，然后你就可以利用 webpack 的打包能力，对它们进行处理。</li>
+</ul>
+
+<p>NOTE:</p>
+
+<p>loader 能够 import 导入任何类型的模块（例如 .css 文件），这是 webpack 特有的功能，其他打包程序或任务执行器的可能并不支持。我们认为这种语言扩展是有很必要的，因为这可以使开发人员创建出更准确的依赖关系图。</p>
+
+<ul>
+<li>在更高层面，在 webpack 的配置中 loader 有两个目标：
+
+<ol>
+<li>test 属性，用于标识出应该被对应的 loader 进行转换的某个或某些文件。</li>
+<li>use 属性，表示进行转换时，应该使用哪个 loader。</li>
+</ol></li>
+</ul>
+
+<p>例子：</p>
+
+<p>webpack.config.js</p>
+
+<pre><code class="language-javascript">const path = require('path');
+
+const config = {
+  output: {
+    filename: 'my-first-webpack.bundle.js'
+  },
+  module: {
+    rules: [
+      { test: /\.txt$/, use: 'raw-loader' }
+    ]
+  }
+};
+
+module.exports = config;
+</code></pre>
+
+<p><code>“嘿，webpack 编译器，当你碰到「在 require()/import 语句中被解析为 '.txt' 的路径」时，在你对它打包之前，先使用 raw-loader 转换一下。”</code></p>
+
+<h2 id="5-插件-plugins">5. 插件(plugins)</h2>
+
+<p>插件 &ndash; loader 被用于转换某些类型的模块，而插件则可以用于执行范围更广的任务。</p>
+
+<ul>
+<li>插件的范围包括，从打包优化和压缩，一直到重新定义环境中的变量。</li>
+<li>想要使用一个插件，你只需要 require() 它，然后把它添加到 plugins 数组中。</li>
+<li>多数插件可以通过选项(option)自定义。</li>
+<li>你也可以在一个配置文件中因为不同目的而多次使用同一个插件，这时需要通过使用 new 操作符来创建它的一个实例。</li>
+</ul>
+
+<p>例子：</p>
+
+<p>webpack.config.js</p>
+
+<pre><code class="language-javascript">const HtmlWebpackPlugin = require('html-webpack-plugin'); // 通过 npm 安装
+const webpack = require('webpack'); // 用于访问内置插件
+
+const config = {
+  module: {
+    rules: [
+      { test: /\.txt$/, use: 'raw-loader' }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({template: './src/index.html'})
+  ]
+};
+
+module.exports = config;
+</code></pre>
+
+<h2 id="6-模式">6. 模式</h2>
+
+<ul>
+<li>设置mode参数</li>
+
+<li><p>取值可选<code>development</code>或<code>production</code></p>
+
+<pre><code class="language-javascript">module.exports = {
+mode: 'production'
+};
+</code></pre></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Polly-foz </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://yangpeiya.xyz/webpack/>http://yangpeiya.xyz/webpack/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://yangpeiya.xyz/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://yangpeiya.xyz/js-mvc/" class="prev" rel="prev" title="浅析MVC"><i class="iconfont icon-left"></i>&nbsp;浅析MVC</a>
+         
+        
+        <a href="http://yangpeiya.xyz/webpack2/" class="next" rel="next" title="Webpack学习笔记2">Webpack学习笔记2&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://yangpeiya.xyz/">Polly-foz</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

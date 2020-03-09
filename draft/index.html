@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Polly-foz">
+  <meta name="description" content="Polly-foz的个人网站">
+  <meta name="keywords" content="Polly-foz,front-end">
+  
+  <link rel="prev" href="http://yangpeiya.xyz/js-scope/" />
+  <link rel="next" href="http://yangpeiya.xyz/js-call-apply-bind/" />
+  <link rel="canonical" href="http://yangpeiya.xyz/draft/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Draft | Polly-foz&#39;s Blog
+       
+  </title>
+  <meta name="title" content="Draft | Polly-foz&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/yangpeiya.xyz\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Draft",
+    "headline" : "Draft",
+    "description" : "for(let i = 0; i \x26lt; 10; i\x2b\x2b){ setTimeout(()=\x26gt;console.log(\x26quot;let: \x26quot;,i),1000) } for(var j = 0; j \x26lt; 10; j\x2b\x2b){ setTimeout(()=\x26gt;console.log(\x26quot;var: \x26quot;,j),1000) }  输出： 从上面的例子可以看见声明关键字的不同，带来了截然不同的结果。\nES6新增了let命令，let用法类似于var。let与var不同的是，let声明一个作用域被限制在块级中的变量、语句或者表达式，而var明的变量只能是全局或者整个函数块的。var不支持块级作用域。\n在ES6之前，可以利用闭包的特性来模拟块级作用域。\nfor(var i = 0; i \x26lt; 10; i\x2b\x2b){ (function(i){ setTimeout(()=\x26gt;console.log(i),1000) })(i) }  ",
+    "inLanguage" : "zh-cn",
+    "author" : "Polly-foz",
+    "creator" : "Polly-foz",
+    "publisher": "Polly-foz",
+    "accountablePerson" : "Polly-foz",
+    "copyrightHolder" : "Polly-foz",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-23 16:32:13 \x2b0800 HKT",
+    "dateModified" : "2020-01-23 16:32:13 \x2b0800 HKT",
+    "url" : "http:\/\/yangpeiya.xyz\/draft\/",
+    "wordCount" : "38",
+    "keywords" : [  "Polly-foz\x27s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Draft</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://yangpeiya.xyz/" rel="author">Polly-foz</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-01-23 itemprop="datePublished">January 23, 2020</time>
+                updateAt <time datetime=Jan&#32;23,&#32;2020 itemprop="datePublished">Jan 23, 2020</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <pre><code class="language-javascript">for(let i = 0; i &lt; 10; i++){
+    setTimeout(()=&gt;console.log(&quot;let: &quot;,i),1000)
+}
+for(var j = 0; j &lt; 10; j++){
+    setTimeout(()=&gt;console.log(&quot;var: &quot;,j),1000)
+}
+
+</code></pre>
+
+<p>输出：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/front-end-sum-1/res1.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<p>从上面的例子可以看见声明关键字的不同，带来了截然不同的结果。</p>
+
+<p>ES6新增了<code>let</code>命令，<code>let</code>用法类似于<code>var</code>。<code>let</code>与<code>var</code>不同的是，<code>let</code>声明一个作用域被限制在<strong>块级</strong>中的变量、语句或者表达式，而<code>var</code>明的变量只能是<strong>全局</strong>或者整个<strong>函数块</strong>的。<code>var</code>不支持块级作用域。</p>
+
+<p>在ES6之前，可以利用闭包的特性来模拟块级作用域。</p>
+
+<pre><code class="language-javascipt">for(var i = 0; i &lt; 10; i++){
+    (function(i){
+        setTimeout(()=&gt;console.log(i),1000)
+    })(i)
+}
+
+</code></pre>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Polly-foz </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://yangpeiya.xyz/draft/>http://yangpeiya.xyz/draft/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://yangpeiya.xyz/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://yangpeiya.xyz/js-scope/" class="prev" rel="prev" title="JavaScript变量与作用域"><i class="iconfont icon-left"></i>&nbsp;JavaScript变量与作用域</a>
+         
+        
+        <a href="http://yangpeiya.xyz/js-call-apply-bind/" class="next" rel="next" title="JavaScript中call、apply、bind 的用法">JavaScript中call、apply、bind 的用法&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://yangpeiya.xyz/">Polly-foz</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

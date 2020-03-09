@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Polly-foz">
+  <meta name="description" content="Polly-foz的个人网站">
+  <meta name="keywords" content="Polly-foz,front-end">
+  
+  <link rel="prev" href="http://yangpeiya.xyz/js-dom-event/" />
+  <link rel="next" href="http://yangpeiya.xyz/js-promise/" />
+  <link rel="canonical" href="http://yangpeiya.xyz/js-inherit/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           JavaScript 继承 | Polly-foz&#39;s Blog
+       
+  </title>
+  <meta name="title" content="JavaScript 继承 | Polly-foz&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/yangpeiya.xyz\/"
+    },
+    "articleSection" : "posts",
+    "name" : "JavaScript 继承",
+    "headline" : "JavaScript 继承",
+    "description" : "继承是面向对象软件技术当中的一个概念，与多态、封装共为面向对象的三个基本特征。继承可以使得子类具有父类的属性和方法或者重新定义、追加属性和方法等。\n基于class的继承 学过Java之类的面向对象编程语言的程序员们可以轻松的理解下面的代码。\nclass Point { static getInfo() { return \x27This class creates 2-dimension points\x27; } constructor(x, y) { this.x = x; this.y = y; } toString() { return this.x \x2b \x27 \x27 \x2b this.y } } class ColorPoint extends Point { static getInfo() { return super.getInfo() \x2b \x27 with color\x27 } constructor(x, y, color) { \/\/ this.color = color; \/\/ ReferenceError super(x, y); this.color = color; \/\/ 正确 } toString() { return this.",
+    "inLanguage" : "zh-cn",
+    "author" : "Polly-foz",
+    "creator" : "Polly-foz",
+    "publisher": "Polly-foz",
+    "accountablePerson" : "Polly-foz",
+    "copyrightHolder" : "Polly-foz",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-27 17:34:37 \x2b0800 HKT",
+    "dateModified" : "2020-01-27 17:34:37 \x2b0800 HKT",
+    "url" : "http:\/\/yangpeiya.xyz\/js-inherit\/",
+    "wordCount" : "226",
+    "keywords" : [ "继承", "Polly-foz\x27s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">JavaScript 继承</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://yangpeiya.xyz/" rel="author">Polly-foz</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-01-27 itemprop="datePublished">January 27, 2020</time>
+                updateAt <time datetime=Jan&#32;27,&#32;2020 itemprop="datePublished">Jan 27, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://yangpeiya.xyz/categories/javascript/"> JavaScript </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>继承是面向对象软件技术当中的一个概念，与多态、封装共为面向对象的三个基本特征。继承可以使得子类具有父类的属性和方法或者重新定义、追加属性和方法等。</p>
+
+<h2 id="基于class的继承">基于class的继承</h2>
+
+<p>学过Java之类的面向对象编程语言的程序员们可以轻松的理解下面的代码。</p>
+
+<pre><code class="language-javascript">class Point {
+    static getInfo() {
+        return 'This class creates 2-dimension points';
+    }
+  
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    toString() {
+        return this.x + ' ' + this.y
+    }
+}
+
+class ColorPoint extends Point {
+    static getInfo() {
+        return super.getInfo() + ' with color'
+    }
+    constructor(x, y, color) {
+//         this.color = color; // ReferenceError
+        super(x, y);
+        this.color = color; // 正确
+    }
+    toString() {
+        return this.color + ' ' + super.toString(); // 调用父类的toString()
+    }
+}
+
+let cp = new ColorPoint(25, 8, 'green');
+console.log(cp.toString()) // green 25 8
+console.log(ColorPoint.getInfo())// &quot;This class creates 2-dimension points with color&quot;
+console.log(cp instanceof ColorPoint) // true
+console.log(cp instanceof Point) // true
+</code></pre>
+
+<p>本质上，ES6继承是一种语法糖。ES6 实现继承的具体原理：</p>
+
+<pre><code class="language-javascript">class A {
+}
+
+class B {
+}
+
+Object.setPrototypeOf = function (obj, proto) {
+  obj.__proto__ = proto;
+  return obj;
+}
+
+// B 的实例继承 A 的实例
+Object.setPrototypeOf(B.prototype, A.prototype);
+
+// B 继承 A 的静态属性
+Object.setPrototypeOf(B, A);
+</code></pre>
+
+<h2 id="基于原型的继承">基于原型的继承</h2>
+
+<p>如果不使用es6的语法糖，要实现属性的继承：</p>
+
+<pre><code class="language-javascript">function Point(x,y){
+  this.x = x
+  this.y = y
+}
+
+Point.prototype.getLocation = function(){
+  return this.x + ' ' + this.y
+}
+
+function ColorPoint(x,y,color){
+  Point.call(this,x,y)
+  this.color = color
+}
+
+colorPoint = new ColorPoint(1,2,'red')
+</code></pre>
+
+<p>要实现方法的继承，即通过colorPoint调用getLocation：
+(JavaScript引擎会先在colorPoint上找getLocation，接着会在colorPoint.<strong>proto</strong>上找)</p>
+
+<pre><code class="language-javascript">function Point(x,y){
+  this.x = x
+  this.y = y
+}
+
+Point.prototype.getLocation = function(){
+  return this.x + ' ' + this.y
+}
+
+function ColorPoint(x,y,color){
+  Point.call(this,x,y)
+  this.color = color
+}
+
+ColorPoint.prototype.getColor = function(){
+  return this.color
+}
+
+ColorPoint.prototype.__proto__ = Point.prototype
+
+colorPoint = new ColorPoint(1,2,'red')
+console.log(colorPoint.getLocation())
+console.log(colorPoint.getColor())
+</code></pre>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Polly-foz </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://yangpeiya.xyz/js-inherit/>http://yangpeiya.xyz/js-inherit/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://yangpeiya.xyz/tags/%E7%BB%A7%E6%89%BF/">
+                    #继承</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://yangpeiya.xyz/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://yangpeiya.xyz/js-dom-event/" class="prev" rel="prev" title="DOM事件"><i class="iconfont icon-left"></i>&nbsp;DOM事件</a>
+         
+        
+        <a href="http://yangpeiya.xyz/js-promise/" class="next" rel="next" title="JavaScript Promise">JavaScript Promise&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://yangpeiya.xyz/">Polly-foz</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

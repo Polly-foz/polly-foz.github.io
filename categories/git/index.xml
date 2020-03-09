@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on Polly-foz&#39;s Blog</title>
+    <link>http://yangpeiya.xyz/categories/git/</link>
+    <description>Recent content in git on Polly-foz&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 16 Feb 2020 13:58:55 +0800</lastBuildDate>
+    
+	<atom:link href="http://yangpeiya.xyz/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>git常用命令总结</title>
+      <link>http://yangpeiya.xyz/git/</link>
+      <pubDate>Sun, 16 Feb 2020 13:58:55 +0800</pubDate>
+      
+      <guid>http://yangpeiya.xyz/git/</guid>
+      <description>git status git add . git commit git pull git push git reset --hard git reset --hard HEAD  </description>
+    </item>
+    
+  </channel>
+</rss>

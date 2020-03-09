@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Polly-foz">
+  <meta name="description" content="Polly-foz的个人网站">
+  <meta name="keywords" content="Polly-foz,front-end">
+  
+  <link rel="prev" href="http://yangpeiya.xyz/js-inherit/" />
+  <link rel="next" href="http://yangpeiya.xyz/js-cross-origin/" />
+  <link rel="canonical" href="http://yangpeiya.xyz/js-promise/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           JavaScript Promise | Polly-foz&#39;s Blog
+       
+  </title>
+  <meta name="title" content="JavaScript Promise | Polly-foz&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/yangpeiya.xyz\/"
+    },
+    "articleSection" : "posts",
+    "name" : "JavaScript Promise",
+    "headline" : "JavaScript Promise",
+    "description" : "0. Promise的用途 ES6将Promise写进了语言标准。 Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。\nPromise 对象用于表示一个异步操作的状态（pending, fullfilled, rejected）。Promise允许程序根据异步操作的不同完成状态，进行不同的操作。\n优点 与传统的解决方案——回调函数和事件——相比，Promise对象可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数（回调地狱）。此外，Promise对象提供统一的接口，使得控制异步操作更加容易。\n缺点 Promise也有一些缺点。\n 首先，无法取消Promise，一旦新建它就会立即执行，无法中途取消。 其次，如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。 第三，当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。  1. 如何创建一个Promise const myFirstPromise = new Promise((resolve, reject) =\x26gt; { \/\/ 做一些异步操作，最终会调用下面两者之一: \/\/ \/\/ resolve(someValue); \/\/ fulfilled \/\/ 或 \/\/ reject(\x26quot;failure reason\x26quot;); \/\/ rejected });  更多情况下，我们在一个函数中创建并返回一个promise\nfunction myAsyncFunction(url) { return new Promise((resolve, reject) =\x26gt; { const xhr = new XMLHttpRequest(); xhr.open(\x26quot;GET\x26quot;, url); xhr.onload = () =\x26gt; resolve(xhr.responseText); xhr.onerror = () =\x26gt; reject(xhr.",
+    "inLanguage" : "zh-cn",
+    "author" : "Polly-foz",
+    "creator" : "Polly-foz",
+    "publisher": "Polly-foz",
+    "accountablePerson" : "Polly-foz",
+    "copyrightHolder" : "Polly-foz",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-27 18:11:01 \x2b0800 HKT",
+    "dateModified" : "2020-01-27 18:11:01 \x2b0800 HKT",
+    "url" : "http:\/\/yangpeiya.xyz\/js-promise\/",
+    "wordCount" : "308",
+    "keywords" : [  "Polly-foz\x27s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">JavaScript Promise</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://yangpeiya.xyz/" rel="author">Polly-foz</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-01-27 itemprop="datePublished">January 27, 2020</time>
+                updateAt <time datetime=Jan&#32;27,&#32;2020 itemprop="datePublished">Jan 27, 2020</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="0-promise的用途">0. Promise的用途</h2>
+
+<p>ES6将Promise写进了语言标准。 Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。</p>
+
+<p>Promise 对象用于表示一个异步操作的状态（pending, fullfilled, rejected）。Promise允许程序根据异步操作的不同完成状态，进行不同的操作。</p>
+
+<h3 id="优点">优点</h3>
+
+<p>与传统的解决方案——回调函数和事件——相比，Promise对象可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数（回调地狱）。此外，Promise对象提供统一的接口，使得控制异步操作更加容易。</p>
+
+<h3 id="缺点">缺点</h3>
+
+<p>Promise也有一些缺点。</p>
+
+<ol>
+<li>首先，无法取消Promise，一旦新建它就会立即执行，无法中途取消。</li>
+<li>其次，如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。</li>
+<li>第三，当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。</li>
+</ol>
+
+<h2 id="1-如何创建一个promise">1. 如何创建一个Promise</h2>
+
+<pre><code class="language-javascript">const myFirstPromise = new Promise((resolve, reject) =&gt; {
+  // 做一些异步操作，最终会调用下面两者之一:
+  //
+  //   resolve(someValue); // fulfilled
+  // 或
+  //   reject(&quot;failure reason&quot;); // rejected
+});
+</code></pre>
+
+<p>更多情况下，我们在一个函数中创建并返回一个promise</p>
+
+<pre><code class="language-javascript">function myAsyncFunction(url) {
+  return new Promise((resolve, reject) =&gt; {
+    const xhr = new XMLHttpRequest();
+    xhr.open(&quot;GET&quot;, url);
+    xhr.onload = () =&gt; resolve(xhr.responseText);
+    xhr.onerror = () =&gt; reject(xhr.statusText);
+    xhr.send();
+  });
+};
+</code></pre>
+
+<h2 id="2-如何使用promise-prototype-then">2. 如何使用Promise.prototype.then</h2>
+
+<ul>
+<li>Promise.prototype.then传入两个参数：onFulfilled和onRejected。onFulfilled是Promise变成接受状态时调用的回调函数(resolve调用的函数)；onRejected是Promise变成拒绝状态时调用的回调函数（reject调用的函数）</li>
+
+<li><p>Promise.prototype.then根据<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/then#%E8%BF%94%E5%9B%9E%E5%80%BC" rel="nofollow noreferrer" target="_blank">回调函数的返回值</a>不同，返回不同状态的Promise。因此，Promise支持链式操作。</p>
+
+<pre><code class="language-javascript">// resolve(成功) onFulfilled会被调用
+const promise = new Promise((resolve, reject) =&gt; {
+resolve('fulfilled'); // 状态由 pending =&gt; fulfilled
+});
+promise.then(result =&gt; { // onFulfilled
+console.log(result); // 'fulfilled' 
+}, reason =&gt; { // onRejected 不会被调用
+})
+
+// reject(失败) onRejected会被调用
+const promise = new Promise((resolve, reject) =&gt; {
+reject('rejected'); // 状态由 pending =&gt; rejected
+});
+promise.then(result =&gt; { // onFulfilled 不会被调用
+}, reason =&gt; { // onRejected 
+console.log(rejected); // 'rejected'
+})
+
+</code></pre></li>
+</ul>
+
+<h2 id="3-如何使用promise-all">3. 如何使用Promise.all</h2>
+
+<p>catch() 方法返回一个Promise，并且处理拒绝的情况。它的行为与调用Promise.prototype.then(undefined, onRejected) 相同。 (事实上, calling obj.catch(onRejected) 内部calls obj.then(undefined, onRejected)).</p>
+
+<pre><code class="language-javascript">fn = new Promise(function (resolve, reject) {
+  let num
+  setTimeout(num=5,1000)
+  if (num &gt; 5) {
+    resolve(num)
+  } else {
+    reject(num)
+  }
+})
+fn.then((res)=&gt;{
+  console.log(res)
+}).catch((err)=&gt;{
+  console.log(`err==&gt;${err}`)
+})
+//输出：err==&gt;5
+</code></pre>
+
+<h2 id="4-如何使用promise-race">4. 如何使用Promise.race</h2>
+
+<p>Promise.race(iterable) 方法返回一个 promise，一旦迭代器中的某个promise解决或拒绝，返回的 promise就会解决或拒绝。</p>
+
+<p>race 函数返回一个 Promise，它将与第一个传递的 promise 相同的完成方式被完成。它可以是完成（ resolves），也可以是失败（rejects），这要取决于第一个完成的方式是两个中的哪个。</p>
+
+<p>如果传的迭代是空的，则返回的 promise 将永远等待。</p>
+
+<p>如果迭代包含一个或多个非承诺值和/或已解决/拒绝的承诺，则 Promise.race 将解析为迭代中找到的第一个值。</p>
+
+<pre><code class="language-javascript">var p1 = new Promise(function(resolve, reject) { 
+    setTimeout(resolve, 500, &quot;one&quot;); 
+});
+var p2 = new Promise(function(resolve, reject) { 
+    setTimeout(resolve, 100, &quot;two&quot;); 
+});
+
+Promise.race([p1, p2]).then(function(value) {
+  console.log(value); // &quot;two&quot;
+  // 两个都完成，但 p2 更快
+});
+
+var p3 = new Promise(function(resolve, reject) { 
+    setTimeout(resolve, 100, &quot;three&quot;);
+});
+var p4 = new Promise(function(resolve, reject) { 
+    setTimeout(reject, 500, &quot;four&quot;); 
+});
+
+Promise.race([p3, p4]).then(function(value) {
+  console.log(value); // &quot;three&quot;
+  // p3 更快，所以它完成了              
+}, function(reason) {
+  // 未被调用
+});
+
+var p5 = new Promise(function(resolve, reject) { 
+    setTimeout(resolve, 500, &quot;five&quot;); 
+});
+var p6 = new Promise(function(resolve, reject) { 
+    setTimeout(reject, 100, &quot;six&quot;);
+});
+
+Promise.race([p5, p6]).then(function(value) {
+  // 未被调用             
+}, function(reason) {
+  console.log(reason); // &quot;six&quot;
+  // p6 更快，所以它失败了
+});
+</code></pre>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Polly-foz </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://yangpeiya.xyz/js-promise/>http://yangpeiya.xyz/js-promise/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://yangpeiya.xyz/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://yangpeiya.xyz/js-inherit/" class="prev" rel="prev" title="JavaScript 继承"><i class="iconfont icon-left"></i>&nbsp;JavaScript 继承</a>
+         
+        
+        <a href="http://yangpeiya.xyz/js-cross-origin/" class="next" rel="next" title="JavaScript 跨域">JavaScript 跨域&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://yangpeiya.xyz/">Polly-foz</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

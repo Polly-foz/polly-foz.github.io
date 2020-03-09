@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Polly-foz">
+  <meta name="description" content="Polly-foz的个人网站">
+  <meta name="keywords" content="Polly-foz,front-end">
+  
+  <link rel="prev" href="http://yangpeiya.xyz/vue-data-responsive/" />
+  <link rel="next" href="http://yangpeiya.xyz/vue-sync/" />
+  <link rel="canonical" href="http://yangpeiya.xyz/vue-computed-watch/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Vue computed和watch的区别  | Polly-foz&#39;s Blog
+       
+  </title>
+  <meta name="title" content="Vue computed和watch的区别  | Polly-foz&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/yangpeiya.xyz\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Vue computed和watch的区别 ",
+    "headline" : "Vue computed和watch的区别 ",
+    "description" : " computed 计算属性 由data中的一个或多个属性计算而来，用到的data属性为该计算属性的依赖。\n 依赖发生变化时，vue会调用计算属性的getter，重新计算计算属性。 如果想在计算属性发生变化时做一些操作，如改变其依赖的值，可以设置计算属性的setter。 与方法methods相比，计算属性具有缓存。只要依赖的值没有变化，多次访问计算属性，计算属性会立即返回之前的计算结果，而不必再次执行函数。  watch 侦听属性 当某个属性发生变化时，执行某个函数。\n除了指定执行的函数以外，watch还提供了两个选项，deep和immediate：\n deep为true时，watch会侦听对象的所有属性，不论对象的嵌套有多深 immediate为true时，会在侦听开始之后被立即调用  区别  data属性第一次加载时不会触发watch，会触发computed，除非watch选项immediate被设置为true。 computed不会监听对象的属性值的变化。如果设置deep为true，watch会监听对象的属性值的变化。 computed属性有缓存，获取computed属性时，如果依赖的值没有变，就不会调用方法。watch监听的值每次发生变化都会触发方法执行。  ",
+    "inLanguage" : "zh-cn",
+    "author" : "Polly-foz",
+    "creator" : "Polly-foz",
+    "publisher": "Polly-foz",
+    "accountablePerson" : "Polly-foz",
+    "copyrightHolder" : "Polly-foz",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-02-11 13:02:37 \x2b0800 HKT",
+    "dateModified" : "2020-02-11 13:02:37 \x2b0800 HKT",
+    "url" : "http:\/\/yangpeiya.xyz\/vue-computed-watch\/",
+    "wordCount" : "16",
+    "keywords" : [  "Polly-foz\x27s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Vue computed和watch的区别 </h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://yangpeiya.xyz/" rel="author">Polly-foz</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-02-11 itemprop="datePublished">February 11, 2020</time>
+                updateAt <time datetime=Feb&#32;11,&#32;2020 itemprop="datePublished">Feb 11, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://yangpeiya.xyz/categories/vue/"> Vue </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="computed-计算属性">computed 计算属性</h2>
+
+<p>由data中的一个或多个属性计算而来，用到的data属性为该计算属性的依赖。</p>
+
+<ul>
+<li>依赖发生变化时，vue会调用计算属性的getter，重新计算计算属性。</li>
+<li>如果想在计算属性发生变化时做一些操作，如改变其依赖的值，可以设置计算属性的setter。</li>
+<li>与方法methods相比，计算属性具有缓存。只要依赖的值没有变化，多次访问计算属性，计算属性会立即返回之前的计算结果，而不必再次执行函数。</li>
+</ul>
+
+<h2 id="watch-侦听属性">watch 侦听属性</h2>
+
+<p>当某个属性发生变化时，执行某个函数。</p>
+
+<p>除了指定执行的函数以外，watch还提供了两个选项，deep和immediate：</p>
+
+<ul>
+<li>deep为true时，watch会侦听对象的所有属性，不论对象的嵌套有多深</li>
+<li>immediate为true时，会在侦听开始之后被立即调用</li>
+</ul>
+
+<h2 id="区别">区别</h2>
+
+<ul>
+<li>data属性第一次加载时不会触发watch，会触发computed，除非watch选项immediate被设置为true。</li>
+<li>computed不会监听对象的属性值的变化。如果设置deep为true，watch会监听对象的属性值的变化。</li>
+<li>computed属性有缓存，获取computed属性时，如果依赖的值没有变，就不会调用方法。watch监听的值每次发生变化都会触发方法执行。</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Polly-foz </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://yangpeiya.xyz/vue-computed-watch/>http://yangpeiya.xyz/vue-computed-watch/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://yangpeiya.xyz/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://yangpeiya.xyz/vue-data-responsive/" class="prev" rel="prev" title="Vue数据响应式"><i class="iconfont icon-left"></i>&nbsp;Vue数据响应式</a>
+         
+        
+        <a href="http://yangpeiya.xyz/vue-sync/" class="next" rel="next" title="Vue .sync修饰符">Vue .sync修饰符&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://yangpeiya.xyz/">Polly-foz</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

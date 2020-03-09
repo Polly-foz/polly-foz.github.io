@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Polly-foz">
+  <meta name="description" content="Polly-foz的个人网站">
+  <meta name="keywords" content="Polly-foz,front-end">
+  
+  <link rel="prev" href="http://yangpeiya.xyz/js-promise/" />
+  <link rel="next" href="http://yangpeiya.xyz/front-end/" />
+  <link rel="canonical" href="http://yangpeiya.xyz/js-cross-origin/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           JavaScript 跨域 | Polly-foz&#39;s Blog
+       
+  </title>
+  <meta name="title" content="JavaScript 跨域 | Polly-foz&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/yangpeiya.xyz\/"
+    },
+    "articleSection" : "posts",
+    "name" : "JavaScript 跨域",
+    "headline" : "JavaScript 跨域",
+    "description" : "1. 什么是同源 如果两个页面的协议，端口（如果有指定）和主机都相同，则两个页面具有相同的源。我们也可以把它称为“协议\/主机\/端口 tuple”，或简单地叫做“tuple\x26rdquo;. (\x26ldquo;tuple\x26rdquo; ，“元”，是指一些事物组合在一起形成一个整体，比如（1，2）叫二元，（1，2，3）叫三元)\nhttp:\/\/store.company.com\/dir\/page.html同源检测的示例:\n  URL 结果 原因   http:\/\/store.company.com\/dir2\/other.html 成功 \x26nbsp;只有路径不同   http:\/\/store.company.com\/dir\/inner\/another.html 成功 \x26nbsp;只有路径不同   https:\/\/store.company.com\/secure.html 失败 不同协议 ( https和http )   http:\/\/store.company.com:81\/dir\/etc.html 失败 不同端口 ( http:\/\/ 80是默认的)   http:\/\/news.company.com\/dir\/other.html 失败 不同域名\x26nbsp;( news和store )    2. 什么是跨域 不同源即跨域。当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时（两者不符合同源策略），资源会发起一个跨域 HTTP 请求（CORS request）。 1中表格的后三个例子就是跨域。\n3. JSONP跨域 Jsonp(JSON with Padding) 是跨域的一种解决方案。JSONP 的原理很简单，就是利用 \x26lt;script\x26gt; 标签没有跨域限制的漏洞。通过 \x26lt;script\x26gt; 标签指向一个需要访问的地址并提供一个回调函数来接收数据。\n假如http:\/\/data-requester.com:9999想要http:\/\/data-owner.com:8888数据库中的friends.json文件，\nhttp:\/\/data-owner.com:8888服务端node.js代码：\nif(path === \x27\/friends.",
+    "inLanguage" : "zh-cn",
+    "author" : "Polly-foz",
+    "creator" : "Polly-foz",
+    "publisher": "Polly-foz",
+    "accountablePerson" : "Polly-foz",
+    "copyrightHolder" : "Polly-foz",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-27 22:56:06 \x2b0800 HKT",
+    "dateModified" : "2020-01-27 22:56:06 \x2b0800 HKT",
+    "url" : "http:\/\/yangpeiya.xyz\/js-cross-origin\/",
+    "wordCount" : "164",
+    "keywords" : [ "跨域", "Polly-foz\x27s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://yangpeiya.xyz/">Polly-foz&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">文章</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">JavaScript 跨域</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://yangpeiya.xyz/" rel="author">Polly-foz</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-01-27 itemprop="datePublished">January 27, 2020</time>
+                updateAt <time datetime=Jan&#32;27,&#32;2020 itemprop="datePublished">Jan 27, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://yangpeiya.xyz/categories/javascript/"> JavaScript </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="1-什么是同源">1. 什么是同源</h2>
+
+<p>如果两个页面的<strong>协议，端口（如果有指定）和主机</strong>都相同，则两个页面具有相同的源。我们也可以把它称为“协议/主机/端口 tuple”，或简单地叫做“tuple&rdquo;. (&ldquo;tuple&rdquo; ，“元”，是指一些事物组合在一起形成一个整体，比如（1，2）叫二元，（1，2，3）叫三元)</p>
+
+<p><code>http://store.company.com/dir/page.html</code>同源检测的示例:</p>
+
+<table class="standard-table">
+ <tbody>
+  <tr>
+   <th>URL</th>
+   <th>结果</th>
+   <th>原因</th>
+  </tr>
+  <tr>
+   <td><code><span class="nowiki">http://store.company.com/dir2/other.html</span></code></td>
+   <td>成功</td>
+   <td><font face="consolas, Liberation Mono, courier, monospace">&nbsp;只有路径不同</font></td>
+  </tr>
+  <tr>
+   <td><code><span class="nowiki">http://store.company.com/dir/inner/another.html</span></code></td>
+   <td>成功</td>
+   <td><font face="consolas, Liberation Mono, courier, monospace">&nbsp;只有路径不同</font></td>
+  </tr>
+  <tr>
+   <td><code><span class="nowiki">https://store.company.com/secure.html</span></code></td>
+   <td>失败</td>
+   <td>不同协议 ( https和http )</td>
+  </tr>
+  <tr>
+   <td><code><span class="nowiki">http://store.company.com:81/dir/etc.html</span></code></td>
+   <td>失败</td>
+   <td>不同端口 ( http:// 80是默认的)</td>
+  </tr>
+  <tr>
+   <td><code><span class="nowiki">http://news.company.com/dir/other.html</span></code></td>
+   <td>失败</td>
+   <td>不同域名&nbsp;( news和store )</td>
+  </tr>
+ </tbody>
+</table>
+
+<h2 id="2-什么是跨域">2. 什么是跨域</h2>
+
+<p>不同源即跨域。当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时（两者不符合同源策略），资源会发起一个跨域 HTTP 请求（CORS request）。
+1中表格的后三个例子就是跨域。</p>
+
+<h2 id="3-jsonp跨域">3. JSONP跨域</h2>
+
+<p>Jsonp(JSON with Padding) 是跨域的一种解决方案。JSONP 的原理很简单，就是利用 <code>&lt;script&gt;</code> 标签没有跨域限制的漏洞。通过 <code>&lt;script&gt;</code> 标签指向一个需要访问的地址并提供一个回调函数来接收数据。</p>
+
+<p>假如<code>http://data-requester.com:9999</code>想要<code>http://data-owner.com:8888</code>数据库中的friends.json文件，</p>
+
+<p><code>http://data-owner.com:8888</code>服务端node.js代码：</p>
+
+<pre><code class="language-javascript">if(path === '/friends.js'){
+    //检查资源请求者的资格
+    if(request.headers['referer'].indexOf('http://data-requester.com:9999') === 0 ){//拥有资格，返回JavaScipt脚本，调用资源请求者提供的回调函数，并将数据作为回调函数参数传入
+        response.setHeader(&quot;Content-Type&quot;,&quot;text/javascript;charset=utf-8&quot;)
+        const data = fs.readFileSync('./db/friends.json').toString()
+        response.write(`window[${query.callback}](${data})`)
+        response.end()
+    }else{//不拥有资格，返回404
+        response.statusCode = 404
+        response.end()
+    }
+  }
+</code></pre>
+
+<p>资源请求者在script标签的src属性指定请求的地址，通过callback参数传递回调函数的名字。
+<code>http://data-requester.com:9999</code>客户端JavaScript代码：</p>
+
+<pre><code class="language-javascript">&lt;script&gt;
+const jsonp = (url)=&gt;{
+    return new Promise((resolve,reject)=&gt;{
+        let script = document.createElement(&quot;script&quot;)
+        const random = 'callbackFunctionName' + Math.random()//生成回调函数名
+        window[random] = data=&gt;{//将回调函数添加到全局的window对象上
+            resolve(data)
+        }
+        script.src = `${url}?callback=${random}`
+        document.body.appendChild(script)
+    })
+}
+//在控制台打印出获取的数据
+jsonp(&quot;http://data-owner.com:8888/friends.js&quot;).then(data=&gt;{console.log(data)})
+&lt;script&gt;
+</code></pre>
+
+<h3 id="优点">优点</h3>
+
+<p>兼容IE</p>
+
+<h3 id="缺点">缺点</h3>
+
+<p>JSONP只支持GET的方式，并不支持POST方式。</p>
+
+<h2 id="4-cors跨域">4. CORS跨域</h2>
+
+<p>同样的例子，<code>http://data-requester.com:9999</code>想要<code>http://data-owner.com:8888</code>数据库中的friends.json文件，</p>
+
+<p>资源拥有者添加Access-Control-Allow-Origin字段，设置允许的源。
+<code>http://data-owner.com:8888</code>服务端node.js代码：</p>
+
+<pre><code class="language-javascript">if(path === '/friends.json'){
+    response.statusCode = 200
+    response.setHeader(&quot;Content-Type&quot;,&quot;text/json;charset=utf-8&quot;)
+    response.setHeader(&quot;Access-Control-Allow-Origin&quot;,&quot;http://data-requester.com:9999&quot;)
+    response.write(fs.readFileSync(&quot;./db/friends.json&quot;))
+    response.end()
+}
+</code></pre>
+
+<p>资源请求者发送AJAX请求</p>
+
+<pre><code class="language-javascript">function cors(){
+    let request = new XMLHttpRequest()
+    // request.setRequestHeader(&quot;Content-Type&quot;,&quot;application/json&quot;)
+    request.open('GET','http://data-owner.com:8888/friends.json')
+    request.onreadystatechange = ()=&gt;{
+        if(request.readyState === XMLHttpRequest.DONE &amp;&amp; status &gt;= 200 &amp;&amp; states &lt; 400){
+            console.log(request.response)
+        }
+    }
+    request.send()
+}
+cors()
+</code></pre>
+
+<h3 id="优点-1">优点</h3>
+
+<p>CORS支持所有类型的HTTP请求。</p>
+
+<h3 id="缺点-1">缺点</h3>
+
+<p>从<a href="https://caniuse.com/#search=cors" rel="nofollow noreferrer" target="_blank">CORS兼容性</a>看出，CORS不兼容IE7及以下。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Polly-foz </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://yangpeiya.xyz/js-cross-origin/>http://yangpeiya.xyz/js-cross-origin/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://yangpeiya.xyz/tags/%E8%B7%A8%E5%9F%9F/">
+                    #跨域</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://yangpeiya.xyz/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://yangpeiya.xyz/js-promise/" class="prev" rel="prev" title="JavaScript Promise"><i class="iconfont icon-left"></i>&nbsp;JavaScript Promise</a>
+         
+        
+        <a href="http://yangpeiya.xyz/front-end/" class="next" rel="next" title="对前端的理解">对前端的理解&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://yangpeiya.xyz/">Polly-foz</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
