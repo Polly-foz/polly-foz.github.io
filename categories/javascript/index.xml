@@ -6,10 +6,27 @@
     <description>Recent content in JavaScript on Polly-foz&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 01 Mar 2020 16:48:31 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 12 Mar 2020 17:14:46 +0800</lastBuildDate>
     
 	<atom:link href="http://yangpeiya.xyz/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JavaScript异步（一）</title>
+      <link>http://yangpeiya.xyz/js-async-1/</link>
+      <pubDate>Thu, 12 Mar 2020 17:14:46 +0800</pubDate>
+      
+      <guid>http://yangpeiya.xyz/js-async-1/</guid>
+      <description> 1. 什么是异步 假定有3个任务f1，f2和f3，f1是个很耗时的任务，f2需要f1的执行结果。
+f1() f2() f3()  如果f1,f2都执行完后，f3才能执行，那么f3需要等待很长时间才能执行。像这样一个任务执行完以后，才能执行下一个任务，就叫同步。
+如果f3不用等待f1,f2都执行完就可以执行，就叫异步。
+JavaScript传统上是单线程的，此线程称为主线程（main thread），JavaScript所有任务都只能在主线程运行。这意味着只有一个任务执行完以后，才能执行下一个任务。那么就会造成阻塞。
+这样调度f1，f2，f3意味着f3要等待很长时间。
+Main thread: f1 -&amp;gt; f2 -&amp;gt; f3  2. Web workers 为了实现异步机制，解决阻塞，JavaScript引入Web workers，将一些希望异步执行的耗时的任务，交给一个名为worker的单独的线程。
+这样调度f1，f2，f3，可以避免f3被阻塞。
+Main thread: f3 Worker thread: f1 -&amp;gt; f2  Web workers还是有很多不足：
+ 考虑一下，如果有一个f4，他需要f2和f3的执行结果，那么又应该怎么调度呢？ Web workers本身有很多限制，如worker线程无法读取主线程所在网页的 DOM 对象。  </description>
+    </item>
     
     <item>
       <title>Js Event</title>

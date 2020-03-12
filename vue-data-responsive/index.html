@@ -10,7 +10,7 @@
   <meta name="keywords" content="Polly-foz,front-end">
   
   <link rel="prev" href="http://yangpeiya.xyz/vue-two-version/" />
-  <link rel="next" href="http://yangpeiya.xyz/vue-sync/" />
+  <link rel="next" href="http://yangpeiya.xyz/vue-computed-watch/" />
   <link rel="canonical" href="http://yangpeiya.xyz/vue-data-responsive/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "Vue数据响应式",
     "headline" : "Vue数据响应式",
-    "description" : "1. 什么是Vue数据响应式 数据响应 —— 对数据的变化产生响应\nVue数据响应式 —— 非侵入性的响应式系统\n2. 数据响应的实现思想 文档中写到：\n当你把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty 把这些属性全部转为 getter\/setter。\n下面两端代码浅析了实现思想：\nconst data = { a:0, b:\x27x\x27 } data.a = 1 data.b = \x27y\x27  const data = { _a:0, _b:\x27x\x27 } const myVue = function(data){ Object.getOwnPropertyNames(data).forEach((hiddenPropName,index)=\x26gt;{ \/\/要使用不同的属性名，否则造成定义get的同时调用get，进入死循环。 const publicPropName = hiddenPropName.substring(1) Object.defineProperty(data,publicPropName,{ set(newValue){ let oldValue = data[hiddenPropName] data[hiddenPropName] = newValue console.log(`监听到${publicPropName}属性的值发生变化：${oldValue}--\x26gt;${newValue}`) }, get(){ return data[hiddenPropName] } }) }) } myVue(data) data.",
+    "description" : "1. 什么是Vue数据响应式 数据响应： 数据变化 \x26ndash;\x26gt; 整个系统的更新\nVue数据响应式：状态变化 \x26ndash;\x26gt; dom更新\n2. 数据响应的实现思想 文档中写到：\n当你把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty 把这些属性全部转为 getter\/setter。\n下面两端代码浅析了实现思想：\nconst data = { a:0, b:\x27x\x27 } data.a = 1 data.b = \x27y\x27  接下来，按照文档所写的思想，让上面的代码每次a,b的值变化时，控制台输出旧值和新值\nconst data = { _a:0, _b:\x27x\x27 } const myVue = function(data){ Object.getOwnPropertyNames(data).forEach((hiddenPropName,index)=\x26gt;{ \/\/要使用不同的属性名，否则造成定义get的同时调用get，进入死循环。 const publicPropName = hiddenPropName.substring(1) Object.defineProperty(data,publicPropName,{ set(newValue){ let oldValue = data[hiddenPropName] data[hiddenPropName] = newValue console.log(`监听到${publicPropName}属性的值发生变化：${oldValue}--\x26gt;${newValue}`) }, get(){ return data[hiddenPropName] } }) }) } myVue(data) data.",
     "inLanguage" : "zh-cn",
     "author" : "Polly-foz",
     "creator" : "Polly-foz",
@@ -57,7 +57,7 @@
     "datePublished": "2020-02-09 22:33:51 \x2b0800 HKT",
     "dateModified" : "2020-02-09 22:33:51 \x2b0800 HKT",
     "url" : "http:\/\/yangpeiya.xyz\/vue-data-responsive\/",
-    "wordCount" : "249",
+    "wordCount" : "251",
     "keywords" : [  "Polly-foz\x27s Blog"]
 }
 </script>
@@ -143,9 +143,9 @@
 
 <h2 id="1-什么是vue数据响应式">1. 什么是Vue数据响应式</h2>
 
-<p>数据响应 —— 对数据的变化产生响应</p>
+<p>数据响应： 数据变化 &ndash;&gt; 整个系统的更新</p>
 
-<p>Vue数据响应式 —— 非侵入性的响应式系统</p>
+<p>Vue数据响应式：状态变化 &ndash;&gt; dom更新</p>
 
 <h2 id="2-数据响应的实现思想">2. 数据响应的实现思想</h2>
 
@@ -163,6 +163,8 @@
 data.a = 1
 data.b = 'y'
 </code></pre>
+
+<p>接下来，按照文档所写的思想，让上面的代码每次a,b的值变化时，控制台输出旧值和新值</p>
 
 <pre><code class="language-javascript">const data = {
     _a:0,
@@ -337,7 +339,7 @@ vm.b = 2
         <a href="http://yangpeiya.xyz/vue-two-version/" class="prev" rel="prev" title="vue.js 与 vue.runtime.js"><i class="iconfont icon-left"></i>&nbsp;vue.js 与 vue.runtime.js</a>
          
         
-        <a href="http://yangpeiya.xyz/vue-sync/" class="next" rel="next" title="Vue .sync修饰符">Vue .sync修饰符&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="http://yangpeiya.xyz/vue-computed-watch/" class="next" rel="next" title="Vue computed和watch的区别 ">Vue computed和watch的区别 &nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

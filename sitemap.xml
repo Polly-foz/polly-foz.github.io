@@ -4,7 +4,67 @@
     <url>
       <loc>http://yangpeiya.xyz/categories/</loc>
       
-      <lastmod>2020-03-01T16:48:31+08:00</lastmod>
+      <lastmod>2020-03-12T17:14:46+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://yangpeiya.xyz/categories/javascript/</loc>
+      
+      <lastmod>2020-03-12T17:14:46+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://yangpeiya.xyz/js-async-1/</loc>
+      
+      <lastmod>2020-03-12T17:14:46+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://yangpeiya.xyz/</loc>
+      
+      <lastmod>2020-03-12T17:14:46+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://yangpeiya.xyz/posts/</loc>
+      
+      <lastmod>2020-03-12T17:14:46+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://yangpeiya.xyz/tags/</loc>
+      
+      <lastmod>2020-03-12T17:14:46+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://yangpeiya.xyz/tags/%E5%BC%82%E6%AD%A5/</loc>
+      
+      <lastmod>2020-03-12T17:14:46+08:00</lastmod>
       
       
       
@@ -22,47 +82,7 @@
     </url>
   
     <url>
-      <loc>http://yangpeiya.xyz/categories/javascript/</loc>
-      
-      <lastmod>2020-03-01T16:48:31+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
       <loc>http://yangpeiya.xyz/js-event/</loc>
-      
-      <lastmod>2020-03-01T16:48:31+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>http://yangpeiya.xyz/</loc>
-      
-      <lastmod>2020-03-01T16:48:31+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>http://yangpeiya.xyz/posts/</loc>
-      
-      <lastmod>2020-03-01T16:48:31+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>http://yangpeiya.xyz/tags/</loc>
       
       <lastmod>2020-03-01T16:48:31+08:00</lastmod>
       
@@ -95,6 +115,16 @@
       <loc>http://yangpeiya.xyz/vue-sync/</loc>
       
       <lastmod>2020-02-13T01:39:53+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://yangpeiya.xyz/vue-computed-watch/</loc>
+      
+      <lastmod>2020-02-11T13:02:37+08:00</lastmod>
       
       
       

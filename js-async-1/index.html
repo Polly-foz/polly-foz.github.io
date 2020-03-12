@@ -9,9 +9,9 @@
   <meta name="description" content="Polly-foz的个人网站">
   <meta name="keywords" content="Polly-foz,front-end">
   
-  <link rel="prev" href="http://yangpeiya.xyz/js-array-sort/" />
-  <link rel="next" href="http://yangpeiya.xyz/js-async-1/" />
-  <link rel="canonical" href="http://yangpeiya.xyz/js-event/" />
+  <link rel="prev" href="http://yangpeiya.xyz/js-event/" />
+  
+  <link rel="canonical" href="http://yangpeiya.xyz/js-async-1/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Js Event | Polly-foz&#39;s Blog
+           JavaScript异步（一） | Polly-foz&#39;s Blog
        
   </title>
-  <meta name="title" content="Js Event | Polly-foz&#39;s Blog">
+  <meta name="title" content="JavaScript异步（一） | Polly-foz&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "http:\/\/yangpeiya.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "Js Event",
-    "headline" : "Js Event",
-    "description" : "需求 点击div1内部（包括div2,div3），则div1变为selected状态（背景变为绿色）。\nhtml和css部分 \x26lt;div class=\x26quot;div1\x26quot;\x26gt; 1 \x26lt;div class=\x26quot;div2\x26quot;\x26gt; 2 \x26lt;div class=\x26quot;div3\x26quot;\x26gt; 3 \x26lt;\/div\x26gt; \x26lt;\/div\x26gt; \x26lt;\/div\x26gt; \x26lt;div class=\x26quot;div1\x26quot;\x26gt; 1 \x26lt;div class=\x26quot;div2\x26quot;\x26gt; 2 \x26lt;div class=\x26quot;div3\x26quot;\x26gt; 3 \x26lt;\/div\x26gt; \x26lt;\/div\x26gt; \x26lt;\/div\x26gt;  .div1{ border:1px solid black; width:150px; height:150px; } .div2{ border: 1px solid black; width:100px; height:100px; margin:0 auto; } .div3{ border: 1px solid black; width:50px; height:50px; margin:0 auto; } .selected{ background-color: green; }  错误的js代码 document.querySelectorAll(\x26quot;.div1\x26quot;).forEach(div1=\x26gt;{ div1.addEventListener(\x26quot;click\x26quot;,function(e){ const arr = e.target.className.split(\x27 \x27) const index = arr.",
+    "name" : "JavaScript异步（一）",
+    "headline" : "JavaScript异步（一）",
+    "description" : " 1. 什么是异步 假定有3个任务f1，f2和f3，f1是个很耗时的任务，f2需要f1的执行结果。\nf1() f2() f3()  如果f1,f2都执行完后，f3才能执行，那么f3需要等待很长时间才能执行。像这样一个任务执行完以后，才能执行下一个任务，就叫同步。\n如果f3不用等待f1,f2都执行完就可以执行，就叫异步。\nJavaScript传统上是单线程的，此线程称为主线程（main thread），JavaScript所有任务都只能在主线程运行。这意味着只有一个任务执行完以后，才能执行下一个任务。那么就会造成阻塞。\n这样调度f1，f2，f3意味着f3要等待很长时间。\nMain thread: f1 -\x26gt; f2 -\x26gt; f3  2. Web workers 为了实现异步机制，解决阻塞，JavaScript引入Web workers，将一些希望异步执行的耗时的任务，交给一个名为worker的单独的线程。\n这样调度f1，f2，f3，可以避免f3被阻塞。\nMain thread: f3 Worker thread: f1 -\x26gt; f2  Web workers还是有很多不足：\n 考虑一下，如果有一个f4，他需要f2和f3的执行结果，那么又应该怎么调度呢？ Web workers本身有很多限制，如worker线程无法读取主线程所在网页的 DOM 对象。  ",
     "inLanguage" : "zh-cn",
     "author" : "Polly-foz",
     "creator" : "Polly-foz",
@@ -54,11 +54,11 @@
     "accountablePerson" : "Polly-foz",
     "copyrightHolder" : "Polly-foz",
     "copyrightYear" : "2020",
-    "datePublished": "2020-03-01 16:48:31 \x2b0800 HKT",
-    "dateModified" : "2020-03-01 16:48:31 \x2b0800 HKT",
-    "url" : "http:\/\/yangpeiya.xyz\/js-event\/",
-    "wordCount" : "88",
-    "keywords" : [ "event", "Polly-foz\x27s Blog"]
+    "datePublished": "2020-03-12 17:14:46 \x2b0800 HKT",
+    "dateModified" : "2020-03-12 17:14:46 \x2b0800 HKT",
+    "url" : "http:\/\/yangpeiya.xyz\/js-async-1\/",
+    "wordCount" : "39",
+    "keywords" : [ "异步", "Polly-foz\x27s Blog"]
 }
 </script>
 
@@ -112,12 +112,12 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Js Event</h1>
+        <h1 class="post-title" itemprop="name headline">JavaScript异步（一）</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="http://yangpeiya.xyz/" rel="author">Polly-foz</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2020-03-01 itemprop="datePublished">March 1, 2020</time>
-                updateAt <time datetime=Mar&#32;1,&#32;2020 itemprop="datePublished">Mar 1, 2020</time>
+                on <time datetime=2020-03-12 itemprop="datePublished">March 12, 2020</time>
+                updateAt <time datetime=Mar&#32;12,&#32;2020 itemprop="datePublished">Mar 12, 2020</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
@@ -145,82 +145,42 @@
 
           
 
-<h2 id="需求">需求</h2>
+<h2 id="1-什么是异步">1. 什么是异步</h2>
 
-<p>点击div1内部（包括div2,div3），则div1变为selected状态（背景变为绿色）。</p>
+<p>假定有3个任务f1，f2和f3，f1是个很耗时的任务，f2需要f1的执行结果。</p>
 
-<h2 id="html和css部分">html和css部分</h2>
-
-<pre><code class="language-html">&lt;div class=&quot;div1&quot;&gt;
-  1
-   &lt;div class=&quot;div2&quot;&gt;
-    2
-        &lt;div class=&quot;div3&quot;&gt;
-            3
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;div1&quot;&gt;
-  1
-   &lt;div class=&quot;div2&quot;&gt;
-    2
-        &lt;div class=&quot;div3&quot;&gt;
-            3
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+<pre><code class="language-javascript">f1()
+f2()
+f3()
 </code></pre>
 
-<pre><code class="language-css">.div1{
-  border:1px solid black;
-  width:150px;
-  height:150px;
-}
+<p>如果f1,f2都执行完后，f3才能执行，那么f3需要等待很长时间才能执行。像这样一个任务执行完以后，才能执行下一个任务，就叫同步。</p>
 
-.div2{
-  border: 1px solid black;
-  width:100px;
-  height:100px;
-  margin:0 auto;
-}
+<p>如果f3不用等待f1,f2都执行完就可以执行，就叫异步。</p>
 
-.div3{
-  border: 1px solid black;
-  width:50px;
-  height:50px;
-  margin:0 auto;
-}
+<p>JavaScript传统上是单线程的，此线程称为主线程（main thread），JavaScript所有任务都只能在主线程运行。这意味着只有一个任务执行完以后，才能执行下一个任务。那么就会造成阻塞。</p>
 
-.selected{
-  background-color: green;
-}
+<p>这样调度f1，f2，f3意味着f3要等待很长时间。</p>
+
+<pre><code class="language-text">Main thread: f1 -&gt; f2 -&gt; f3
 </code></pre>
 
-<h2 id="错误的js代码">错误的js代码</h2>
+<h2 id="2-web-workers">2. Web workers</h2>
 
-<pre><code class="language-javascript">document.querySelectorAll(&quot;.div1&quot;).forEach(div1=&gt;{
-  div1.addEventListener(&quot;click&quot;,function(e){
-    const arr = e.target.className.split(' ')
-    const index = arr.indexOf('selected')
-    if(index &lt; 0){
-      arr.push('selected')
-    }else{
-      arr.splice(index,1)
-    }
-    e.target.className = arr.join(' ')
-  })
-})
+<p>为了实现异步机制，解决阻塞，JavaScript引入<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Workers_API" rel="nofollow noreferrer" target="_blank">Web workers</a>，将一些希望异步执行的耗时的任务，交给一个名为worker的单独的线程。</p>
+
+<p>这样调度f1，f2，f3，可以避免f3被阻塞。</p>
+
+<pre><code class="language-text">Main thread: f3
+Worker thread: f1 -&gt; f2
 </code></pre>
+
+<p>Web workers还是有很多不足：</p>
 
 <ul>
-<li>target获取到的是被点击的dom元素</li>
-<li>currentTarget获取到的是绑定监听器的dom元素</li>
+<li>考虑一下，如果有一个f4，他需要f2和f3的执行结果，那么又应该怎么调度呢？</li>
+<li>Web workers本身有很多限制，如worker线程无法读取主线程所在网页的 DOM 对象。</li>
 </ul>
-
-<p>那么直接在currentTarget上修改class不就行了吗？ 悲哀的是，不同于target，currentTarget是只读的。</p>
-
-<p>&hellip;.好吧，修改currentTarget的属性是可行的。。。</p>
 
     </div>
 
@@ -235,7 +195,7 @@
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=http://yangpeiya.xyz/js-event/>http://yangpeiya.xyz/js-event/</span>
+                    <a href=http://yangpeiya.xyz/js-async-1/>http://yangpeiya.xyz/js-async-1/</span>
             </p>
             
             
@@ -247,8 +207,8 @@
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="http://yangpeiya.xyz/tags/event/">
-                    #event</a></span>
+            <span class="tag"><a href="http://yangpeiya.xyz/tags/%E5%BC%82%E6%AD%A5/">
+                    #异步</a></span>
             
             </section>
         
@@ -260,10 +220,8 @@
 
     <div class="post-nav">
         
-        <a href="http://yangpeiya.xyz/js-array-sort/" class="prev" rel="prev" title="Js Array Sort 诡异"><i class="iconfont icon-left"></i>&nbsp;Js Array Sort 诡异</a>
+        <a href="http://yangpeiya.xyz/js-event/" class="prev" rel="prev" title="Js Event"><i class="iconfont icon-left"></i>&nbsp;Js Event</a>
          
-        
-        <a href="http://yangpeiya.xyz/js-async-1/" class="next" rel="next" title="JavaScript异步（一）">JavaScript异步（一）&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
