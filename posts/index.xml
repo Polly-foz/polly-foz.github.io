@@ -29,16 +29,6 @@ Main thread: f3 Worker thread: f1 -&amp;gt; f2  Web workers还是有很多不足
     </item>
     
     <item>
-      <title>Js Event</title>
-      <link>http://yangpeiya.xyz/js-event/</link>
-      <pubDate>Sun, 01 Mar 2020 16:48:31 +0800</pubDate>
-      
-      <guid>http://yangpeiya.xyz/js-event/</guid>
-      <description>需求 点击div1内部（包括div2,div3），则div1变为selected状态（背景变为绿色）。
-html和css部分 &amp;lt;div class=&amp;quot;div1&amp;quot;&amp;gt; 1 &amp;lt;div class=&amp;quot;div2&amp;quot;&amp;gt; 2 &amp;lt;div class=&amp;quot;div3&amp;quot;&amp;gt; 3 &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div class=&amp;quot;div1&amp;quot;&amp;gt; 1 &amp;lt;div class=&amp;quot;div2&amp;quot;&amp;gt; 2 &amp;lt;div class=&amp;quot;div3&amp;quot;&amp;gt; 3 &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt;  .div1{ border:1px solid black; width:150px; height:150px; } .div2{ border: 1px solid black; width:100px; height:100px; margin:0 auto; } .div3{ border: 1px solid black; width:50px; height:50px; margin:0 auto; } .selected{ background-color: green; }  错误的js代码 document.querySelectorAll(&amp;quot;.div1&amp;quot;).forEach(div1=&amp;gt;{ div1.addEventListener(&amp;quot;click&amp;quot;,function(e){ const arr = e.target.className.split(&#39; &#39;) const index = arr.</description>
-    </item>
-    
-    <item>
       <title>Js Array Sort 诡异</title>
       <link>http://yangpeiya.xyz/js-array-sort/</link>
       <pubDate>Sun, 16 Feb 2020 01:22:32 +0800</pubDate>
@@ -264,15 +254,6 @@ nslookup [-选项] &amp;lt;要查询的ip地址/名字&amp;gt; [域名服务器�
     </item>
     
     <item>
-      <title>Test</title>
-      <link>http://yangpeiya.xyz/test/</link>
-      <pubDate>Fri, 06 Dec 2019 20:58:25 +0800</pubDate>
-      
-      <guid>http://yangpeiya.xyz/test/</guid>
-      <description>this is a test file</description>
-    </item>
-    
-    <item>
       <title>CSS 知识总结</title>
       <link>http://yangpeiya.xyz/css-summary/</link>
       <pubDate>Sat, 30 Nov 2019 14:59:28 +0800</pubDate>
@@ -332,15 +313,6 @@ nslookup [-选项] &amp;lt;要查询的ip地址/名字&amp;gt; [域名服务器�
 cd themes git clone https://github.com/liuzc/LeaveIt.git  设置主题
 打开blog目录下的config.toml文件，根据官方示例配置你的config.toml
   4.</description>
-    </item>
-    
-    <item>
-      <title>First</title>
-      <link>http://yangpeiya.xyz/first/</link>
-      <pubDate>Fri, 01 Nov 2019 11:15:24 +0800</pubDate>
-      
-      <guid>http://yangpeiya.xyz/first/</guid>
-      <description>  fruit  fruit  apple banana kiwi peach  </description>
     </item>
     
   </channel>
